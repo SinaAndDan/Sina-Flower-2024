@@ -2,7 +2,7 @@ import React from "react";
 
 const PcHeader = () => {
   return (
-    <nav className="sm:py-4 container mx-auto flex justify-between">
+    <nav className="sm:py-4 container mx-auto flex justify-between invisible sm:visible">
       <div className="flex justify-between basis-1/2">
         <a href="" className="">
           Logo
