@@ -6,7 +6,7 @@ export default function Home() {
     <>
       {/* <PcHeader /> */}
 
-      <main>
+      <main className="bg-slate-100">
         <MobileMainPage />
       </main>
     </>

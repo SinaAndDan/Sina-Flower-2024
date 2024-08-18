@@ -31,3 +31,7 @@ body {
     text-wrap: balance;
   }
 } */
+body,
+main {
+  background-color: #f1f5f9;
+}

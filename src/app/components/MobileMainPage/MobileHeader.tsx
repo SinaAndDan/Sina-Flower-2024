@@ -8,7 +8,7 @@ const MobileHeader: React.FC = () => {
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
   return (
-    <nav className="bg-white">
+    <nav className="bg-slate-100">
       <div className="flex flex-wrap items-center justify-between p-4">
         <a
           href="https://flowbite.com/"
