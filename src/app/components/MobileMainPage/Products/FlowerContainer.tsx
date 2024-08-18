@@ -6,11 +6,17 @@ import flowerData from "../../../../data/flowerdata";
 
 const FlowerContainer: React.FC = () => {
   return (
-    <div className="flex  justify-center p-4">
-      {flowerData.map((flower, index) => (
-        <FlowerCard key={index} flower={flower} />
-      ))}
-    </div>
+    <>
+      <div className="flex justify-between p-8 pb-0">
+        <div>جدید</div>
+        <div>مشاهده همه </div>
+      </div>
+      <div className="flex  justify-center p-4 pt-0">
+        {flowerData.map((flower, index) => (
+          <FlowerCard key={index} flower={flower} />
+        ))}
+      </div>
+    </>
   );
 };
 
