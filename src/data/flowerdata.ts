@@ -2,15 +2,28 @@
 
 const flowerData = [
   {
-    name: "Rose",
-    price: "$10",
+    name: "رز",
+    price: "40$",
     image: "/rose.jpg", // Path relative to the public folder
   },
   {
-    name: "Tulip",
+    name: "یه گل ناب ",
     price: "$15",
     image: "/tulip.jpg", // Path relative to the public folder
   },
 ];
 
-export default flowerData;
+const flowerFavorite = [
+  {
+    name: "یه گل مشتی",
+    price: "40$",
+    image: "/rose.jpg", // Path relative to the public folder
+  },
+  {
+    name: "یه گل خیار ",
+    price: "$15",
+    image: "/tulip.jpg", // Path relative to the public folder
+  },
+];
+
+export { flowerFavorite, flowerData };
