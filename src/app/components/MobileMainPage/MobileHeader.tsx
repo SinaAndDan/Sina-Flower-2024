@@ -3,21 +3,19 @@
 import React, { useState } from "react";
 
 const MobileHeader: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMenu = () => setIsOpen((prev) => !prev);
 
   return (
-    <nav className="bg-white">
+    <nav className="bg-slate-100">
       <div className="flex flex-wrap items-center justify-between p-4">
         <a
           href="https://flowbite.com/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <span className="text-2xl font-semibold text-green-400">
-            Sina koskesh
+            Sina Flower
           </span>
         </a>
         <div className="flex">
