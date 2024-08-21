@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import Icons from "./Icons"; // Adjust the path as necessary
+import Icons from "./Icons";
 
 // Type Definitions
 type IconProps = {
