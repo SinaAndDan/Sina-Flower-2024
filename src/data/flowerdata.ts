@@ -11,6 +11,21 @@ const flowerData = [
     price: "$15",
     image: "/tulip.jpg", // Path relative to the public folder
   },
+  {
+    name: "رز",
+    price: "40$",
+    image: "/rose.jpg", // Path relative to the public folder
+  },
+  {
+    name: "رز",
+    price: "40$",
+    image: "/rose.jpg", // Path relative to the public folder
+  },
+  {
+    name: "رز",
+    price: "40$",
+    image: "/rose.jpg", // Path relative to the public folder
+  },
 ];
 
 const flowerFavorite = [
@@ -23,6 +38,21 @@ const flowerFavorite = [
     name: "یه گل خیار ",
     price: "$15",
     image: "/tulip.jpg", // Path relative to the public folder
+  },
+  {
+    name: "رز",
+    price: "40$",
+    image: "/rose.jpg", // Path relative to the public folder
+  },
+  {
+    name: "رز",
+    price: "40$",
+    image: "/rose.jpg", // Path relative to the public folder
+  },
+  {
+    name: "رز",
+    price: "40$",
+    image: "/rose.jpg", // Path relative to the public folder
   },
 ];
 
