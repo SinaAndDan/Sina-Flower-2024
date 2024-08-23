@@ -7,7 +7,7 @@ const MobileProductHero = () => {
   return (
     <div className="h-screen m-0">
       <div className="flex justify-between items-center mt-16 ml-4">
-        <Image src={BackIcon} alt="Back Icon" height={30} className="" />
+        <Image src={BackIcon} alt="Back Icon" height={50} className="" />
         <div className="mx-auto text-center">گل رز قرمز</div>
       </div>
 
