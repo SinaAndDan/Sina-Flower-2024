@@ -30,7 +30,7 @@ const MobileHeader: React.FC = () => {
             height={32}
           />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            گل سینا
+            mm گل سینا
           </span>
         </Link>
 
