@@ -1,36 +1,95 @@
 import { IoArrowForward } from "react-icons/io5";
+import { TiWeatherSunny } from "react-icons/ti";
+import { PiHeartbeatLight } from "react-icons/pi";
+import { WiCelsius } from "react-icons/wi";
+import { MdOutlineWaterDrop } from "react-icons/md";
+
 import Image from "next/image";
 import ficus from "../../../../public/ficus.png";
 
 const DetailNavbar = () => {
   return (
-    <div className="container mx-auto sm:px-0 px-2 h-screen">
-      <IoArrowForward className="w-10 h-10 sm:mt-0 mt-8 text-gray-700" />
-      <div className="flex justify-between mt-10 h-1/3">
-        <div className="h-full basis-1/2 p-4">
-          <h5 className="text-3xl font-bold">فیکوس لیراتا</h5>
-          <div className="pt-8 flex flex-col justify-around h-full">
-            <div className="">
-              <p>کتگوری</p>
-              <p className="text-green-500 font-semibold">داخلی</p>
-            </div>
-            <div className="">
-              <p>کتگوری</p>
-              <p className="text-green-500">داخلی</p>
-            </div>
-            <div className="">
-              <p>کتگوری</p>
-              <p className="text-green-500">داخلی</p>
+    <div className="container mx-auto sm:px-0 px-2">
+      <div className="bg-gray-200 rounded-b-3xl">
+        <div className="py-4">
+          <IoArrowForward className="w-10 h-10 sm:mt-0 text-gray-800" />
+        </div>
+        <div className="flex justify-between">
+          <div className="h-full p-4">
+            <h5 className="text-5xl font-bold">فیکوس لیراتا</h5>
+            <div className="flex flex-col justify-around h-64">
+              <div className="">
+                <p>کتگوری</p>
+                <p className="text-green-500 font-semibold">داخلی</p>
+              </div>
+              <div className="">
+                <p>نوع</p>
+                <p className="text-green-500 font-semibold">کوچک</p>
+              </div>
+              <div className="">
+                <p>گیاه</p>
+                <p className="text-green-500 font-semibold">فیکوس</p>
+              </div>
             </div>
           </div>
+          <Image
+            className="w-full object-cover"
+            width={200}
+            height={200}
+            src={ficus}
+            alt="هیجی"
+          />
         </div>
-        <Image
-          className="w-full object-cover basis-1/2 "
-          width={200}
-          height={200}
-          src={ficus}
-          alt="هیجی"
-        />
+      </div>
+      <p className="mt-8 px-4 text-lg font-semibold">
+        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+        از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
+      </p>
+      <div className="grid grid-cols-2 gap-4 px-4 my-8">
+        <div className="flex">
+          <div className="bg-gray-800 w-fit p-1 rounded-2xl">
+            <TiWeatherSunny className="w-12 h-12 sm:mt-0 text-white" />
+          </div>
+          <div className="flex flex-col px-3">
+            <p className="text-green-700 font-bold text-xl">۳۲٪</p>
+            <p className="text-gray-600 text-lg">نور</p>
+          </div>
+        </div>
+        <div className="flex">
+          <div className="bg-gray-800 w-fit p-1 rounded-2xl">
+            <PiHeartbeatLight className="w-12 h-12 sm:mt-0 text-white" />
+          </div>
+          <div className="flex flex-col px-3">
+            <p className="text-green-700 font-bold text-xl">۹۶٪</p>
+            <p className="text-gray-600 text-lg">سلامتی</p>
+          </div>
+        </div>
+        <div className="flex">
+          <div className="bg-gray-800 w-fit p-1 rounded-2xl flex items-center">
+            <WiCelsius className="w-12 h-12 sm:mt-0 text-white" />
+          </div>
+          <div className="flex flex-col px-3">
+            <p className="text-green-700 font-bold text-xl">۲۳ درجه</p>
+            <p className="text-gray-600 text-lg">دما</p>
+          </div>
+        </div>
+        <div className="flex">
+          <div className="bg-gray-800 w-fit p-1 rounded-2xl">
+            <MdOutlineWaterDrop className="w-12 h-12 sm:mt-0 text-white" />
+          </div>
+          <div className="flex flex-col px-3">
+            <p className="text-green-700 font-bold text-xl">۵۲٪</p>
+            <p className="text-gray-600 text-lg">آب دهی</p>
+          </div>
+        </div>
+      </div>
+      <div className="px-4 w-full fixed bottom-4">
+        <button
+          type="button"
+          className="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm py-4 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 w-full"
+        >
+          اضافه کردن به سبد خرید
+        </button>
       </div>
     </div>
   );
