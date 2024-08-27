@@ -38,3 +38,15 @@ main {
   padding: 0;
   box-sizing: border-box;
 }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+/* Global CSS file or Tailwind config */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
