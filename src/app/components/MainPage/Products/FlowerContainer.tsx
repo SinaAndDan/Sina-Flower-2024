@@ -1,28 +1,72 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import FlowerCard from "./FlowerCard";
 import { flowerData, flowerFavorite } from "../../../../data/flowerdata";
 
 const FlowerContainer: React.FC = () => {
-  // A reusable component to render each section with a title and flower cards
-  const renderFlowerSection = (title: string, flowers: typeof flowerData) => (
+  // Refs for swiper instances
+  const flowerDataRef = useRef<HTMLDivElement>(null);
+  const flowerFavoriteRef = useRef<HTMLDivElement>(null);
+
+  // Scroll functions
+  const scroll = (
+    ref: React.RefObject<HTMLDivElement>,
+    direction: "left" | "right"
+  ) => {
+    if (ref.current) {
+      ref.current.scrollBy({
+        left: direction === "left" ? -300 : 300,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // Render a flower section with dynamic scroll handlers
+  const renderFlowerSection = (
+    title: string,
+    flowers: typeof flowerData,
+    ref: React.RefObject<HTMLDivElement>
+  ) => (
     <>
       <div className="flex flex-row justify-between p-8 pb-0">
-        <div>{title}</div>
-        <div>مشاهده همه</div>
+        <h2>{title}</h2>
+        <button className="text-green-600">مشاهده همه</button>
       </div>
-      <div className="p-4 pt-0 flex flex-row justify-center space-x-4 overflow-x-auto">
-        {flowers.map((flower, index) => (
-          <FlowerCard key={index} flower={flower} />
-        ))}
+      <div className="relative overflow-hidden">
+        <button
+          className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full shadow-lg z-10"
+          onClick={() => scroll(ref, "left")}
+          aria-label={`Scroll ${title} left`}
+        >
+          ❯
+        </button>
+        <div
+          className="swiper-wrapper flex gap-4 overflow-x-auto scrollbar-hide"
+          ref={ref}
+        >
+          {flowers.map((flower, index) => (
+            <div className="flex-shrink-0 w-52" key={index}>
+              <FlowerCard flower={flower} />
+            </div>
+          ))}
+        </div>
+        <button
+          className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full shadow-lg z-10"
+          onClick={() => scroll(ref, "right")}
+          aria-label={`Scroll ${title} right`}
+        >
+          ❮
+        </button>
       </div>
     </>
   );
 
   return (
     <>
-      {renderFlowerSection("جدید", flowerData)}
+      {renderFlowerSection("جدید", flowerData, flowerDataRef)}
       <div className="overflow-y-auto max-h-[calc(100vh-4rem)] mb-16">
-        {renderFlowerSection("محبوب", flowerFavorite)}
+        {renderFlowerSection("محبوب", flowerFavorite, flowerFavoriteRef)}
       </div>
     </>
   );
