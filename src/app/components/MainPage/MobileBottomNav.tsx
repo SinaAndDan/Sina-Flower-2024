@@ -62,7 +62,7 @@ const buttons = [
 
 // MobileMainPage Component
 const MobileBottomNav: React.FC = () => (
-  <div className="fixed z-50 w-full h-16 max-w-lg -translate-x-1/2 translate-y-4 bg-white border border-gray-200 bottom-4 left-1/2">
+  <div className="fixed z-50 w-full h-16 max-w-lg -translate-x-1/2 translate-y-4 bg-white border border-gray-200 bottom-4 left-1/2 md:hidden">
     <div className="grid h-full max-w-lg grid-cols-5 mx-auto">
       {buttons.map(({ icon, label, tooltipId }) => (
         <React.Fragment key={label}>
