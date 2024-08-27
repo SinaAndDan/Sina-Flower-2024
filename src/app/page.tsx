@@ -1,13 +1,10 @@
-import PcHeader from "./components/pcHeader";
-import MobileMainPage from "./components/MobileMainPage/MobileMainPage";
+import MainPage from "./components/MainPage/MainPage";
 
 export default function Home() {
   return (
     <>
-      {/* <PcHeader /> */}
-
       <main className="bg-slate-100">
-        <MobileMainPage />
+        <MainPage />
       </main>
     </>
   );

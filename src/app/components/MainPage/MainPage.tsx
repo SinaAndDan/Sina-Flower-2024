@@ -1,18 +1,18 @@
 import React from "react";
 import MobileBottomNav from "./MobileBottomNav";
-import MobileHeader from "./MobileHeader";
-import MobileHero from "./MobileHero";
+import Header from "./Header";
+import Hero from "./Hero";
 import FlowerContainer from "./Products/FlowerContainer";
 
-const MobileMainPage = () => {
+const MainPage = () => {
   return (
     <>
-      <MobileHeader />
-      <MobileHero />
+      <Header />
+      <Hero />
       <MobileBottomNav />
       <FlowerContainer />
     </>
   );
 };
 
-export default MobileMainPage;
+export default MainPage;

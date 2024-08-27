@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import HeroBackgroundPicture from "../../../../public/background.png";
 
-const MobileHero = () => {
+const Hero = () => {
   return (
     <div className="flex justify-center items-center ">
       <div className="w-11/12 mt-10">
@@ -16,4 +16,4 @@ const MobileHero = () => {
   );
 };
 
-export default MobileHero;
+export default Hero;

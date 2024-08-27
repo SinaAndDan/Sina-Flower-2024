@@ -6,11 +6,11 @@ const FlowerContainer: React.FC = () => {
   // A reusable component to render each section with a title and flower cards
   const renderFlowerSection = (title: string, flowers: typeof flowerData) => (
     <>
-      <div className="flex justify-between p-8 pb-0">
+      <div className="flex flex-row justify-between p-8 pb-0">
         <div>{title}</div>
         <div>مشاهده همه</div>
       </div>
-      <div className="flex justify-center p-4 pt-0">
+      <div className="p-4 pt-0 flex flex-row justify-center space-x-4 overflow-x-auto">
         {flowers.map((flower, index) => (
           <FlowerCard key={index} flower={flower} />
         ))}
