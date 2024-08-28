@@ -147,7 +147,7 @@ const Header: React.FC = () => {
             />
           </div>
 
-          <ul className="flex flex-row flex-wrap p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+          <ul className="flex flex-row flex-wrap p-4 sm:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
             <li>
               <Link
                 href="#"
