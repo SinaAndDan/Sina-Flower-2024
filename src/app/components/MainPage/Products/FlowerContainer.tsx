@@ -42,7 +42,7 @@ const FlowerContainer: React.FC = () => {
           ❯
         </button>
         <div
-          className="swiper-wrapper flex gap-4 overflow-x-auto scrollbar-hide"
+          className="swiper-wrapper flex gap-4 overflow-x-auto scrollbar-hide justify-start"
           ref={ref}
         >
           {flowers.map((flower, index) => (
