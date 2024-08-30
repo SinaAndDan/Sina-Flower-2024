@@ -1,10 +1,7 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
-
 module.exports = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,jsx,ts,tsx}",
+    // add other paths if necessary
   ],
   theme: {
     extend: {
@@ -18,5 +15,22 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        ".perspective-2000": {
+          perspective: "2000px",
+        },
+        ".transform-preserve-3d": {
+          transformStyle: "preserve-3d",
+        },
+        ".transform-origin-0": {
+          transformOrigin: "0",
+        },
+        ".rotate-y-80": {
+          transform: "rotateY(-80deg)",
+        },
+      });
+    },
+  ],
 };
