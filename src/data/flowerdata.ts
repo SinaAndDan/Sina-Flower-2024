@@ -1,4 +1,5 @@
 // src/data/flowerData.ts
+import flower from "../../public/4k flower.jpg";
 
 const flowerData = [
   {
@@ -55,5 +56,21 @@ const flowerFavorite = [
     image: "/rose.jpg", // Path relative to the public folder
   },
 ];
+const cardData = [
+  {
+    id: 1,
+    title: "گل های صنعتی",
+    description: "بهترین گل های ضنعتی",
+    image: flower, // Replace with different image paths if needed
+    alt: "گل",
+  },
+  {
+    id: 2,
+    title: "گل های خانگی",
+    description: "بهرتین گل های خانگی",
+    image: flower, // Replace with different image paths if needed
+    alt: "Another acquisition",
+  },
+];
 
-export { flowerFavorite, flowerData };
+export { flowerFavorite, flowerData, cardData };
