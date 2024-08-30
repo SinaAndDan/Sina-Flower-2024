@@ -1,3 +1,4 @@
+// tailwind.config.js
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
@@ -5,13 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        parastoo: ["parastoo"],
-        abasan: ["abasan"],
-        aref: ["aref"],
-        arshia: ["arshia"],
-        yekan: ["yekan"],
-        tanha: ["tanha"],
+      // Extend the theme if needed
+      boxShadow: {
+        lg: "1px 1px 12px rgba(0, 0, 0, 1)",
       },
     },
   },
