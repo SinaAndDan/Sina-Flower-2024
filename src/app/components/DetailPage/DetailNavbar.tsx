@@ -3,14 +3,13 @@ import { TiWeatherSunny } from "react-icons/ti";
 import { PiHeartbeatLight } from "react-icons/pi";
 import { WiCelsius } from "react-icons/wi";
 import { MdOutlineWaterDrop } from "react-icons/md";
-import "../../../styles/fonts.css";
 
 import Image from "next/image";
 import ficus from "../../../../public/ficus.png";
 
 const DetailNavbar = () => {
   return (
-    <div className="font-yekan">
+    <>
       <div className="container mx-auto sm:px-0 px-2 w-full bg-gray-200 rounded-b-3xl">
         <div className="w-full">
           <div className="py-4">
@@ -18,8 +17,8 @@ const DetailNavbar = () => {
           </div>
           <div className="flex justify-between">
             <div className="h-full p-4">
-              <h5 className="text-5xl font-bold font-aref">فیکوس لیراتا</h5>
-              <div className="flex flex-col justify-around h-64 font-yekan">
+              <h5 className="text-5xl font-bold">فیکوس لیراتا</h5>
+              <div className="flex flex-col justify-around h-64">
                 <div className="">
                   <p>کتگوری</p>
                   <p className="text-green-500 font-semibold">داخلی</p>
@@ -45,7 +44,7 @@ const DetailNavbar = () => {
         </div>
       </div>
       <div className="container mx-auto sm:px-0 px-2">
-        <p className="mt-8 px-4 text-lg font-semibold font-yekan">
+        <p className="mt-8 px-4 text-lg font-semibold">
           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
           از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
         </p>
@@ -103,7 +102,7 @@ const DetailNavbar = () => {
             معرفی محصول
           </a>
         </div>
-        <p className="mt-5 px-2 mb-40 font-yekan">
+        <p className="mt-5 px-2">
           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
           از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
           سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای
@@ -113,7 +112,7 @@ const DetailNavbar = () => {
           خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
         </p>
       </div>
-    </div>
+    </>
   );
 };
 
