@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -5,7 +7,16 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        parastoo: ["parastoo"],
+        abasan: ["abasan"],
+        aref: ["aref"],
+        arshia: ["arshia"],
+        yekan: ["yekan"],
+        tanha: ["tanha"],
+      },
+    },
   },
   plugins: [],
 };
