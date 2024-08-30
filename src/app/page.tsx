@@ -1,10 +1,13 @@
-import MainPage from "./components/MainPage/MainPage";
+import MobileMainPage from "./components/MobileMainPage/MobileMainPage";
+import "../styles/fonts.css";
 
 export default function Home() {
   return (
     <>
-      <main className="bg-slate-100">
-        <MainPage />
+      {/* <PcHeader /> */}
+
+      <main className="bg-slate-100 font-yekan">
+        <MobileMainPage />
       </main>
     </>
   );

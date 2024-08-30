@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "parastoo";
+  src: url("../../public/fonts/Parastoo-Bold.woff2") format("woff2"),
+    url("../../public/fonts/Parastoo-Bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "abasan";
+  src: url("../../public/fonts/pixelboy-Abasan.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "aref";
+  src: url("../../public/fonts/pixelboy-Aref.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "arshia";
+  src: url("../../public/fonts/pixelboy-Arshia.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "yekan";
+  src: url("../../public/fonts/yekan-regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "tanha";
+  src: url("../../public/fonts/Tanha.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
