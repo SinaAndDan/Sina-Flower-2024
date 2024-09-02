@@ -1,10 +1,10 @@
-import MainPage from "./components/MainPage/MainPage"
+import MainPage from "./components/MainPage/MainPage";
 
 export default function Home() {
   return (
     <>
       <MainPage />
-      </main>
+      <main />
     </>
   );
 }
