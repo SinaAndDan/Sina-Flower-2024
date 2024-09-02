@@ -16,7 +16,7 @@ const FlowerCard: React.FC<FlowerCardProps> = ({ flower }) => {
         src={greenFlower}
         alt={flower.name}
       />
-      <h3 className="text-xl font-semibold p-2">{flower.name}</h3>
+      <h3 className="text-xl font-semibold p-2 font-abasan">{flower.name}</h3>
       <p className="text-gray-600 pb-4">{flower.price}</p>
     </div>
   );
