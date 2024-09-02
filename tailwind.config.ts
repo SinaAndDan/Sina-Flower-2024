@@ -10,6 +10,10 @@ module.exports = {
       boxShadow: {
         lg: "1px 1px 12px rgba(0, 0, 0, 1)",
       },
+      fontFamily: {
+        yekan: ["yekan"],
+        abasan: ["abasan"],
+      },
     },
   },
   plugins: [

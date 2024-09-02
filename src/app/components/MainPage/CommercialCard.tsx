@@ -20,7 +20,7 @@ const CommercialCard: React.FC = () => {
               objectFit="cover"
             />
           </div>
-          <h5 className="mt-4 mb-2 text-xl font-bold tracking-tight text-gray-900">
+          <h5 className="mt-4 mb-2 text-xl font-bold tracking-tight text-gray-900 font-abasan">
             {card.title}
           </h5>
           <p className="font-normal text-gray-700">{card.description}</p>
