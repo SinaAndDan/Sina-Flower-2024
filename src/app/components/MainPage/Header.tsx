@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import Cart from "../Cart/Cart";
 import { useState } from "react";
 import flowerLogo from "../../../../public/pinkFlower.jpg";
 import { VscListUnordered } from "react-icons/vsc";
@@ -174,12 +175,7 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link
-                href="#"
-                className="flex items-center py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
-              >
-                <TbShoppingCart className="ml-2" /> سبد خرید
-              </Link>
+              <Cart />
             </li>
           </ul>
         </div>
