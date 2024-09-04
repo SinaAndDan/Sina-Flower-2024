@@ -16,6 +16,7 @@ import { BiSolidLike } from "react-icons/bi";
 
 const DetailNavbar = () => {
   const [about, setAbout] = useState(false);
+  const [liked, setIsLiked] = useState(false);
 
   const switchToCmsHandler = () => {
     if (about) {
@@ -28,6 +29,10 @@ const DetailNavbar = () => {
       setAbout(true);
     }
     return;
+  };
+
+  const giveLikeHandler = () => {
+    setIsLiked((liked) => !liked);
   };
   return (
     <div className="font-yekan w-full">
@@ -129,7 +134,7 @@ const DetailNavbar = () => {
         </div>
         <div className="flex justify-center items-center">
           <a
-            className={`pl-3 border-l-2 border-zinc-700 border-opacity-40 text-xl cursor-pointer ${
+            className={`pl-3 border-l-2 border-zinc-700 border-opacity-40 text-xl cursor-pointer transition ease-in delay-75 ${
               !about && "text-lime-700"
             }`}
             onClick={switchToCmsHandler}
@@ -137,7 +142,7 @@ const DetailNavbar = () => {
             نظرات
           </a>
           <a
-            className={`pr-3 ${
+            className={`pr-3 transition ease-in delay-75 ${
               about && "text-lime-700"
             } text-xl cursor-pointer`}
             onClick={switchToaboutHandler}
@@ -195,13 +200,20 @@ const DetailNavbar = () => {
               شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت
               بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ
               پیشرو در زبان فارسی ایجاد کرد.
-              <div className="absolute -bottom-10 left-0 mx-14 flex items-center">
-                <p className="mx-3 text-green-600">پاسخ</p>
-                <button className="w-16 h-10 bg-slate-300 rounded-3xl flex items-center justify-center">
-                  <BiSolidLike className="mx-1" />
-                  <p className="">۲</p>
+              <span className="absolute -bottom-10 left-0 mx-14 flex items-center">
+                <button className="mx-3 text-green-600">پاسخ</button>
+                <button
+                  className={`w-16 h-10 bg-slate-300 rounded-3xl flex items-center justify-center ${
+                    liked && "bg-blue-800"
+                  }`}
+                  onClick={giveLikeHandler}
+                >
+                  <BiSolidLike className={`${liked && "text-white"} mx-1 `} />
+                  <p className={`${liked && "text-white"}`}>
+                    {liked ? "۳" : "۲"}
+                  </p>
                 </button>
-              </div>
+              </span>
             </p>
           </div>
         )}
