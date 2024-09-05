@@ -1,8 +1,8 @@
 import React from "react";
-import DetailNavbar from "../components/DetailPage/DetailNavbar";
+import Detail from "../components/DetailPage/Detail";
 
 const page = () => {
-  return <DetailNavbar />;
+  return <Detail />;
 };
 
 export default page;
