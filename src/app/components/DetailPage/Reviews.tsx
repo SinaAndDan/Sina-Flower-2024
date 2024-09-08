@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BiSolidLike } from "react-icons/bi";
 import { BsThreeDots } from "react-icons/bs";
 
@@ -9,16 +9,34 @@ interface ReviewTypes {
 }
 
 const Reviews: React.FC<ReviewTypes> = ({ about, liked, onLikeClick }) => {
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const [value, setValue] = useState<string>("");
+
+  const handleInput = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setValue(event.target.value);
+  };
+
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto"; // Reset height to auto
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`; // Set height to scrollHeight
+    }
+  }, [value]);
+
   return (
     <>
       {!about && (
         <div className="pb-32">
           <div className=" pt-5 flex border-b-2 border-slate-700 border-opacity-20 pb-8">
             <div className="h-12 w-12 bg-red-300 rounded-full"></div>
-            <input
-              type="text"
+            <textarea
+              ref={textareaRef}
+              value={value}
+              rows={1}
+              id="autoGrowInput"
+              onChange={handleInput}
               placeholder="نظر شما"
-              className=" bg-slate-200 w-full h-12 outline-none px-3 mr-6"
+              className=" bg-slate-200 w-full h-12 text-lg outline-none px-3 pt-2 mr-6"
             />
           </div>
           <div className="pt-5 flex">

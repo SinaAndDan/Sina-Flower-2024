@@ -3,29 +3,34 @@ import flower from "../../public/4k flower.jpg";
 
 const flowerData = [
   {
-    name: "رز",
+    name: "شفلرا",
     price: "40$",
-    image: "/rose.jpg", // Path relative to the public folder
+    image: "/schefflera.jpg", // Path relative to the public folder
   },
   {
-    name: "یه گل ناب ",
+    name: "داوودی",
     price: "$15",
-    image: "/tulip.jpg", // Path relative to the public folder
+    image: "/Chrysanthemum.jpg", // Path relative to the public folder
   },
   {
-    name: "رز",
+    name: "عروس",
     price: "40$",
-    image: "/rose.jpg", // Path relative to the public folder
+    image: "/gypsophila.jpg", // Path relative to the public folder
   },
   {
-    name: "رز",
+    name: "لیسیانتوس",
     price: "40$",
-    image: "/rose.jpg", // Path relative to the public folder
+    image: "/Prairie-gentian.jpg", // Path relative to the public folder
   },
   {
-    name: "رز",
+    name: "شمشاد طلایی",
     price: "40$",
-    image: "/rose.jpg", // Path relative to the public folder
+    image: "/Variegated-euonymus.png", // Path relative to the public folder
+  },
+  {
+    name: "توت فرنگی",
+    price: "40$",
+    image: "/strawberry-plant.jpg", // Path relative to the public folder
   },
 ];
 
