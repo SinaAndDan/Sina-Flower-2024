@@ -63,3 +63,8 @@ main {
 .image-shadow {
   filter: drop-shadow(0px 14px 5px gray);
 }
+
+textarea {
+  overflow: hidden;
+  resize: none; /* Prevent manual resizing */
+}
