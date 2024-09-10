@@ -17,7 +17,11 @@ module.exports = {
     },
   },
   plugins: [
-    function ({ addUtilities }) {
+    function ({
+      addUtilities,
+    }: {
+      addUtilities: (utilities: Record<string, Record<string, string>>) => void;
+    }) {
       addUtilities({
         ".perspective-2000": {
           perspective: "2000px",
