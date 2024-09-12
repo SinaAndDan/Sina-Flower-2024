@@ -36,7 +36,7 @@ const Reviews: React.FC<ReviewTypes> = ({
   return (
     <>
       {!about && (
-        <div className="pb-16">
+        <div className="sm:pb-16 mb-48">
           <div className=" pt-5 flex border-b-2 border-slate-700 border-opacity-20 pb-8">
             <div className="h-12 w-12 bg-red-300 rounded-full"></div>
             <textarea
@@ -66,7 +66,7 @@ const Reviews: React.FC<ReviewTypes> = ({
             شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت
             بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ
             پیشرو در زبان فارسی ایجاد کرد.
-            <span className="absolute -bottom-10 left-0 mx-14 flex items-center">
+            <span className="absolute sm:-bottom-10 -bottom-16 left-0 mx-14 flex items-center">
               <button className="mx-3 text-green-600" onClick={onReply}>
                 پاسخ
               </button>
