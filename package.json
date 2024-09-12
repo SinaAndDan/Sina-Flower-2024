@@ -2,6 +2,8 @@
   "name": "cflower",
   "version": "0.1.0",
   "private": true,
+  "lockfileVersion": 3,
+  "requires": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,6 +11,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+
+    "@headlessui/react": "^2.1.3",
+    "clsx": "^2.1.1",
+
     "@faker-js/faker": "^9.0.0",
     "@supabase/supabase-js": "^2.45.4",
     "next": "14.2.5",

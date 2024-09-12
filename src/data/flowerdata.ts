@@ -3,31 +3,37 @@ import flower from "../../public/4k flower.jpg";
 
 const flowerData = [
   {
+    id: 1,
     name: "شفلرا",
     price: "40$",
     image: "/schefflera.jpg", // Path relative to the public folder
   },
   {
+    id: 2,
     name: "داوودی",
     price: "$15",
     image: "/Chrysanthemum.jpg", // Path relative to the public folder
   },
   {
+    id: 3,
     name: "عروس",
     price: "40$",
-    image: "/gypsophila.jpg", // Path relative to the public folder
+    image: "/whiteFlower.jpg", // Path relative to the public folder
   },
   {
+    id: 4,
     name: "لیسیانتوس",
     price: "40$",
     image: "/Prairie-gentian.jpg", // Path relative to the public folder
   },
   {
+    id: 5,
     name: "شمشاد طلایی",
     price: "40$",
     image: "/Variegated-euonymus.png", // Path relative to the public folder
   },
   {
+    id: 6,
     name: "توت فرنگی",
     price: "40$",
     image: "/strawberry-plant.jpg", // Path relative to the public folder
@@ -36,37 +42,43 @@ const flowerData = [
 
 const flowerFavorite = [
   {
+    id: 1,
     name: "یه گل مشتی",
     price: "40$",
-    image: "/rose.jpg", // Path relative to the public folder
+    image: "/Variegated-euonymus.png", // Path relative to the public folder
   },
   {
-    name: "یه گل خیار ",
+    id: 2,
+    name: "یه گل خیار",
     price: "$15",
-    image: "/tulip.jpg", // Path relative to the public folder
+    image: "/PurpuleFlower.jpg", // Path relative to the public folder
   },
   {
+    id: 3,
     name: "رز",
     price: "40$",
-    image: "/rose.jpg", // Path relative to the public folder
+    image: "/pinkFlower.jpg", // Path relative to the public folder
   },
   {
+    id: 4,
     name: "رز",
     price: "40$",
-    image: "/rose.jpg", // Path relative to the public folder
+    image: "/ficus.png", // Path relative to the public folder
   },
   {
+    id: 5,
     name: "رز",
     price: "40$",
-    image: "/rose.jpg", // Path relative to the public folder
+    image: "/green flowe.png", // Path relative to the public folder
   },
 ];
+
 const cardData = [
   {
     id: 1,
     title: "گل های صنعتی",
     description: "بهترین گل های ضنعتی",
-    image: flower, // Replace with different image paths if needed
+    image: "/background.png", // Replace with different image paths if needed
     alt: "گل",
   },
   {

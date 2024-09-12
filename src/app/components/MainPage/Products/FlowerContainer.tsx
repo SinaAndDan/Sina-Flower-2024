@@ -45,8 +45,8 @@ const FlowerContainer: React.FC = () => {
           className="swiper-wrapper flex gap-4 overflow-x-auto scrollbar-hide justify-start"
           ref={ref}
         >
-          {flowers.map((flower, index) => (
-            <div className="flex-shrink-0 w-52" key={index}>
+          {flowers.map((flower, id) => (
+            <div className="flex-shrink-0 w-52 m-2" key={id}>
               <FlowerCard flower={flower} />
             </div>
           ))}
