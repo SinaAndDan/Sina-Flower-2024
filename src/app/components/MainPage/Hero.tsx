@@ -75,7 +75,6 @@ const Hero: React.FC = () => {
             }`}
             aria-current={index === currentSlide}
             aria-label={`Slide ${index + 1}`}
-            ref={(el) => (indicatorsRef.current[index] = el)}
             onClick={() => goToSlide(index)}
           ></button>
         ))}
