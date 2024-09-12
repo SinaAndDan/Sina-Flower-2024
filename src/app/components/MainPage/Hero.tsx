@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import Image from "next/image";
+import sample from "../../../../public/Chrysanthemum.jpg";
 
 const Hero: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -9,11 +10,10 @@ const Hero: React.FC = () => {
   const indicatorsRef = useRef<Array<HTMLButtonElement | null>>([]);
 
   const slides = [
-    "/docs/images/carousel/carousel-1.svg",
-    "/docs/images/carousel/carousel-2.svg",
-    "/docs/images/carousel/carousel-3.svg",
-    "/docs/images/carousel/carousel-4.svg",
-    "/docs/images/carousel/carousel-5.svg",
+    "/pexels-soldiervip-1308881.jpg",
+    "/carousel6.webp",
+    "/Carousel7.jpg",
+    "/carousl8.jpg",
   ];
 
   const totalSlides = slides.length;
