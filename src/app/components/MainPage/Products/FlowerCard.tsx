@@ -1,5 +1,6 @@
 import Image from "next/image";
-import greenFlower from "../../../../../public/green flowe.png";
+import Link from "next/link";
+
 interface FlowerCardProps {
   flower: {
     name: string;
@@ -12,17 +13,20 @@ interface FlowerCardProps {
 
 const FlowerCard: React.FC<FlowerCardProps> = ({ flower }) => {
   return (
-    <div className="bg-white rounded-2xl shadow-md m-3 w-48 text-right overflow-hidden ">
+    <Link
+      href="/detail-page"
+      className="bg-white rounded-2xl shadow-md m-3 w-48 text-right overflow-hidden block"
+    >
       <Image
         className="w-full h-40 object-cover p-1"
         src={flower.image}
         alt={flower.name}
         width="300"
-        height="200"
+        height="300"
       />
       <h3 className="text-xl font-semibold p-2 font-abasan">{flower.name}</h3>
       <p className="text-gray-600 pb-4">{flower.price}</p>
-    </div>
+    </Link>
   );
 };
 
