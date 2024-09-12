@@ -2,7 +2,6 @@
 
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import Image from "next/image";
-import sample from "../../../../public/Chrysanthemum.jpg";
 
 const Hero: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
