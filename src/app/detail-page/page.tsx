@@ -1,8 +1,16 @@
-import React from "react";
-import Detail from "../components/DetailPage/Detail";
+import { Suspense, lazy } from "react";
+import SkeletonLoader from "../components/Layout/SkeletonLoader"; // Adjust the path
 
-const page = () => {
-  return <Detail />;
+const ProductDetail = lazy(() => import("../components/DetailPage/Detail")); // Dynamically import the component
+
+const DetailPage: React.FC = () => {
+  return (
+    <Suspense fallback={<SkeletonLoader />}>
+      <ProductDetail />
+    </Suspense>
+  );
 };
 
-export default page;
+export default DetailPage;
+//../components/Layout/SkeletonLoader
+//../components/DetailPage/Detail
