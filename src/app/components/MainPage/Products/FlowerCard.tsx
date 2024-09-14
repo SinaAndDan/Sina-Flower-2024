@@ -6,7 +6,7 @@ interface FlowerCardProps {
     id: number;
     name: string;
     price: string;
-    image: string;
+    picture: string;
     width: number;
     height: number;
   };
@@ -20,7 +20,7 @@ const FlowerCard: React.FC<FlowerCardProps> = ({ flower }) => {
     >
       <Image
         className="w-full h-40 object-cover p-1"
-        src={flower.image}
+        src={flower.picture}
         alt={flower.name}
         width="300"
         height="300"
