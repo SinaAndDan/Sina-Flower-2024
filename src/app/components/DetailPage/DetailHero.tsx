@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { IoArrowForward } from "react-icons/io5";
 import ficus from "../../../../public/ficus.png";
+import { flowerData } from "../../../data/flowerdata";
 
-const DetailHero: React.FC = () => {
+const DetailHero: React.FC<{ productId: number }> = ({ productId }) => {
+  const [selectedProduct, setSelectedProduct] = useState<{
+    id: number;
+    name: string;
+    price: string;
+    image: string;
+  } | null>(null);
+
+  useEffect(() => {
+    // Search for product
+    const product = flowerData.find((item) => item.id === productId);
+    setSelectedProduct(product || null);
+  }, [productId]);
+
+  console.log(selectedProduct);
+
   return (
     <div className="container mx-auto sm:px-0 px-2 w-full bg-gray-200 relative notched-corner">
       <div className="w-full content-notch">
@@ -13,7 +29,7 @@ const DetailHero: React.FC = () => {
         <div className="h-full px-4 pb-6 mt-3 flex justify-between">
           <div className="flex flex-col justify-around">
             <h5 className="font-bold font-abasan text-2xl sm:text-4xl md:text-5xl xl:text-7xl">
-              فیکوس لیراتا
+              {selectedProduct?.name}
             </h5>
             <div className="">
               <p className="opacity-65 text-xs sm:text-base md:text-lg xl:text-xl">
@@ -42,10 +58,11 @@ const DetailHero: React.FC = () => {
           </div>
           <Image
             width={500}
-            height={200}
-            src={ficus}
+            height={300}
+            src={selectedProduct?.image || "/ficus.png"}
             alt="هیجی"
             className="md:w-full lg:w-1/2 saturate-150 shadow-gray-100 image-shadow"
+            layout="'intrinsic"
           />
         </div>
       </div>
