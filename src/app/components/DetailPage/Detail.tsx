@@ -8,7 +8,7 @@ import Reviews from "./Reviews";
 import About from "./About";
 import Maintaining from "./Maintaining";
 
-const DetailNavbar: React.FC = () => {
+const DetailNavbar: React.FC<{ product: number }> = ({ product }) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const [value, setValue] = useState<string>("");
   const [about, setAbout] = useState<boolean | null>(false);
@@ -56,7 +56,7 @@ const DetailNavbar: React.FC = () => {
 
   return (
     <div className="font-yekan w-full">
-      <DetailHero />
+      <DetailHero productId={product} />
       <div className="container mx-auto sm:px-0 px-2">
         <h6 className="mt-8 px-4 font-semibold sm:text-xl">
           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده

@@ -15,7 +15,7 @@ interface FlowerCardProps {
 const FlowerCard: React.FC<FlowerCardProps> = ({ flower }) => {
   return (
     <Link
-      href={`/detail`}
+      href={`/products/${flower.id}`}
       className="bg-white rounded-2xl shadow-md m-3 w-48 text-right overflow-hidden block"
     >
       <Image
