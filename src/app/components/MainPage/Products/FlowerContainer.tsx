@@ -1,13 +1,35 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import FlowerCard from "./FlowerCard";
 import { flowerData, flowerFavorite } from "../../../../data/flowerdata";
+import { supabase } from "../../../../../lib/supabaseClient";
+
+interface Plant {
+  id: string;
+  name: string;
+  price: number;
+  picture: string;
+}
 
 const FlowerContainer: React.FC = () => {
   // Refs for swiper instances
   const flowerDataRef = useRef<HTMLDivElement>(null);
   const flowerFavoriteRef = useRef<HTMLDivElement>(null);
+  const [plants, setPlants] = useState<Plant[]>([]);
+
+  useEffect(() => {
+    const fetchPlants = async () => {
+      const { data, error } = await supabase.from("plants").select("*");
+
+      if (error) {
+        console.error("Error fetching plants:", error);
+      } else {
+        setPlants(data as Plant[]);
+      }
+    };
+    fetchPlants();
+  }, []);
 
   // Scroll functions
   const scroll = (
@@ -45,7 +67,7 @@ const FlowerContainer: React.FC = () => {
           className="swiper-wrapper flex gap-4 overflow-x-auto scrollbar-hide justify-start"
           ref={ref}
         >
-          {flowers.map((flower, id) => (
+          {plants.map((flower, id) => (
             <div className="flex-shrink-0 w-52 m-2" key={id}>
               <FlowerCard flower={flower} />
             </div>
