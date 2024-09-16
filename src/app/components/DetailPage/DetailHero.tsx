@@ -4,22 +4,16 @@ import { IoArrowForward } from "react-icons/io5";
 import ficus from "../../../../public/ficus.png";
 import { flowerData } from "../../../data/flowerdata";
 
-const DetailHero: React.FC<{ productId: number }> = ({ productId }) => {
-  const [selectedProduct, setSelectedProduct] = useState<{
-    id: number;
-    name: string;
-    price: string;
-    image: string;
-  } | null>(null);
+interface Plant {
+  id: string;
+  name: string;
+  price: number;
+  picture: string;
+}
 
-  useEffect(() => {
-    // Search for product
-    const product = flowerData.find((item) => item.id === productId);
-    setSelectedProduct(product || null);
-  }, [productId]);
-
-  console.log(selectedProduct);
-
+const DetailHero: React.FC<{ selectedProduct: Plant }> = ({
+  selectedProduct,
+}) => {
   return (
     <div className="container mx-auto sm:px-0 px-2 w-full bg-gray-200 relative notched-corner">
       <div className="w-full content-notch">
@@ -59,7 +53,7 @@ const DetailHero: React.FC<{ productId: number }> = ({ productId }) => {
           <Image
             width={500}
             height={300}
-            src={selectedProduct?.image || "/ficus.png"}
+            src={selectedProduct?.picture || "/ficus.png"}
             alt="هیجی"
             className="md:w-full lg:w-1/2 saturate-150 shadow-gray-100 image-shadow"
             layout="'intrinsic"
