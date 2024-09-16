@@ -7,16 +7,51 @@ import AddToCartButton from "./AddToCartButton";
 import Reviews from "./Reviews";
 import About from "./About";
 import Maintaining from "./Maintaining";
+import { supabase } from "../../../../lib/supabaseClient";
 
-const DetailNavbar: React.FC<{ product: number }> = ({ product }) => {
+interface Plant {
+  id: string;
+  name: string;
+  price: number;
+  picture: string;
+}
+
+const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const [value, setValue] = useState<string>("");
   const [about, setAbout] = useState<boolean | null>(false);
   const [liked, setIsLiked] = useState<boolean | null>(false);
   const [disliked, setIsDisLiked] = useState<boolean | null>(false);
   const [isReply, setIsReply] = useState<boolean | null>(false);
+  const [selectedProduct, setSelectedProduct] = useState<{
+    id: number;
+    name: string;
+    price: string;
+    image: string;
+  } | null>(null);
+  const [plants, setPlants] = useState<Plant[]>([]);
 
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const fetchPlants = async () => {
+      const { data, error } = await supabase.from("plants").select("*");
+
+      if (error) {
+        console.error("Error fetching plants:", error);
+      } else {
+        setPlants(data as Plant[]);
+      }
+    };
+    fetchPlants();
+  }, []);
+
+  useEffect(() => {
+    const product = plants.find((item) => item.id === productId);
+    setSelectedProduct(product); // Only runs when `plants` or `productId` changes
+  }, [plants, productId]); // Add dependencies
+
+  console.log(selectedProduct);
 
   const switchToCmsHandler = () => {
     if (about) {
@@ -56,7 +91,7 @@ const DetailNavbar: React.FC<{ product: number }> = ({ product }) => {
 
   return (
     <div className="font-yekan w-full">
-      <DetailHero productId={product} />
+      <DetailHero selectedProduct={selectedProduct} />
       <div className="container mx-auto sm:px-0 px-2">
         <h6 className="mt-8 px-4 font-semibold sm:text-xl">
           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
