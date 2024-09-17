@@ -14,6 +14,9 @@ interface Plant {
   name: string;
   price: number;
   picture: string;
+  category: string;
+  type: string;
+  plant: string;
 }
 
 const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
@@ -23,12 +26,7 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
   const [liked, setIsLiked] = useState<boolean | null>(false);
   const [disliked, setIsDisLiked] = useState<boolean | null>(false);
   const [isReply, setIsReply] = useState<boolean | null>(false);
-  const [selectedProduct, setSelectedProduct] = useState<{
-    id: number;
-    name: string;
-    price: string;
-    image: string;
-  } | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<Plant | null>(null);
   const [plants, setPlants] = useState<Plant[]>([]);
 
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -48,10 +46,14 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
 
   useEffect(() => {
     const product = plants.find((item) => item.id === productId);
-    setSelectedProduct(product); // Only runs when `plants` or `productId` changes
-  }, [plants, productId]); // Add dependencies
 
-  console.log(selectedProduct);
+    if (product) {
+      setSelectedProduct(product); // Only set if product is found
+    } else {
+      console.error("Product not found");
+      setSelectedProduct(null); // Set to null or handle as needed
+    }
+  }, [plants, productId]);
 
   const switchToCmsHandler = () => {
     if (about) {
