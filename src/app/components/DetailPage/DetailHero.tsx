@@ -9,6 +9,9 @@ interface Plant {
   name: string;
   price: number;
   picture: string;
+  category: string;
+  type: string;
+  plant: string;
 }
 
 const DetailHero: React.FC<{ selectedProduct: Plant }> = ({
@@ -30,7 +33,7 @@ const DetailHero: React.FC<{ selectedProduct: Plant }> = ({
                 کتگوری
               </p>
               <p className="text-green-500 font-semibold text-base sm:text-lg md:text-2xl xl:text-3xl">
-                داخلی
+                {selectedProduct?.category}
               </p>
             </div>
             <div className="">
@@ -38,7 +41,7 @@ const DetailHero: React.FC<{ selectedProduct: Plant }> = ({
                 نوع
               </p>
               <p className="text-green-500 font-semibold text-base sm:text-lg md:text-2xl xl:text-3xl">
-                کوچک
+                {selectedProduct?.type}
               </p>
             </div>
             <div className="">
@@ -46,7 +49,7 @@ const DetailHero: React.FC<{ selectedProduct: Plant }> = ({
                 گیاه
               </p>
               <p className="text-green-500 font-semibold text-base sm:text-lg md:text-2xl xl:text-3xl">
-                فیکوس
+                {selectedProduct?.plant}
               </p>
             </div>
           </div>

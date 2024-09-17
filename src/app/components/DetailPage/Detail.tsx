@@ -137,7 +137,9 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
               id="autoGrowInput"
               onChange={handleInput}
               placeholder="پاسخ شما"
+< detailpage
               className=" bg-slate-200 w-full h-12 text-lg outline-none px-3 pt-2 mb-24"
+
             />
           </div>
         )}
