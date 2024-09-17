@@ -9,6 +9,7 @@ interface ReviewTypes {
   onLikeClick: () => void;
   onDisLikeClick: () => void;
   onReply: () => void;
+  isReply: boolean | null;
 }
 
 const Reviews: React.FC<ReviewTypes> = ({
@@ -18,6 +19,7 @@ const Reviews: React.FC<ReviewTypes> = ({
   onLikeClick,
   onDisLikeClick,
   onReply,
+  isReply,
 }) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const [value, setValue] = useState<string>("");
@@ -36,7 +38,7 @@ const Reviews: React.FC<ReviewTypes> = ({
   return (
     <>
       {!about && (
-        <div className="sm:pb-16 mb-48">
+        <div className={`${!isReply ? "mb-32" : "mb-20"}`}>
           <div className=" pt-5 flex border-b-2 border-slate-700 border-opacity-20 pb-8">
             <div className="h-12 w-12 bg-red-300 rounded-full"></div>
             <textarea

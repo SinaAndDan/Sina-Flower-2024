@@ -125,6 +125,7 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
           onLikeClick={giveLikeHandler}
           onDisLikeClick={giveDisLikeHandler}
           onReply={replyHandler}
+          isReply={isReply}
         />
 
         {isReply && (
@@ -136,7 +137,7 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
               id="autoGrowInput"
               onChange={handleInput}
               placeholder="پاسخ شما"
-              className=" bg-slate-200 w-full h-12 text-lg outline-none px-3 pt-2 mb-32"
+              className=" bg-slate-200 w-full h-12 text-lg outline-none px-3 pt-2 mb-24"
             />
           </div>
         )}
