@@ -3,9 +3,9 @@ import Link from "next/link";
 
 interface FlowerCardProps {
   flower: {
-    id: number;
+    id: string;
     name: string;
-    price: string;
+    price: number;
     picture: string;
     width: number;
     height: number;
