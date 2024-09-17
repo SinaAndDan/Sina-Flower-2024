@@ -10,6 +10,8 @@ interface Plant {
   name: string;
   price: number;
   picture: string;
+  width: number;
+  height: number;
 }
 
 const FlowerContainer: React.FC = () => {
