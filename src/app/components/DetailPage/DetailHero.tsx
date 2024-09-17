@@ -14,7 +14,7 @@ interface Plant {
   plant: string;
 }
 
-const DetailHero: React.FC<{ selectedProduct: Plant }> = ({
+const DetailHero: React.FC<{ selectedProduct: Plant | null }> = ({
   selectedProduct,
 }) => {
   return (
