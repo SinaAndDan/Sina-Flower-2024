@@ -3,6 +3,16 @@
 import React, { useRef } from "react";
 import FlowerCard from "./FlowerCard";
 import { flowerData, flowerFavorite } from "../../../../data/flowerdata";
+import { supabase } from "../../../../../lib/supabaseClient";
+
+interface Plant {
+  id: string;
+  name: string;
+  price: number;
+  picture: string;
+  width: number;
+  height: number;
+}
 
 const FlowerContainer: React.FC = () => {
   // Refs for swiper instances

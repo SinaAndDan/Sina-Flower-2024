@@ -4,22 +4,19 @@ import { IoArrowForward } from "react-icons/io5";
 import ficus from "../../../../public/ficus.png";
 import { flowerData } from "../../../data/flowerdata";
 
-const DetailHero: React.FC<{ productId: number }> = ({ productId }) => {
-  const [selectedProduct, setSelectedProduct] = useState<{
-    id: number;
-    name: string;
-    price: string;
-    image: string;
-  } | null>(null);
+interface Plant {
+  id: string;
+  name: string;
+  price: number;
+  picture: string;
+  category: string;
+  type: string;
+  plant: string;
+}
 
-  useEffect(() => {
-    // Search for product
-    const product = flowerData.find((item) => item.id === productId);
-    setSelectedProduct(product || null);
-  }, [productId]);
-
-  console.log(selectedProduct);
-
+const DetailHero: React.FC<{ selectedProduct: Plant | null }> = ({
+  selectedProduct,
+}) => {
   return (
     <div className="container mx-auto sm:px-0 px-2 w-full bg-gray-200 relative notched-corner">
       <div className="w-full content-notch">
@@ -36,7 +33,7 @@ const DetailHero: React.FC<{ productId: number }> = ({ productId }) => {
                 کتگوری
               </p>
               <p className="text-green-500 font-semibold text-base sm:text-lg md:text-2xl xl:text-3xl">
-                داخلی
+                {selectedProduct?.category}
               </p>
             </div>
             <div className="">
@@ -44,7 +41,7 @@ const DetailHero: React.FC<{ productId: number }> = ({ productId }) => {
                 نوع
               </p>
               <p className="text-green-500 font-semibold text-base sm:text-lg md:text-2xl xl:text-3xl">
-                کوچک
+                {selectedProduct?.type}
               </p>
             </div>
             <div className="">
@@ -52,14 +49,14 @@ const DetailHero: React.FC<{ productId: number }> = ({ productId }) => {
                 گیاه
               </p>
               <p className="text-green-500 font-semibold text-base sm:text-lg md:text-2xl xl:text-3xl">
-                فیکوس
+                {selectedProduct?.plant}
               </p>
             </div>
           </div>
           <Image
             width={500}
             height={300}
-            src={selectedProduct?.image || "/ficus.png"}
+            src={selectedProduct?.picture || "/ficus.png"}
             alt="هیجی"
             className="md:w-full lg:w-1/2 saturate-150 shadow-gray-100 image-shadow"
             layout="'intrinsic"
