@@ -3,9 +3,10 @@ import Link from "next/link";
 
 interface FlowerCardProps {
   flower: {
+    id: number;
     name: string;
     price: string;
-    image: string;
+    picture: string;
     width: number;
     height: number;
   };
@@ -14,12 +15,12 @@ interface FlowerCardProps {
 const FlowerCard: React.FC<FlowerCardProps> = ({ flower }) => {
   return (
     <Link
-      href="/detail-page"
+      href={`/products/${flower.id}`}
       className="bg-white rounded-2xl shadow-md m-3 w-48 text-right overflow-hidden block"
     >
       <Image
         className="w-full h-40 object-cover p-1"
-        src={flower.image}
+        src={flower.picture}
         alt={flower.name}
         width="300"
         height="300"
