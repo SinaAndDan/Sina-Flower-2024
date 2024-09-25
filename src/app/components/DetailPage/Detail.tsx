@@ -8,6 +8,7 @@ import Reviews from "./Reviews";
 import About from "./About";
 import Maintaining from "./Maintaining";
 import { supabase } from "../../../../lib/supabaseClient";
+import { MdOutlineSend } from "react-icons/md";
 
 interface Plant {
   id: string;
@@ -81,7 +82,6 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
 
   const replyHandler = () => {
     setIsReply(!isReply);
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -131,7 +131,7 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
         />
 
         {isReply && (
-          <div className="ml-28" ref={bottomRef}>
+          <div className="ml-28 flex" ref={bottomRef}>
             <textarea
               ref={textareaRef}
               value={value}
@@ -141,6 +141,7 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
               placeholder="پاسخ شما"
               className=" bg-slate-200 w-full h-12 text-lg outline-none px-3 pt-2 mb-24"
             />
+            <MdOutlineSend className="h-12 w-12 rotate-180	text-green-800 bg-slate-200 p-2" />
           </div>
         )}
       </div>
