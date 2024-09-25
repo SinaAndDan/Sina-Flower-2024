@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { IoArrowForward } from "react-icons/io5";
-import ficus from "../../../../public/ficus.png";
-import { flowerData } from "../../../data/flowerdata";
+import { useRouter } from "next/navigation";
 
 interface Plant {
   id: string;
@@ -17,11 +16,19 @@ interface Plant {
 const DetailHero: React.FC<{ selectedProduct: Plant | null }> = ({
   selectedProduct,
 }) => {
+  const router = useRouter();
+
+  const backToMainPage = () => {
+    router.push("/");
+  };
   return (
     <div className="container mx-auto sm:px-0 px-2 w-full bg-gray-200 relative notched-corner">
       <div className="w-full content-notch">
         <div className="pt-4">
-          <IoArrowForward className="w-10 h-10 text-gray-800" />
+          <IoArrowForward
+            className="w-10 h-10 text-gray-800 cursor-pointer"
+            onClick={backToMainPage}
+          />
         </div>
         <div className="h-full px-4 pb-6 mt-3 flex justify-between">
           <div className="flex flex-col justify-around">
