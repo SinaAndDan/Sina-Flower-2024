@@ -5,6 +5,12 @@ module.exports = {
     // add other paths if necessary
   ],
   theme: {
+    colors: {
+      gray: "#e2e2e2",
+      white: "#F5F5F5",
+      green: "#2EA206",
+      black: "black",
+    },
     extend: {
       // Extend the theme if needed
       boxShadow: {
