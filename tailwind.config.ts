@@ -1,11 +1,41 @@
+// tailwind.config.js
 module.exports = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,jsx,ts,tsx}",
+    // add other paths if necessary
   ],
   theme: {
-    extend: {},
+    extend: {
+      // Extend the theme if needed
+      boxShadow: {
+        lg: "1px 1px 12px rgba(0, 0, 0, 1)",
+      },
+      fontFamily: {
+        yekan: ["yekan"],
+        abasan: ["abasan"],
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    function ({
+      addUtilities,
+    }: {
+      addUtilities: (utilities: Record<string, Record<string, string>>) => void;
+    }) {
+      addUtilities({
+        ".perspective-2000": {
+          perspective: "2000px",
+        },
+        ".transform-preserve-3d": {
+          transformStyle: "preserve-3d",
+        },
+        ".transform-origin-0": {
+          transformOrigin: "0",
+        },
+        ".rotate-y-80": {
+          transform: "rotateY(-80deg)",
+        },
+      });
+    },
+  ],
 };

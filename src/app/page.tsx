@@ -1,14 +1,16 @@
-import PcHeader from "./components/pcHeader";
-import MobileMainPage from "./components/MobileMainPage/MobileMainPage";
+import MainPage from "./components/MainPage/MainPage";
+import "../styles/fonts.css";
+import AddToCartButton from "./components/Cart/AddToCartButton";
+import Cart from "./components/Cart/Cart";
 
 export default function Home() {
   return (
-    <>
-      {/* <PcHeader /> */}
-
-      <main className="bg-slate-100">
-        <MobileMainPage />
-      </main>
-    </>
+    <div className="font-yekan">
+      <MainPage />
+      <h1>My Store</h1>
+      <AddToCartButton id="1" name="Product A" price={10} />
+      <AddToCartButton id="2" name="Product B" price={20} />
+      <Cart />
+    </div>
   );
 }

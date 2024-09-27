@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "yekan";
+  src: url("../../fonts/yekan-font/yekan-regular.woff") format("woff"),
+    url("../../fonts/yekan-font/yekan-regular.ttf") format("tff"),
+    url("../../fonts/yekan-font/yekan-regular.eot") format("eot");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "abasan";
+  src: url("../../fonts/pixelboy-Abasan.woff") format("woff"),
+    url("../../fonts/pixelboy-Abasan.ttf") format("tff"),
+    url("../../fonts/pixelboy-Abasan.eot") format("eot");
+  font-weight: normal;
+  font-style: normal;
+}
