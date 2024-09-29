@@ -35,10 +35,10 @@ const MainBody: React.FC = () => {
         <IoSearch className="w-8 h-8 text-black text-opacity-80" />
       </div>
       <h2 className="text-4xl px-6 mt-12 font-extrabold">خانه</h2>
-      <div className="flex flex-col items-center justify-center mt-12">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center justify-center mt-12">
         {plants.map((flower, id) => (
           <div
-            className="bg-white rounded-2xl m-5 w-48 min-h-[280px] p-5"
+            className="bg-white rounded-2xl m-5 w-52 min-h-[300px] p-5"
             key={id}
           >
             <FlowerCard flower={flower} />
