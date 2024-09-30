@@ -4,7 +4,7 @@ import { BiCategory } from "react-icons/bi";
 
 const Header: React.FC = () => {
   return (
-    <nav className="bg-white border-gray-200 h-screen w-20 fixed overflow-y-auto">
+    <nav className="bg-white border-gray-200 h-screen w-20 fixed overflow-y-auto -z-10">
       <div className="flex flex-col h-[50%] justify-between pt-12 ">
         <div className="flex items-center justify-center">
           <BiCategory className="w-8 h-8 text-black text-opacity-80 " />
