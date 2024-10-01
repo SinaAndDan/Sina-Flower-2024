@@ -40,9 +40,9 @@ const Reviews: React.FC<ReviewTypes> = ({
     <>
       {!about && (
         <div className={`${!isReply ? "mb-32" : "mb-20"}`}>
-          <div className=" pt-5 flex border-b-2 border-slate-700 border-opacity-20 pb-8 items-center ">
-            <div className="h-12 w-12 bg-red-300 rounded-full "></div>
-            <div className="flex items-center w-full bg-slate-200">
+          <div className=" pt-5 flex justify-between border-b-2 border-darkGray border-opacity-20 pb-8 items-center ">
+            <span className="h-12 w-12 bg-green rounded-full"></span>
+            <div className="flex items-center w-full bg-gray">
               <textarea
                 ref={textareaRef}
                 value={value}
@@ -50,9 +50,9 @@ const Reviews: React.FC<ReviewTypes> = ({
                 id="autoGrowInput"
                 onChange={handleInput}
                 placeholder="نظر شما"
-                className="  w-full h-12 text-lg outline-none px-3 pt-2 mr-6 bg-slate-200"
+                className="  w-full h-12 text-lg outline-none px-3 pt-2 mr-6 bg-gray"
               />
-              <MdOutlineSend className="rotate-180 text-green-800 w-10 h-10 mx-2" />
+              <MdOutlineSend className="rotate-180 text-green w-10 h-10 mx-2" />
             </div>
           </div>
           <div className="pt-5 flex">
@@ -78,7 +78,7 @@ const Reviews: React.FC<ReviewTypes> = ({
               </button>
               <button
                 className={`w-16 h-10 rounded-3xl flex items-center justify-center ${
-                  liked ? "bg-blue-800" : "bg-slate-300"
+                  liked ? "bg-blue" : "bg-gray"
                 }`}
                 onClick={onLikeClick}
               >
@@ -89,7 +89,7 @@ const Reviews: React.FC<ReviewTypes> = ({
               </button>
               <button
                 className={`w-16 h-10 rounded-3xl flex items-center justify-center mx-3 ${
-                  disliked ? "bg-red-950" : "bg-slate-300"
+                  disliked ? "bg-red" : "bg-gray"
                 }`}
                 onClick={onDisLikeClick}
               >

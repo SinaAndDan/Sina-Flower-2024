@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { IoSearch } from "react-icons/io5";
-import FlowerCard from "./Products/FlowerCard";
+import FlowerCard from "./FlowerCard";
 import { supabase } from "../../../../lib/supabaseClient";
 
 interface Plant {
