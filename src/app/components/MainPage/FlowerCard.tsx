@@ -36,7 +36,7 @@ const FlowerCard: React.FC<FlowerCardProps> = ({ flower }) => {
       <span className="bg-green text-white rounded-xl text-xs px-5 opacity-70">
         داخلی
       </span>
-      <h3 className="text-xl font-semibold font-abasan">{flower.name}</h3>
+      <h3 className="text-xl font-semibold font-parastoo">{flower.name}</h3>
       <div className="flex w-full justify-between items-center content-center">
         <p className="text-black text-opacity-70 text-sm">فیکوس</p>
         <p className="text-gray-600 text-xl text-green font-semibold">

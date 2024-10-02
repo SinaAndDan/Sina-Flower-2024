@@ -23,6 +23,9 @@ module.exports = {
       fontFamily: {
         yekan: ["yekan"],
         abasan: ["abasan"],
+        notSelected: ["notSelected"],
+        parastoo: ["parastoo"],
+        sahel: ["sahel"],
       },
     },
   },
