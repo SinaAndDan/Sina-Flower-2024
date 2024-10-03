@@ -1,3 +1,4 @@
+
 "use client";
 // pages/login.js
 import { useState } from "react";
@@ -43,7 +44,5 @@ const Login = () => {
       />
       <button type="submit">Login</button>
     </form>
-  );
-};
 
 export default Login;

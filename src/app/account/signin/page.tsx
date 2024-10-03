@@ -1,3 +1,4 @@
+
 "use client";
 // pages/register.js
 import { useState } from "react";
@@ -22,7 +23,9 @@ const Register = () => {
     }
   };
 
+
   return (
+
     <form onSubmit={handleRegister}>
       <h1>Register</h1>
       {error && <p>{error}</p>}
@@ -49,6 +52,7 @@ const Register = () => {
       />
       <button type="submit">Register</button>
     </form>
+
   );
 };
 
