@@ -1,10 +1,11 @@
+import LogInPage from "@/app/components/loginPage/login";
 import MobileBottomNav from "@/app/components/MainPage/MobileBottomNav";
 import React from "react";
 
-const LogIn: React.FC = () => {
+const LogIn = () => {
   return (
     <>
-      <div>login</div>
+      <LogInPage />
       <MobileBottomNav />
     </>
   );

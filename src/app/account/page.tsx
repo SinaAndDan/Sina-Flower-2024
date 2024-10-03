@@ -1,11 +1,10 @@
 import React from "react";
-import Login from "../components/loginPage/login";
-import MobileBottomNav from "../components/MainPage/MobileBottomNav";
+import Account from "../components/loginPage/account";
 
 const LogInPage: React.FC = () => {
   return (
     <>
-      <Login />
+      <Account />
     </>
   );
 };
