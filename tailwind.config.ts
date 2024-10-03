@@ -5,6 +5,16 @@ module.exports = {
     // add other paths if necessary
   ],
   theme: {
+    colors: {
+      gray: "#e2e2e2",
+      darkGray: "#3E3C37",
+      bgpic: "#E4E4E4",
+      white: "#F5F5F5",
+      green: "#2EA206",
+      black: "black",
+      red: "#B60000",
+      blue: "#0074e8",
+    },
     extend: {
       // Extend the theme if needed
       boxShadow: {
@@ -13,6 +23,9 @@ module.exports = {
       fontFamily: {
         yekan: ["yekan"],
         abasan: ["abasan"],
+        notSelected: ["notSelected"],
+        parastoo: ["parastoo"],
+        sahel: ["sahel"],
       },
     },
   },

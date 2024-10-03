@@ -9,9 +9,37 @@
 
 @font-face {
   font-family: "abasan";
-  src: url("../../fonts/pixelboy-Abasan.woff") format("woff"),
-    url("../../fonts/pixelboy-Abasan.ttf") format("tff"),
-    url("../../fonts/pixelboy-Abasan.eot") format("eot");
+  src: url("../../fonts/absan/pixelboy-Abasan.woff") format("woff"),
+    url("../../fonts/absan/pixelboy-Abasan.ttf") format("ttf"),
+    url("../../fonts/absan/pixelboy-Abasan.eot") format("eot");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "notSelected";
+  src: url("../../fonts/not-selected/pixelboy-Afsoon.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "parastoo";
+  src: url("../../fonts/parastoo-font-v1.0.0-alpha5/web/Parastoo-Bold.woff")
+      format("woff"),
+    url("../../fonts/parastoo-font-v1.0.0-alpha5/web/Parastoo-Bold.ttf")
+      format("ttf"),
+    url("../../fonts/parastoo-font-v1.0.0-alpha5/web/Parastoo-Bold.eot")
+      format("eot");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sahel";
+  src: url("../../fonts/sahel-font-v1.0.0-alpha14/Sahel-Black.woff")
+      format("woff"),
+    url("../../fonts/sahel-font-v1.0.0-alpha14/Sahel-Black.ttf") format("ttf"),
+    url("../../fonts/sahel-font-v1.0.0-alpha14/Sahel-Black.eot") format("eot");
   font-weight: normal;
   font-style: normal;
 }

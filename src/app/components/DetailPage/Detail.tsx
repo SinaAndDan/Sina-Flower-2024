@@ -8,6 +8,7 @@ import Reviews from "./Reviews";
 import About from "./About";
 import Maintaining from "./Maintaining";
 import { supabase } from "../../../../lib/supabaseClient";
+import { MdOutlineSend } from "react-icons/md";
 
 interface Plant {
   id: string;
@@ -81,7 +82,6 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
 
   const replyHandler = () => {
     setIsReply(!isReply);
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -95,15 +95,14 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
     <div className="font-yekan w-full">
       <DetailHero selectedProduct={selectedProduct} />
       <div className="container mx-auto sm:px-0 px-2">
-        <h6 className="mt-8 px-4 font-semibold sm:text-xl">
+        <h6 className="mt-3 px-8 font-semibold sm:text-xl">
           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-          از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
         </h6>
         <Maintaining />
         <AddToCartButton />
         <div className="flex justify-center items-center">
           <a
-            className={`pl-3 border-l-2 border-zinc-700 border-opacity-40 text-xl cursor-pointer transition ease-in delay-75 ${
+            className={`pl-3 border-l-2 border-darkGray border-opacity-40 text-xl cursor-pointer transition ease-in delay-75 ${
               !about && "text-lime-700"
             }`}
             onClick={switchToCmsHandler}
@@ -112,7 +111,7 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
           </a>
           <a
             className={`pr-3 transition ease-in delay-75 ${
-              about && "text-lime-700"
+              about && "text-green"
             } text-xl cursor-pointer`}
             onClick={switchToaboutHandler}
           >
@@ -131,7 +130,7 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
         />
 
         {isReply && (
-          <div className="ml-28" ref={bottomRef}>
+          <div className="ml-28 flex" ref={bottomRef}>
             <textarea
               ref={textareaRef}
               value={value}
@@ -139,8 +138,9 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
               id="autoGrowInput"
               onChange={handleInput}
               placeholder="پاسخ شما"
-              className=" bg-slate-200 w-full h-12 text-lg outline-none px-3 pt-2 mb-24"
+              className=" bg-gray w-full h-12 text-lg outline-none px-3 pt-2 mb-24"
             />
+            <MdOutlineSend className="h-12 w-12 rotate-180	text-green bg-gray p-2" />
           </div>
         )}
       </div>

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { IoArrowForward } from "react-icons/io5";
-import ficus from "../../../../public/ficus.png";
-import { flowerData } from "../../../data/flowerdata";
+import { useRouter } from "next/navigation";
 
 interface Plant {
   id: string;
@@ -17,14 +16,22 @@ interface Plant {
 const DetailHero: React.FC<{ selectedProduct: Plant | null }> = ({
   selectedProduct,
 }) => {
+  const router = useRouter();
+
+  const backToMainPage = () => {
+    router.push("/");
+  };
   return (
-    <div className="container mx-auto sm:px-0 px-2 w-full bg-gray-200 relative notched-corner">
+    <div className="container mx-auto sm:px-0 w-full bg-bgpic relative notched-corner">
       <div className="w-full content-notch">
         <div className="pt-4">
-          <IoArrowForward className="w-10 h-10 text-gray-800" />
+          <IoArrowForward
+            className="w-10 h-10 text-darkGray cursor-pointer"
+            onClick={backToMainPage}
+          />
         </div>
-        <div className="h-full px-4 pb-6 mt-3 flex justify-between">
-          <div className="flex flex-col justify-around">
+        <div className="h-full pb-6 mt-3 flex justify-between">
+          <div className="flex flex-col justify-around px-4 w-[20%] ">
             <h5 className="font-bold font-abasan text-2xl sm:text-4xl md:text-5xl xl:text-7xl">
               {selectedProduct?.name}
             </h5>
@@ -32,7 +39,7 @@ const DetailHero: React.FC<{ selectedProduct: Plant | null }> = ({
               <p className="opacity-65 text-xs sm:text-base md:text-lg xl:text-xl">
                 کتگوری
               </p>
-              <p className="text-green-500 font-semibold text-base sm:text-lg md:text-2xl xl:text-3xl">
+              <p className="text-green font-semibold text-base sm:text-lg md:text-2xl xl:text-3xl">
                 {selectedProduct?.category}
               </p>
             </div>
@@ -40,7 +47,7 @@ const DetailHero: React.FC<{ selectedProduct: Plant | null }> = ({
               <p className="opacity-65 text-xs sm:text-base md:text-lg xl:text-xl">
                 نوع
               </p>
-              <p className="text-green-500 font-semibold text-base sm:text-lg md:text-2xl xl:text-3xl">
+              <p className="text-green font-semibold text-base sm:text-lg md:text-2xl xl:text-3xl">
                 {selectedProduct?.type}
               </p>
             </div>
@@ -48,17 +55,17 @@ const DetailHero: React.FC<{ selectedProduct: Plant | null }> = ({
               <p className="opacity-65 text-xs sm:text-base md:text-lg xl:text-xl">
                 گیاه
               </p>
-              <p className="text-green-500 font-semibold text-base sm:text-lg md:text-2xl xl:text-3xl">
+              <p className="text-green font-semibold text-base sm:text-lg md:text-2xl xl:text-3xl">
                 {selectedProduct?.plant}
               </p>
             </div>
           </div>
           <Image
-            width={500}
+            width={250}
             height={300}
             src={selectedProduct?.picture || "/ficus.png"}
             alt="هیجی"
-            className="md:w-full lg:w-1/2 saturate-150 shadow-gray-100 image-shadow"
+            className="w-[80%] saturate-150 shadow-gray image-shadow"
             layout="'intrinsic"
           />
         </div>
