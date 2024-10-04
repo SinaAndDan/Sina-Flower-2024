@@ -11,6 +11,7 @@ module.exports = {
       bgpic: "#E4E4E4",
       white: "#F5F5F5",
       green: "#2EA206",
+      greenlogIn: "#3D7049",
       black: "black",
       red: "#B60000",
       blue: "#0074e8",
