@@ -5,7 +5,7 @@ const LogInPage: React.FC = () => {
   return (
     <>
       <div className="flex flex-col items-center font-sahel h-screen">
-        <div className="relative h-2/5 w-screen md:h-[50vh] sm:h-[30vh]">
+        <div className="relative h-1/2 w-screen md:h-[50vh] sm:h-[30vh]">
           <Image
             src="/loginPic.png"
             alt="Header Image"
