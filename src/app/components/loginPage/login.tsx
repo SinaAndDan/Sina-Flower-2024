@@ -8,7 +8,7 @@ const LogInPage: React.FC = () => {
         <Image
           width={1000}
           height={1000}
-          src="/loginPicII.png"
+          src="/loginPic.png"
           alt="Full Screen Image"
           className=" -z-20 rotate-180"
           priority={true} // Optional: Loads the image with high priority
