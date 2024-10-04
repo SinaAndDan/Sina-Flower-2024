@@ -88,7 +88,7 @@ textarea {
 .image-containerII {
   position: relative;
   width: 100vw;
-  height: 30vh;
+  height: 40vh;
   overflow: hidden; /* To prevent overflow */
 }
 
