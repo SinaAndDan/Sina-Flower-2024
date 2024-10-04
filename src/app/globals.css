@@ -88,13 +88,13 @@ textarea {
 .image-containerII {
   position: relative;
   width: 100vw;
-  height: 40vh;
+  height: 30vh;
   overflow: hidden; /* To prevent overflow */
 }
 
 .image-containerII img {
   position: absolute;
-  top: 0;
+  top: -70px;
   left: 0;
   width: 100%;
   height: 100%;

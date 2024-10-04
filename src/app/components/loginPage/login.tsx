@@ -32,6 +32,7 @@ const LogInPage: React.FC = () => {
           priority={true} // Optional: Loads the image with high priority
         />
       </div>
+      <input placeholder="messi" />
     </div>
   );
 };
