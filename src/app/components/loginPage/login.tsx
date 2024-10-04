@@ -6,8 +6,8 @@ const LogInPage: React.FC = () => {
     <div className="flex flex-col items-center font-sahel">
       <div className="image-containerII">
         <Image
-          width={1000}
-          height={1000}
+          width={500}
+          height={500}
           src="/loginPic.png"
           alt="Full Screen Image"
           className="-z-20"
