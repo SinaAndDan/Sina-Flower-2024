@@ -103,7 +103,7 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
         <div className="flex justify-center items-center">
           <a
             className={`pl-3 border-l-2 border-darkGray border-opacity-40 text-xl cursor-pointer transition ease-in delay-75 ${
-              !about && "text-lime-700"
+              !about && "text-green"
             }`}
             onClick={switchToCmsHandler}
           >
