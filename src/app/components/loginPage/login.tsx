@@ -1,13 +1,27 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { IoPerson } from "react-icons/io5";
 import { MdLock } from "react-icons/md";
+import { GrFormNext } from "react-icons/gr";
+import { useRouter } from "next/navigation";
 
 const LogInPage: React.FC = () => {
+  const router = useRouter();
+  const backToAccount = () => {
+    router.push("/account");
+  };
   return (
     <>
       <div className="flex flex-col items-center font-sahel image-containerII">
         <div className="h-full w-full flex flex-col relative">
+          <span
+            className="mx-8 mt-16 bg-loginInput rounded-full w-10 h-10 flex items-center justify-center"
+            onClick={backToAccount}
+          >
+            <GrFormNext className="w-8 h-8 text-greenlogIn cursor-pointer translate-x-px" />
+          </span>
           <Image
             src="/loginPicIII.jpg"
             width={600}
@@ -89,11 +103,11 @@ const LogInPage: React.FC = () => {
             </div>
             <p className="text-xs text-greenlogIn font-bold">فراموشی رمز؟</p>
           </div>
-          <div className="flex flex-col absolute bottom-16 left-1/2 -translate-x-1/2 w-full px-6">
+          <div className="flex flex-col absolute bottom-16 left-1/2 -translate-x-1/2 w-full px-6 z-0">
             <button className="w-full bg-greenlogIn text-white py-2 rounded-lg font-yekan">
               ورود
             </button>
-            <p className="text-sm font-light text-center mt-4">
+            <p className="text-sm font-light text-center mt-4 text-black text-opacity-80">
               هنوز ثبت نام نکرده اید؟
               <a
                 href="/account/signin"
