@@ -33,14 +33,14 @@ const LogInPage: React.FC = () => {
         height={150}
         src="/sideimgVI.png"
         alt="Full Screen Image"
-        className="-z-20 absolute left-0 bottom-1/2 -translate-y-1/2"
+        className="-z-20 absolute left-0"
         priority={true} // Optional: Loads the image with high priority
       />
       <div className="flex flex-col mx-2 items-center">
-        <div className="text-greenlogIn text-2xl mt-10 font-sahel">
+        <div className="text-greenlogIn text-2xl mt-10 font-sahel pl-16">
           خوش آمدید
         </div>
-        <p className="text-greenlogIn text-opacity-65 mt-3 text-sm font-sahel">
+        <p className="text-greenlogIn text-opacity-65 mt-3 text-sm font-sahel pl-16">
           به حساب خود وارد شوید
         </p>
         <form className="font-yekan w-full px-6">
