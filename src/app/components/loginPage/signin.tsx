@@ -22,87 +22,89 @@ const SignInPage: React.FC = () => {
       >
         <GrFormNext className="w-8 h-8 text-greenlogIn cursor-pointer translate-x-px" />
       </span>
-      <Image
-        width={150}
-        height={150}
-        src="/sideimgVI.png"
-        alt="Full Screen Image"
-        className="-z-20 absolute left-0"
-        priority={true} // Optional: Loads the image with high priority
-      />
-      <div className="flex flex-col mx-2 items-center">
-        <div className="text-greenlogIn text-2xl mt-10 font-sahel pl-16">
-          ثبت نام
-        </div>
-        <p className="text-greenlogIn text-opacity-65 mt-3 text-sm font-sahel pl-16">
-          حساب جدید بسازید
-        </p>
-        <form className="font-yekan w-full px-6">
-          <div className="w-full relative mt-20">
-            <input
-              type="text"
-              className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity	"
-              placeholder="نام کاربری"
-            />
-            <div
-              className="absolute inset-y-0 right-2 pl-3  
-                    flex items-center  
-                    pointer-events-none"
-            >
-              <IoPerson className="text-greenlogIn" />
-            </div>
+      <div>
+        <Image
+          width={150}
+          height={150}
+          src="/sideimgVI.png"
+          alt="Full Screen Image"
+          className="-z-20 absolute left-0"
+          priority={true} // Optional: Loads the image with high priority
+        />
+        <div className="flex flex-col mx-2 items-center">
+          <div className="text-greenlogIn text-2xl mt-10 font-sahel pl-16">
+            ثبت نام
           </div>
-          <div className="w-full relative mt-3">
-            <input
-              type="text"
-              className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity	"
-              placeholder="ایمیل"
-            />
-            <div
-              className="absolute inset-y-0 right-2 pl-3  
-                    flex items-center  
-                    pointer-events-none"
-            >
-              <MdMail className="text-greenlogIn" />
-            </div>
-          </div>
-          <div className="w-full relative mt-3">
-            <input
-              type="text"
-              className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg  active:outline-greenlogIn focus:outline-greenlogIn"
-              placeholder="کلمه عبور"
-            />
-            <div
-              className="absolute inset-y-0 right-2 pl-3  
-                    flex items-center  
-                    pointer-events-none"
-            >
-              <MdLock className="text-greenlogIn" />
-            </div>
-          </div>
-          <div className="flex flex-col w-full px-6 mt-3">
-            <button className="w-full bg-greenlogIn text-white py-2 rounded-3xl font-yekan">
-              ثبت نام
-            </button>
-          </div>
-          <div className="flex justify-between mt-2">
-            <div className="flex items-center">
+          <p className="text-greenlogIn text-opacity-65 mt-3 text-sm font-sahel pl-16">
+            حساب جدید بسازید
+          </p>
+          <form className="font-yekan w-full px-6">
+            <div className="w-full relative mt-20">
               <input
-                id="rememberMe"
-                type="checkbox"
-                value=""
-                className="w-4 h-4 text-green bg-greenlogIn rounded-full accent-greenlogIn"
+                type="text"
+                className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity	"
+                placeholder="نام کاربری"
               />
-              <label
-                htmlFor="rememberMe"
-                className="ms-2 font-medium text-xs text-greenlogIn"
+              <div
+                className="absolute inset-y-0 right-2 pl-3  
+                    flex items-center  
+                    pointer-events-none"
               >
-                مرا بخاطر بسپار
-              </label>
+                <IoPerson className="text-greenlogIn" />
+              </div>
             </div>
-            <p className="text-xs text-greenlogIn font-bold">فراموشی رمز؟</p>
-          </div>
-        </form>
+            <div className="w-full relative mt-3">
+              <input
+                type="text"
+                className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity	"
+                placeholder="ایمیل"
+              />
+              <div
+                className="absolute inset-y-0 right-2 pl-3  
+                    flex items-center  
+                    pointer-events-none"
+              >
+                <MdMail className="text-greenlogIn" />
+              </div>
+            </div>
+            <div className="w-full relative mt-3">
+              <input
+                type="text"
+                className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg  active:outline-greenlogIn focus:outline-greenlogIn"
+                placeholder="کلمه عبور"
+              />
+              <div
+                className="absolute inset-y-0 right-2 pl-3  
+                    flex items-center  
+                    pointer-events-none"
+              >
+                <MdLock className="text-greenlogIn" />
+              </div>
+            </div>
+            <div className="flex flex-col w-full px-6 mt-3">
+              <button className="w-full bg-greenlogIn text-white py-2 rounded-3xl font-yekan">
+                ثبت نام
+              </button>
+            </div>
+            <div className="flex justify-between mt-2">
+              <div className="flex items-center">
+                <input
+                  id="rememberMe"
+                  type="checkbox"
+                  value=""
+                  className="w-4 h-4 text-green bg-greenlogIn rounded-full accent-greenlogIn"
+                />
+                <label
+                  htmlFor="rememberMe"
+                  className="ms-2 font-medium text-xs text-greenlogIn"
+                >
+                  مرا بخاطر بسپار
+                </label>
+              </div>
+              <p className="text-xs text-greenlogIn font-bold">فراموشی رمز؟</p>
+            </div>
+          </form>
+        </div>
       </div>
       <div className="w-full mt-6 flex items-center justify-between">
         <svg
