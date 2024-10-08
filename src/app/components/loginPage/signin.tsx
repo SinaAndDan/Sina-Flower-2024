@@ -1,17 +1,61 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { MdLock, MdMail } from "react-icons/md";
 import { IoPerson } from "react-icons/io5";
-import { FcGoogle } from "react-icons/fc";
 import { GrFormNext } from "react-icons/gr";
 import { useRouter } from "next/navigation";
 
 const SignInPage: React.FC = () => {
   const router = useRouter();
+
+  // State for form data
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  // State for error or success message
+  const [message, setMessage] = useState("");
+
+  // Handle input changes
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form submission prevented.");
+
+    try {
+      const res = await fetch("http://localhost:5000/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (res.status === 200) {
+        // On successful registration, redirect or show success message
+        setMessage("ثبت نام با موفقیت انجام شد");
+        router.push("/account/profile"); // Redirect to sign in page
+      } else {
+        // Show error message from the backend
+        setMessage(data.msg || "Registration failed!");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setMessage("An error occurred during registration.");
+    }
+  };
+
   const backToAccount = () => {
-    router.push("/account");
+    router.push("/");
   };
 
   return (
@@ -38,12 +82,16 @@ const SignInPage: React.FC = () => {
           <p className="text-greenlogIn text-opacity-65 mt-3 text-sm font-sahel pl-16">
             حساب جدید بسازید
           </p>
-          <form className="font-yekan w-full px-6">
+          <form className="font-yekan w-full px-6" onSubmit={handleSubmit}>
             <div className="w-full relative mt-20">
               <input
                 type="text"
-                className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity	"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity"
                 placeholder="نام کاربری"
+                required
               />
               <div
                 className="absolute inset-y-0 right-2 pl-3  
@@ -55,9 +103,13 @@ const SignInPage: React.FC = () => {
             </div>
             <div className="w-full relative mt-3">
               <input
-                type="text"
-                className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity	"
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity"
                 placeholder="ایمیل"
+                required
               />
               <div
                 className="absolute inset-y-0 right-2 pl-3  
@@ -69,9 +121,13 @@ const SignInPage: React.FC = () => {
             </div>
             <div className="w-full relative mt-3">
               <input
-                type="text"
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
                 className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg  active:outline-greenlogIn focus:outline-greenlogIn"
                 placeholder="کلمه عبور"
+                required
               />
               <div
                 className="absolute inset-y-0 right-2 pl-3  
@@ -82,10 +138,16 @@ const SignInPage: React.FC = () => {
               </div>
             </div>
             <div className="flex flex-col w-full px-6 mt-3">
-              <button className="w-full bg-greenlogIn text-white py-2 rounded-3xl font-yekan">
+              <button
+                type="submit"
+                className="w-full bg-greenlogIn text-white py-2 rounded-3xl font-yekan"
+              >
                 ثبت نام
               </button>
             </div>
+            {message && (
+              <div className="mt-3 text-center text-red-600">{message}</div>
+            )}
             <div className="flex justify-between mt-2">
               <div className="flex items-center">
                 <input
@@ -107,46 +169,7 @@ const SignInPage: React.FC = () => {
         </div>
       </div>
       <div className="w-full mt-6 flex items-center justify-between">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="40%" // Adjust width to make the lines shorter
-          height="2"
-          viewBox="0 0 100 2"
-          className="mx-auto"
-        >
-          <line
-            x1="0"
-            y1="1"
-            x2="100"
-            y2="1"
-            stroke="black"
-            strokeWidth="0.5"
-          />
-        </svg>
-
-        <p className="text-xs mx-2 font-extrabold font-yekan">یا ادامه با</p>
-
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="40%" // Same width as the first line
-          height="2"
-          viewBox="0 0 100 2"
-          className="mx-auto"
-        >
-          <line
-            x1="0"
-            y1="1"
-            x2="100"
-            y2="1"
-            stroke="black"
-            strokeWidth="0.5"
-          />
-        </svg>
-      </div>
-      <div className="flex justify-center mt-5">
-        <span className="w-10 h-10 flex items-center justify-center border border-black rounded-full border-opacity-15">
-          <FcGoogle className="w-6 h-6" />
-        </span>
+        {/* Continue with Google section */}
       </div>
       <p className="text-sm font-light text-center mt-4 text-black text-opacity-80 font-yekan">
         قبلا ثبت نام کرده اید؟
