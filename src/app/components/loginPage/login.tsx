@@ -40,7 +40,9 @@ const LogInPage: React.FC = () => {
       console.log(data);
 
       if (res.status === 200) {
-        router.push("/account/profile"); // Redirect to dashboard or desired page on success
+        const token = data.token; // Assuming the token is in data.token
+        localStorage.setItem("token", token); // Store the token in localStorage
+        router.push("/account/profile"); // Redirect to profile page
       } else {
         alert("Login failed!");
       }
