@@ -14,7 +14,7 @@ const LogInPage: React.FC = () => {
   };
   return (
     <div className="flex flex-col h-screen">
-      <div className="flex flex-col items-center font-sahel image-containerII md:min-h-[500px]">
+      <div className="flex flex-col items-center font-sahel image-containerII md:min-h-[40vh] 2xl:min-h-[60vh]">
         <div className="h-full w-full flex flex-col relative">
           <span
             className="mx-8 mt-16 bg-loginInput rounded-full w-10 h-10 flex items-center justify-center sm:hidden"
@@ -24,14 +24,14 @@ const LogInPage: React.FC = () => {
           </span>
           <Image
             src="/loginPicIII.jpg"
-            width={600}
+            width={800}
             height={1200}
             alt="Header Image"
             objectFit="cover"
             objectPosition="center"
-            className="w-full h-full -z-20 opacity-95" // Added opacity class
+            className="w-full h-full -z-20 opacity-95 " // Added opacity class
           />
-          <div className="absolute -bottom-1 xl:-bottom-36 w-full">
+          <div className="absolute -bottom-1 w-full">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
               <path
                 fill="#f3f4f5"
@@ -51,14 +51,14 @@ const LogInPage: React.FC = () => {
           className="-z-20 absolute left-0 md:min-w-[200px] min-h-[200px]"
           priority={true} // Optional: Loads the image with high priority
         />
-        <div className="flex flex-col px-2 items-center container mx-auto">
+        <div className="flex flex-col px-2 items-center container mx-auto xl:-translate-y-28">
           <div className="text-greenlogIn text-2xl mt-10 font-sahel pl-16 md:pl-0 sm:text-3xl">
             خوش آمدید
           </div>
           <p className="text-greenlogIn text-opacity-65 mt-3 text-sm font-sahel pl-16 md:pl-0 sm:text-xl">
             به حساب خود وارد شوید
           </p>
-          <form className="font-yekan w-full px-6 md:max-w-[55%] mx-auto">
+          <form className="font-yekan w-full px-6 md:max-w-[55%] lg:max-w-[40%] mx-auto">
             <div className="w-full relative mt-20">
               <input
                 type="text"
@@ -110,7 +110,7 @@ const LogInPage: React.FC = () => {
         </div>
       </section>
       <div className="container mx-auto mt-auto">
-        <div className="w-full px-6 my-8 z-0 md:max-w-[55%] mx-auto">
+        <div className="w-full px-6 my-8 z-0 md:max-w-[55%] lg:max-w-[40%] mx-auto">
           <button
             type="submit"
             className="w-full bg-greenlogIn text-white py-2 rounded-lg font-yekan"
