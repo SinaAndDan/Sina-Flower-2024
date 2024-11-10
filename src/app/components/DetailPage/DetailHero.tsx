@@ -26,7 +26,7 @@ const DetailHero: React.FC<{ selectedProduct: Plant | null }> = ({
       <div className="w-full content-notch">
         <div className="pt-4">
           <IoArrowForward
-            className="w-10 h-10 text-darkGray cursor-pointer"
+            className="w-10 h-10 text-darkGray cursor-pointer md:hidden"
             onClick={backToMainPage}
           />
         </div>

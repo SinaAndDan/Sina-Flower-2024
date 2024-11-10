@@ -41,8 +41,8 @@ const Reviews: React.FC<ReviewTypes> = ({
       {!about && (
         <div className={`${!isReply ? "mb-32" : "mb-20"}`}>
           <div className=" pt-5 flex justify-between border-b-2 border-darkGray border-opacity-20 pb-8 items-center ">
-            <span className="h-12 w-12 bg-green rounded-full"></span>
-            <div className="flex items-center w-full bg-gray">
+            <span className="min-h-12 min-w-12 bg-green rounded-full"></span>
+            <div className="flex items-center w-full bg-gray mr-2">
               <textarea
                 ref={textareaRef}
                 value={value}
@@ -56,7 +56,7 @@ const Reviews: React.FC<ReviewTypes> = ({
             </div>
           </div>
           <div className="pt-5 flex">
-            <p className="w-10 h-10 bg-black rounded-full"></p>
+            <span className="w-10 h-10 bg-black rounded-full min-h-12 min-w-12"></span>
             <div className="flex justify-between w-full items-start">
               <div className="flex items-start">
                 <p className="px-4">علی قلی</p>
