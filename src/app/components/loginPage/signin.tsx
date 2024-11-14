@@ -17,7 +17,7 @@ const SignInPage: React.FC = () => {
   return (
     <div className="mt-20 font-sahel">
       <span
-        className="mx-3 bg-loginInput rounded-full w-10 h-10 flex items-center justify-center"
+        className="mx-3 bg-loginInput rounded-full w-10 h-10 flex items-center justify-center sm:hidden"
         onClick={backToAccount}
       >
         <GrFormNext className="w-8 h-8 text-greenlogIn cursor-pointer translate-x-px" />
@@ -28,21 +28,21 @@ const SignInPage: React.FC = () => {
           height={150}
           src="/sideimgVI.png"
           alt="Full Screen Image"
-          className="-z-20 absolute left-0"
+          className="-z-20 absolute left-0 sm:w-40 sm:h-40"
           priority={true} // Optional: Loads the image with high priority
         />
-        <div className="flex flex-col mx-2 items-center">
-          <div className="text-greenlogIn text-2xl mt-10 font-sahel pl-16">
+        <div className="flex flex-col mx-2 container md:max-w-[60vw] xl:max-w-[50vw] sm:mx-auto items-center">
+          <div className="text-greenlogIn text-2xl mt-10 font-sahel pl-16 sm:pl-0">
             ثبت نام
           </div>
-          <p className="text-greenlogIn text-opacity-65 mt-3 text-sm font-sahel pl-16">
+          <p className="text-greenlogIn text-opacity-65 mt-3 text-sm font-sahel pl-16 sm:pl-0">
             حساب جدید بسازید
           </p>
           <form className="font-yekan w-full px-6">
             <div className="w-full relative mt-20">
               <input
                 type="text"
-                className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity	"
+                className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity md:h-[40px]"
                 placeholder="نام کاربری"
               />
               <div
@@ -56,7 +56,7 @@ const SignInPage: React.FC = () => {
             <div className="w-full relative mt-3">
               <input
                 type="text"
-                className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity	"
+                className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity	md:h-[40px]"
                 placeholder="ایمیل"
               />
               <div
@@ -70,7 +70,7 @@ const SignInPage: React.FC = () => {
             <div className="w-full relative mt-3">
               <input
                 type="text"
-                className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg  active:outline-greenlogIn focus:outline-greenlogIn"
+                className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg  active:outline-greenlogIn focus:outline-greenlogIn md:h-[40px]"
                 placeholder="کلمه عبور"
               />
               <div
@@ -81,12 +81,12 @@ const SignInPage: React.FC = () => {
                 <MdLock className="text-greenlogIn" />
               </div>
             </div>
-            <div className="flex flex-col w-full px-6 mt-3">
-              <button className="w-full bg-greenlogIn text-white py-2 rounded-3xl font-yekan">
+            <div className="flex flex-col w-full px-6 mt-3 md:mt-6">
+              <button className="w-full bg-greenlogIn text-white py-2 rounded-3xl font-yekan md:h-[40px]">
                 ثبت نام
               </button>
             </div>
-            <div className="flex justify-between mt-2">
+            <div className="flex justify-between mt-2 md:mt-5">
               <div className="flex items-center">
                 <input
                   id="rememberMe"
