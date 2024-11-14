@@ -41,7 +41,7 @@ const MainBody: React.FC = () => {
     fetchPlants();
   }, []);
   return (
-    <div className="bg-gray flex-1 mr-20">
+    <div className="bg-gray flex-1 mr-20 md:mr-0">
       <div className="flex justify-end pt-12 px-6">
         <IoSearch className="w-8 h-8 text-black text-opacity-80" />
       </div>
@@ -49,8 +49,11 @@ const MainBody: React.FC = () => {
 
       <div className="rounded-2xl m-5 w-[90vw] h-auto mx-auto">
         <Swiper
+          dir="rtl"
           slidesPerView={3}
-          centeredSlides={true}
+          centeredSlides={false}
+          slidesOffsetAfter={50}
+          loop={true}
           spaceBetween={10}
           pagination={{
             type: "fraction",
