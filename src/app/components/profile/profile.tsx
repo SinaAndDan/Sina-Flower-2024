@@ -1,14 +1,77 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { GrFormNext } from "react-icons/gr";
-import { MdKeyboardDoubleArrowDown, MdLock, MdSave } from "react-icons/md";
-import { IoPerson } from "react-icons/io5";
+import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { useRouter } from "next/navigation";
 
 const ProfilePage: React.FC = () => {
+  console.log("ProfilePage component mounted");
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    city: "",
+  });
   const router = useRouter();
+  console.log("ProfilePage component is rendering"); // Add this outside of useEffect
+
+  useEffect(() => {
+    console.log("use efect is running ");
+    const fetchUserProfile = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        console.log("Retrieved token:", token);
+
+        if (!token) {
+          console.log("No token found, redirecting to login...");
+          router.push("/login");
+          return;
+        }
+
+        console.log("Fetching user profile...");
+        const response = await fetch("http://localhost:5000/account/profile", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        console.log("Response status:", response.status);
+        console.log("Response headers:", response.headers);
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch profile data");
+        }
+
+        const contentType = response.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+          const text = await response.text(); // Log the response text for debugging
+          console.error("Response is not JSON. Response text:", text);
+          throw new Error("Response is not JSON");
+        }
+
+        const data = await response.json();
+        console.log("Fetched user data before setting state:", data);
+        setUser(data);
+        localStorage.setItem("userData", JSON.stringify(data));
+      } catch (error) {
+        console.error("Error fetching profile:", error);
+      }
+    };
+
+    const loadUserProfileFromStorage = () => {
+      const storedUserData = localStorage.getItem("userData");
+      console.log("Stored user data from local storage:", storedUserData); // Log stored data
+      if (storedUserData) {
+        setUser(JSON.parse(storedUserData));
+      }
+    };
+
+    fetchUserProfile();
+    loadUserProfileFromStorage();
+  }, []);
+
   const backToAccount = () => {
     router.push("/account");
   };
@@ -52,31 +115,25 @@ const ProfilePage: React.FC = () => {
           <p className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
             نام و نام خانوادگی
           </p>
-          <p className=" text-greenlogIn py-1 ">علی علیزاده</p>
-        </div>
-        <div>
-          <p className="block mb-1 mt-4 text-sm font-medium text-gray-900 dark:text-white">
-            شماره تلفن
-          </p>
-          <p className=" text-greenlogIn py-1 ">۰۹۱۲۱۱۱۱۱۱۱</p>
-        </div>
-        <div>
-          <p className="block mb-1 mt-4 text-sm font-medium text-gray-900 dark:text-white">
-            شهر
-          </p>
-          <p className=" text-greenlogIn py-1 ">تهران</p>
+          <p className=" text-greenlogIn py-1 ">{user.name}</p>
         </div>
         <div>
           <p className="block mb-1 mt-4 text-sm font-medium text-gray-900 dark:text-white">
             ایمیل
           </p>
-          <p className=" text-greenlogIn py-1 ">mmdzare1986@gmail.com</p>
+          <p className=" text-greenlogIn py-1 ">{user.email}</p>
         </div>
         <div>
           <p className="block mb-1 mt-4 text-sm font-medium text-gray-900 dark:text-white">
-            رمز عبور
+            شماره تلفن
           </p>
-          <p className=" text-greenlogIn py-1 ">********</p>
+          <p className=" text-greenlogIn py-1 ">{user.phone || "نا مشخص"}</p>
+        </div>
+        <div>
+          <p className="block mb-1 mt-4 text-sm font-medium text-gray-900 dark:text-white">
+            شهر
+          </p>
+          <p className=" text-greenlogIn py-1 ">{user.city || "تهران"}</p>
         </div>
       </div>
     </div>
