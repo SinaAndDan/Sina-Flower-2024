@@ -55,7 +55,7 @@ const SignInPage: React.FC = () => {
             </div>
             <div className="w-full relative mt-3">
               <input
-                type="text"
+                type="email"
                 className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity	md:h-[40px]"
                 placeholder="ایمیل"
               />
@@ -69,7 +69,7 @@ const SignInPage: React.FC = () => {
             </div>
             <div className="w-full relative mt-3">
               <input
-                type="text"
+                type="password"
                 className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg  active:outline-greenlogIn focus:outline-greenlogIn md:h-[40px]"
                 placeholder="کلمه عبور"
               />

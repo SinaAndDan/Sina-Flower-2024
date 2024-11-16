@@ -36,23 +36,29 @@ const toPersianNumber = (num: number): string => {
 const FlowerCard: React.FC<FlowerCardProps> = ({ flower }) => {
   return (
     <Link href={`/products/${flower.id}`} className="">
-      <GoHeart className="w-7 h-7" />
       <Image
-        className="w-full h-40 object-cover mb-3"
+        className="w-full h-40 md: min-h-[350px] object-cover mb-3 rounded-t-2xl"
         src={flower.picture}
         alt={flower.name}
         width="300"
         height="300"
       />
-      <span className="bg-green text-white rounded-xl text-xs px-5 opacity-70">
-        داخلی
-      </span>
-      <h3 className="text-xl font-semibold font-parastoo">{flower.name}</h3>
-      <div className="flex w-full justify-between items-center content-center">
-        <p className="text-black text-opacity-70 text-sm">فیکوس</p>
-        <p className="text-gray-600 text-xl text-green font-semibold">
-          {toPersianNumber(flower.price)} <span className="text-xs">تومان</span>
-        </p>
+      <div className="flex flex-col justify-between mb-2 px-5">
+        <span className="bg-green text-white rounded-xl text-xs md:text-sm px-5 opacity-70 w-fit">
+          داخلی
+        </span>
+        <h3 className="text-xl md:text-2xl font-semibold font-parastoo text-start flex-grow md:mt-3">
+          {flower.name}
+        </h3>
+        <div className="flex w-full justify-between items-center content-center md:mt-3">
+          <p className="text-black text-opacity-70 text-sm md:text-base">
+            فیکوس
+          </p>
+          <p className="text-gray-600 text-xl text-green font-semibold">
+            {toPersianNumber(flower.price)}
+            <span className="text-xs"> تومان</span>
+          </p>
+        </div>
       </div>
     </Link>
   );
