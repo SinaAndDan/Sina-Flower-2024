@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { IoPerson } from "react-icons/io5";
 import { MdLock } from "react-icons/md";
@@ -9,9 +9,52 @@ import { useRouter } from "next/navigation";
 
 const LogInPage: React.FC = () => {
   const router = useRouter();
+
+  // State to store form data, changed username to email
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form data submitted:", formData);
+
+    try {
+      const res = await fetch("http://localhost:5000/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email, // Send email instead of username
+          password: formData.password,
+        }),
+      });
+
+      const data = await res.json();
+      console.log(data);
+
+      if (res.status === 200) {
+        const token = data.token; // Assuming the token is in data.token
+        localStorage.setItem("token", token); // Store the token in localStorage
+        router.push("/account/profile"); // Redirect to profile page
+      } else {
+        alert("Login failed!");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
+  };
+
   const backToAccount = () => {
     router.push("/account");
   };
+
   return (
     <div className="flex flex-col h-screen">
       <div className="flex flex-col items-center font-sahel image-containerII md:min-h-[40vh] 2xl:min-h-[60vh]">
@@ -29,7 +72,7 @@ const LogInPage: React.FC = () => {
             alt="Header Image"
             objectFit="cover"
             objectPosition="center"
-            className="w-full h-full -z-20 opacity-95 " // Added opacity class
+            className="w-full h-full -z-20 opacity-95"
           />
           <div className="absolute -bottom-1 w-full">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -64,6 +107,9 @@ const LogInPage: React.FC = () => {
                 type="text"
                 className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity md:min-h-[40px] md:text-lg"
                 placeholder="نام کاربری"
+                value={formData.email}
+                onChange={handleChange}
+            
               />
               <div
                 className="absolute inset-y-0 right-2 pl-3  
@@ -77,7 +123,12 @@ const LogInPage: React.FC = () => {
               <input
                 type="text"
                 className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg  active:outline-greenlogIn focus:outline-greenlogIn md:min-h-[40px] md:text-lg"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn"
                 placeholder="کلمه عبور"
+                required
               />
               <div
                 className="absolute inset-y-0 right-2 pl-3  
@@ -92,7 +143,6 @@ const LogInPage: React.FC = () => {
                 <input
                   id="rememberMe"
                   type="checkbox"
-                  value=""
                   className="w-4 h-4 text-green bg-greenlogIn rounded-full accent-greenlogIn"
                 />
                 <label
@@ -105,6 +155,14 @@ const LogInPage: React.FC = () => {
               <p className="text-xs text-greenlogIn font-bold md:text-sm">
                 فراموشی رمز؟
               </p>
+            </div>
+            <div className="w-full px-6 my-8 z-0 mt-auto">
+              <button
+                type="submit"
+                className="w-full bg-greenlogIn text-white py-2 rounded-lg font-yekan"
+              >
+                ورود
+              </button>
             </div>
           </form>
         </div>
@@ -128,6 +186,7 @@ const LogInPage: React.FC = () => {
           </p>
         </div>
       </div>
+
     </div>
   );
 };
