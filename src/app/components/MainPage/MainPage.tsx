@@ -1,8 +1,8 @@
 import React from "react";
 import MobileBottomNav from "./MobileBottomNav";
 import Header from "./Header";
-import MainBody from "./MainBody";
 import PcNav from "./PcNav";
+import MainBody from "./MainBody";
 
 const MainPage = () => {
   return (

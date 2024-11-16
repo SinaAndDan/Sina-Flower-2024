@@ -103,10 +103,8 @@ const SignInPage: React.FC = () => {
             </div>
             <div className="w-full relative mt-3">
               <input
-                type="text"
-                className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity	md:h-[40px]"
                 type="email"
-                name="email"
+                className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity	md:h-[40px]"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="ایمیل"
@@ -124,7 +122,6 @@ const SignInPage: React.FC = () => {
               <input
                 className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg  active:outline-greenlogIn focus:outline-greenlogIn md:h-[40px]"
                 type="password"
-                name="password"
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="کلمه عبور"
@@ -143,9 +140,7 @@ const SignInPage: React.FC = () => {
                 ثبت نام
               </button>
             </div>
-            <div className="flex justify-between mt-2 md:mt-5">
-           
-            </div>
+            <div className="flex justify-between mt-2 md:mt-5"></div>
             {message && (
               <div className="mt-3 text-center text-red-600">{message}</div>
             )}
