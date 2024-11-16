@@ -109,7 +109,6 @@ const LogInPage: React.FC = () => {
                 placeholder="نام کاربری"
                 value={formData.email}
                 onChange={handleChange}
-            
               />
               <div
                 className="absolute inset-y-0 right-2 pl-3  
@@ -126,7 +125,6 @@ const LogInPage: React.FC = () => {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn"
                 placeholder="کلمه عبور"
                 required
               />
@@ -186,7 +184,6 @@ const LogInPage: React.FC = () => {
           </p>
         </div>
       </div>
-
     </div>
   );
 };
