@@ -1,16 +1,23 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import MobileBottomNav from "./MobileBottomNav";
 import Header from "./Header";
 import PcNav from "./PcNav";
 import MainBody from "./MainBody";
 
 const MainPage = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string>("پیشنهادی");
+  console.log(selectedCategory);
   return (
     <>
       <PcNav />
       <div className="flex">
-        <Header />
-        <MainBody />
+        <Header
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+        <MainBody selectedCategory={selectedCategory} />
       </div>
       <MobileBottomNav />
     </>

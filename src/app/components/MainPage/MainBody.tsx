@@ -25,7 +25,11 @@ interface Plant {
   height: number;
 }
 
-const MainBodyPc: React.FC = () => {
+type SelectedCategoryProps = {
+  selectedCategory: string;
+};
+
+const MainBodyPc: React.FC<SelectedCategoryProps> = ({ selectedCategory }) => {
   const [plants, setPlants] = useState<Plant[]>([]);
 
   useEffect(() => {
@@ -40,6 +44,7 @@ const MainBodyPc: React.FC = () => {
     };
     fetchPlants();
   }, []);
+
   return (
     <>
       <div className="bg-gray md:block flex-1 hidden">
@@ -132,11 +137,13 @@ const MainBodyPc: React.FC = () => {
         <div className="flex justify-end pt-12 px-6">
           <IoSearch className="w-8 h-8 text-black text-opacity-80" />
         </div>
-        <h2 className="text-4xl px-6 mt-12 font-extrabold">پیشنهادی</h2>
+        <h2 className="text-4xl px-6 mt-12 font-extrabold">
+          {selectedCategory}
+        </h2>
         <div className="grid sm:grid-cols-2 items-center justify-center mt-12 mb-32">
           {plants.map((flower, id) => (
             <div
-              className="bg-white rounded-2xl m-5 min-h-[300px] p-5 w-fit"
+              className="bg-white rounded-2xl m-5 min-h-[300px]  w-fit"
               key={id}
             >
               <FlowerCard flower={flower} />

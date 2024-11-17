@@ -44,7 +44,7 @@ const FlowerCard: React.FC<FlowerCardProps> = ({ flower }) => {
         height="300"
       />
       <div className="flex flex-col justify-between mb-2 px-5">
-        <span className="bg-green text-white rounded-xl text-xs md:text-sm px-5 opacity-70 w-fit">
+        <span className="bg-green text-white rounded-xl md:rounded-2xl text-xs md:text-sm px-5 py-1 opacity-70 w-fit">
           داخلی
         </span>
         <h3 className="text-xl md:text-2xl font-semibold font-parastoo text-start flex-grow md:mt-3">
