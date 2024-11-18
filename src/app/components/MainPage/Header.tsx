@@ -22,7 +22,7 @@ const Header: React.FC<CategoryProps> = ({
             onClick={() => setSelectedCategory("پیشنهادی")}
           >
             <span
-              className={`absolute w-3 h-10 bg-green rounded-3xl -right-1.5 top-1/2 -translate-y-1/2 ${
+              className={`absolute w-3 h-10 bg-gradient-to-t from-[#0f4a1e] via-[#1f7853] to-[#1e8e63] rounded-3xl -right-1.5 top-1/2 -translate-y-1/2 ${
                 selectedCategory === "پیشنهادی" ? "" : "hidden"
               }`}
             ></span>
@@ -39,7 +39,7 @@ const Header: React.FC<CategoryProps> = ({
             onClick={() => setSelectedCategory("فیکوس")}
           >
             <span
-              className={`absolute w-3 h-10 bg-green rounded-3xl -right-1.5 top-1/2 -translate-y-1/2 ${
+              className={`absolute w-3 h-10 bg-gradient-to-t from-[#0f4a1e] via-[#1f7853] to-[#1e8e63] rounded-3xl -right-1.5 top-1/2 -translate-y-1/2 ${
                 selectedCategory === "فیکوس" ? "" : "hidden"
               }`}
             ></span>
@@ -56,7 +56,7 @@ const Header: React.FC<CategoryProps> = ({
             onClick={() => setSelectedCategory("کاکتوس")}
           >
             <span
-              className={`absolute w-3 h-10 bg-green rounded-3xl -right-1.5 top-1/2 -translate-y-1/2 ${
+              className={`absolute w-3 h-10 bg-gradient-to-t from-[#0f4a1e] via-[#1f7853] to-[#1e8e63] rounded-3xl -right-1.5 top-1/2 -translate-y-1/2 ${
                 selectedCategory === "کاکتوس" ? "" : "hidden"
               }`}
             ></span>

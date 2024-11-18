@@ -75,7 +75,7 @@ const SignInPage: React.FC = () => {
           className="-z-20 absolute left-0 sm:w-40 sm:h-40"
           priority={true} // Optional: Loads the image with high priority
         />
-        <div className="flex flex-col mx-2 container md:max-w-[60vw] xl:max-w-[50vw] sm:mx-auto items-center">
+        <div className="flex flex-col container md:max-w-[60vw] xl:max-w-[50vw] sm:mx-auto items-center">
           <div className="text-greenlogIn text-2xl mt-10 font-sahel pl-16 sm:pl-0">
             ثبت نام
           </div>
@@ -83,7 +83,7 @@ const SignInPage: React.FC = () => {
             حساب جدید بسازید
           </p>
           <form className="font-yekan w-full px-6" onSubmit={handleSubmit}>
-            <div className="w-full relative mt-20">
+            <div className="w-full relative mt-20 lg:max-w-[70%] 2xl:max-w-[50%] mx-auto">
               <input
                 type="text"
                 className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity md:h-[40px]"
@@ -101,7 +101,7 @@ const SignInPage: React.FC = () => {
                 <IoPerson className="text-greenlogIn" />
               </div>
             </div>
-            <div className="w-full relative mt-3">
+            <div className="w-full relative mt-3 lg:max-w-[70%] 2xl:max-w-[50%] mx-auto">
               <input
                 type="email"
                 className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity	md:h-[40px]"
@@ -118,7 +118,7 @@ const SignInPage: React.FC = () => {
                 <MdMail className="text-greenlogIn" />
               </div>
             </div>
-            <div className="w-full relative mt-3">
+            <div className="w-full relative mt-3 lg:max-w-[70%] 2xl:max-w-[50%] mx-auto">
               <input
                 className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg  active:outline-greenlogIn focus:outline-greenlogIn md:h-[40px]"
                 type="password"
@@ -135,8 +135,8 @@ const SignInPage: React.FC = () => {
                 <MdLock className="text-greenlogIn" />
               </div>
             </div>
-            <div className="flex flex-col w-full px-6 mt-3 md:mt-6">
-              <button className="w-full bg-greenlogIn text-white py-2 rounded-3xl font-yekan md:h-[40px]">
+            <div className="flex flex-col w-full mt-5 md:mt-10 lg:max-w-[70%] 2xl:max-w-[50%] mx-auto">
+              <button className="w-full bg-gradient-to-t from-[#0f4a1e] via-[#1f7853] to-[#1e8e63] text-white py-2 rounded-3xl font-yekan md:h-[40px]">
                 ثبت نام
               </button>
             </div>
@@ -144,7 +144,7 @@ const SignInPage: React.FC = () => {
             {message && (
               <div className="mt-3 text-center text-red-600">{message}</div>
             )}
-            <div className="flex justify-between mt-2">
+            <div className="flex justify-between mt-5 lg:max-w-[70%] 2xl:max-w-[50%] mx-auto">
               <div className="flex items-center">
                 <input
                   id="rememberMe"

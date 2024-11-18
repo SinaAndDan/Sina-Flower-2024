@@ -37,26 +37,26 @@ const FlowerCard: React.FC<FlowerCardProps> = ({ flower }) => {
   return (
     <Link href={`/products/${flower.id}`} className="">
       <Image
-        className="w-full h-40 md: min-h-[350px] object-cover mb-3 rounded-t-2xl"
+        className="w-full h-auto object-cover mb-3 rounded-t-2xl"
         src={flower.picture}
         alt={flower.name}
         width="300"
         height="300"
       />
       <div className="flex flex-col justify-between mb-2 px-5">
-        <span className="bg-green text-white rounded-xl md:rounded-2xl text-xs md:text-sm px-5 py-1 opacity-70 w-fit">
+        <span className="bg-gradient-to-t from-[#0f4a1e] via-[#1f7853] to-[#1e8e63] text-white rounded-xl md:rounded-2xl text-xs md:text-sm px-5 py-1 opacity-70 w-fit">
           داخلی
         </span>
-        <h3 className="text-xl md:text-2xl font-semibold font-parastoo text-start flex-grow md:mt-3">
+        <h3 className="text-xl lg:text-2xl font-semibold font-parastoo text-start flex-grow mt-3 text-nowrap">
           {flower.name}
         </h3>
-        <div className="flex w-full justify-between items-center content-center md:mt-3">
+        <div className="flex w-full justify-between items-center content-center mt-3">
           <p className="text-black text-opacity-70 text-sm md:text-base">
             فیکوس
           </p>
           <p className="text-gray-600 text-xl text-green font-semibold">
             {toPersianNumber(flower.price)}
-            <span className="text-xs"> تومان</span>
+            <span className="text-xs "> تومان</span>
           </p>
         </div>
       </div>

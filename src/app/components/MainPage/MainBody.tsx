@@ -48,7 +48,7 @@ const MainBodyPc: React.FC<SelectedCategoryProps> = ({ selectedCategory }) => {
   return (
     <>
       <div className="bg-gray md:block flex-1 hidden">
-        <div className="flex justify-end pt-12 px-6">
+        <div className="flex justify-end pt-12 px-6 md:hidden">
           <IoSearch className="w-8 h-8 text-black text-opacity-80" />
         </div>
         <h2 className="text-4xl px-6 mt-12 font-extrabold">پیشنهادی</h2>
@@ -61,6 +61,11 @@ const MainBodyPc: React.FC<SelectedCategoryProps> = ({ selectedCategory }) => {
             slidesOffsetAfter={50}
             loop={true}
             spaceBetween={10}
+            breakpoints={{
+              1024: { slidesPerView: 4 },
+              1280: { slidesPerView: 5 },
+              1536: { slidesPerView: 6 },
+            }}
             pagination={{
               type: "fraction",
             }}
@@ -88,6 +93,11 @@ const MainBodyPc: React.FC<SelectedCategoryProps> = ({ selectedCategory }) => {
             slidesOffsetAfter={50}
             loop={true}
             spaceBetween={10}
+            breakpoints={{
+              1024: { slidesPerView: 4 },
+              1280: { slidesPerView: 5 },
+              1536: { slidesPerView: 6 },
+            }}
             pagination={{
               type: "fraction",
             }}
@@ -115,6 +125,11 @@ const MainBodyPc: React.FC<SelectedCategoryProps> = ({ selectedCategory }) => {
             slidesOffsetAfter={50}
             loop={true}
             spaceBetween={10}
+            breakpoints={{
+              1024: { slidesPerView: 4 },
+              1280: { slidesPerView: 5 },
+              1536: { slidesPerView: 6 },
+            }}
             pagination={{
               type: "fraction",
             }}
@@ -140,7 +155,7 @@ const MainBodyPc: React.FC<SelectedCategoryProps> = ({ selectedCategory }) => {
         <h2 className="text-4xl px-6 mt-12 font-extrabold">
           {selectedCategory}
         </h2>
-        <div className="grid sm:grid-cols-2 items-center justify-center mt-12 mb-32">
+        <div className="grid sm:grid-cols-2 items-center justify-center mt-8 mb-32">
           {plants.map((flower, id) => (
             <div
               className="bg-white rounded-2xl m-5 min-h-[300px]  w-fit"

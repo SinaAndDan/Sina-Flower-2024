@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { FiSearch } from "react-icons/fi";
 import { GoPerson } from "react-icons/go";
+import { IoSearch } from "react-icons/io5";
 
 const PcNav: React.FC = () => {
   return (
@@ -25,16 +26,7 @@ const PcNav: React.FC = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                aria-current="page"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                className="block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0  md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 مورد علاقه ها
               </a>
@@ -42,7 +34,7 @@ const PcNav: React.FC = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                className="block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0  "
               >
                 سبد خرید
               </a>
@@ -50,7 +42,7 @@ const PcNav: React.FC = () => {
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                className="block py-2 px-3 text-black rounded md:hover:bg-transparent md:border-0 md:p-0  md:dark:hover:bg-transparent"
               >
                 دسته بندی
               </a>
@@ -61,7 +53,10 @@ const PcNav: React.FC = () => {
         {/* Separate ثبت نام at the end */}
         <div>
           <ul className="font-medium flex p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <li className=" bg-greenlogIn text-white rounded-2xl py-2 px-6">
+            <li className="flex items-center justify-center mx-4">
+              <IoSearch className="w-6 h-6 text-black text-opacity-80" />
+            </li>
+            <li className=" bg-gradient-to-t from-[#0f4a1e] via-[#1f7853] to-[#1e8e63] text-white rounded-2xl py-2 px-6">
               <a
                 href="#"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"

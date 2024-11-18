@@ -91,7 +91,7 @@ const LogInPage: React.FC = () => {
           height={150}
           src="/sideimgVI.png"
           alt="Full Screen Image"
-          className="-z-20 absolute left-0 md:min-w-[200px] min-h-[200px]"
+          className="-z-20 absolute left-0 md:min-w-[200px] md:min-h-[200px] xl:w-auto xl:h-auto"
           priority={true} // Optional: Loads the image with high priority
         />
         <div className="flex flex-col px-2 items-center container mx-auto xl:-translate-y-28">
@@ -102,7 +102,7 @@ const LogInPage: React.FC = () => {
             به حساب خود وارد شوید
           </p>
           <form className="font-yekan w-full px-6 md:max-w-[55%] lg:max-w-[40%] mx-auto">
-            <div className="w-full relative mt-20">
+            <div className="w-full relative mt-20 2xl:mt-10">
               <input
                 type="text"
                 className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity md:min-h-[40px] md:text-lg"
@@ -154,14 +154,6 @@ const LogInPage: React.FC = () => {
                 فراموشی رمز؟
               </p>
             </div>
-            <div className="w-full px-6 my-8 z-0 mt-auto">
-              <button
-                type="submit"
-                className="w-full bg-greenlogIn text-white py-2 rounded-lg font-yekan"
-              >
-                ورود
-              </button>
-            </div>
           </form>
         </div>
       </section>
@@ -169,7 +161,7 @@ const LogInPage: React.FC = () => {
         <div className="w-full px-6 my-8 z-0 md:max-w-[55%] lg:max-w-[40%] mx-auto">
           <button
             type="submit"
-            className="w-full bg-greenlogIn text-white py-2 rounded-lg font-yekan"
+            className="w-full bg-gradient-to-t from-[#0f4a1e] via-[#1f7853] to-[#1e8e63] text-white py-2 rounded-lg font-yekan"
           >
             ورود
           </button>
