@@ -44,7 +44,7 @@ const FlowerCard: React.FC<FlowerCardProps> = ({ flower }) => {
         height="300"
       />
       <div className="flex flex-col justify-between mb-2 px-5">
-        <span className="bg-gradient-to-t from-[#0f4a1e] via-[#1f7853] to-[#1e8e63] text-white rounded-xl md:rounded-2xl text-xs md:text-sm px-5 py-1 opacity-70 w-fit">
+        <span className="bg-gradient-to-tl from-[#004d00] to-[#00a86b] text-white rounded-xl md:rounded-2xl text-xs md:text-sm px-5 py-1 w-fit">
           داخلی
         </span>
         <h3 className="text-xl lg:text-2xl font-semibold font-parastoo text-start flex-grow mt-3 text-nowrap">
@@ -54,7 +54,7 @@ const FlowerCard: React.FC<FlowerCardProps> = ({ flower }) => {
           <p className="text-black text-opacity-70 text-sm md:text-base">
             فیکوس
           </p>
-          <p className="text-gray-600 text-xl text-green font-semibold">
+          <p className="text-xl text-green font-semibold">
             {toPersianNumber(flower.price)}
             <span className="text-xs "> تومان</span>
           </p>

@@ -8,7 +8,6 @@ import MainBody from "./MainBody";
 
 const MainPage = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("پیشنهادی");
-  console.log(selectedCategory);
   return (
     <>
       <PcNav />

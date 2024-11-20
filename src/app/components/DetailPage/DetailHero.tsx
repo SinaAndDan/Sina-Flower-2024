@@ -22,7 +22,7 @@ const DetailHero: React.FC<{ selectedProduct: Plant | null }> = ({
     router.push("/");
   };
   return (
-    <div className="container mx-auto sm:px-0 w-full bg-bgpic relative notched-corner">
+    <div className="container mx-auto sm:px-0 w-full bg-[#C4BDB2] relative notched-corner">
       <div className="w-full content-notch">
         <div className="pt-4">
           <IoArrowForward
@@ -65,7 +65,7 @@ const DetailHero: React.FC<{ selectedProduct: Plant | null }> = ({
             height={300}
             src={selectedProduct?.picture || "/ficus.png"}
             alt="هیجی"
-            className="w-[80%] saturate-150 shadow-gray image-shadow"
+            className="w-full"
             layout="'intrinsic"
           />
         </div>
