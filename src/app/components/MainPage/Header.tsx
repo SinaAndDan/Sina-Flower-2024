@@ -1,6 +1,7 @@
 "use client";
 
 import { BiCategory } from "react-icons/bi";
+import { motion } from "framer-motion";
 
 type CategoryProps = {
   selectedCategory: string;
@@ -21,11 +22,16 @@ const Header: React.FC<CategoryProps> = ({
             className="flex relative"
             onClick={() => setSelectedCategory("پیشنهادی")}
           >
-            <span
+            <motion.span
               className={`absolute w-3 h-10 bg-gradient-to-t from-[#0f4a1e] via-[#1f7853] to-[#1e8e63] rounded-3xl -right-1.5 top-1/2 -translate-y-1/2 ${
                 selectedCategory === "پیشنهادی" ? "" : "hidden"
               }`}
-            ></span>
+              animate={{
+                opacity: selectedCategory === "پیشنهادی" ? 20 : 0,
+                y: selectedCategory === "پیشنهادی" ? -20 : 100,
+              }}
+              transition={{ duration: 0.3 }}
+            ></motion.span>
             <div
               className={`rotate-90 text-black font-extrabold ${
                 selectedCategory === "پیشنهادی" ? "" : "text-opacity-50"
@@ -38,11 +44,22 @@ const Header: React.FC<CategoryProps> = ({
             className="flex relative mt-20"
             onClick={() => setSelectedCategory("فیکوس")}
           >
-            <span
+            <motion.span
               className={`absolute w-3 h-10 bg-gradient-to-t from-[#0f4a1e] via-[#1f7853] to-[#1e8e63] rounded-3xl -right-1.5 top-1/2 -translate-y-1/2 ${
                 selectedCategory === "فیکوس" ? "" : "hidden"
               }`}
-            ></span>
+              animate={{
+                opacity: selectedCategory === "فیکوس" ? 1 : 0,
+                y:
+                  selectedCategory === "فیکوس"
+                    ? -20
+                    : selectedCategory === "کاکتوس" // Check for previous category
+                    ? 100 // If coming from the bottom button
+                    : -100, // If coming from the top button
+              }}
+              transition={{ duration: 0.3 }}
+            ></motion.span>
+
             <div
               className={`rotate-90 text-black font-extrabold ${
                 selectedCategory === "فیکوس" ? "" : "text-opacity-50"
@@ -55,11 +72,16 @@ const Header: React.FC<CategoryProps> = ({
             className="flex relative mt-20"
             onClick={() => setSelectedCategory("کاکتوس")}
           >
-            <span
+            <motion.span
               className={`absolute w-3 h-10 bg-gradient-to-t from-[#0f4a1e] via-[#1f7853] to-[#1e8e63] rounded-3xl -right-1.5 top-1/2 -translate-y-1/2 ${
                 selectedCategory === "کاکتوس" ? "" : "hidden"
               }`}
-            ></span>
+              animate={{
+                opacity: selectedCategory === "کاکتوس" ? 1 : 0,
+                y: selectedCategory === "کاکتوس" ? -20 : -100,
+              }}
+              transition={{ duration: 0.3 }}
+            ></motion.span>
             <div
               className={`rotate-90 text-black font-extrabold ${
                 selectedCategory === "کاکتوس" ? "" : "text-opacity-50"
