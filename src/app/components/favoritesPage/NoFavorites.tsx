@@ -29,7 +29,7 @@ const NoFavorites: React.FC = () => {
           </svg>
         </i>
         <p className="text-lg font-bold">لیست مورد علاقه خالی می باشد</p>
-        <p className="text-black text-opacity-60 mt-2 font-medium">
+        <p className="text-black text-opacity-60 mt-2 font-medium px-5">
           گل مورد علاقه خود را جست و جو و به لیست موردعلاقه ها اضافه کنید
         </p>
       </div>

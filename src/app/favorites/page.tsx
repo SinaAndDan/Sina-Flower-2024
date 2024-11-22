@@ -51,29 +51,30 @@ const Favorites: React.FC = () => {
         <div className="flex justify-end pt-12 px-6">
           <IoSearch className="w-8 h-8 text-black text-opacity-80 md:hidden" />
         </div>
-        <h2 className="text-4xl mt-12 font-extrabold sm:max-w-[90%] sm:mx-auto mx-2">
-          مورد علاقه ها
-        </h2>
         {favorites.length === 0 ? (
           <NoFavorites />
         ) : (
-          <div className="flex flex-col lg:grid grid-cols-2 2xl:grid-cols-3 gap-5 sm:gap-x-16 xl:gap-x-20 items-center justify-center mt-8 mb-32 mx-2 max-w-[90%] sm:mx-auto">
-            <AnimatePresence>
-              {favorites.map((flower) => (
-                <motion.div
-                  animate={{ scale: 1 }} // target size (normal size)
-                  exit={{ scale: 0 }} // scale down when removed
-                  transition={{ duration: 0.5 }}
-                  className="bg-white rounded-3xl w-full h-32 md:h-36 lg:h-40"
-                  key={flower.id}
-                >
-                  <FavoriteCard
-                    flower={flower}
-                    onRemove={() => removeFavorite(flower.id)}
-                  />
-                </motion.div>
-              ))}
-            </AnimatePresence>
+          <div className="sm:max-w-[90%] sm:mx-auto mx-2">
+            <h2 className="text-4xl mt-12 font-extrabold ">مورد علاقه ها</h2>
+            <div className="flex flex-col lg:grid grid-cols-2 2xl:grid-cols-3 gap-5 sm:gap-x-16 xl:gap-x-20 items-center justify-center mt-8 mb-32">
+              <AnimatePresence>
+                {favorites.map((flower) => (
+                  <motion.div
+                    initial={{ scale: 0 }} // start scaled down
+                    animate={{ scale: 1 }} // target size (normal size)
+                    exit={{ scale: 0 }} // scale down when removed
+                    transition={{ duration: 0.5 }}
+                    className="bg-white rounded-3xl w-full h-32 md:h-36 lg:h-40"
+                    key={flower.id}
+                  >
+                    <FavoriteCard
+                      flower={flower}
+                      onRemove={() => removeFavorite(flower.id)}
+                    />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
           </div>
         )}
       </div>

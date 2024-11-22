@@ -2,10 +2,10 @@ import React from "react";
 
 const AddToCartButton: React.FC = () => {
   return (
-    <div className="px-4 fixed bottom-4 w-full container mx-auto z-20">
+    <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-full z-20 px-4 container">
       <button
         type="button"
-        className="text-white bg-gradient-to-t from-[#0f4a1e] via-[#1f7853] to-[#1e8e63] hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm py-4 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 w-full"
+        className="text-white bg-gradient-to-tl from-[#004d00] to-[#00a86b] hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm py-4 text-center w-full"
       >
         اضافه به سبد
       </button>

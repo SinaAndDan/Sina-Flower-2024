@@ -6,10 +6,10 @@ import { TiWeatherSunny } from "react-icons/ti";
 
 const Maintaining: React.FC = () => {
   return (
-    <div className="grid grid-cols-2 gap-4 px-4 my-8">
+    <div className="grid grid-cols-2 gap-4 my-8">
       <div className="flex items-center">
-        <div className="w-fit p-1 rounded-2xl">
-          <TiWeatherSunny className="sm:w-12 sm:h-12 w-8 h-8 text-darkGray" />
+        <div className="w-fit p-1 rounded-2xl bg-gradient-to-tl from-[#004d00] to-[#00a86b]">
+          <TiWeatherSunny className="sm:w-12 sm:h-12 w-8 h-8 text-white" />
         </div>
         <div className="flex flex-col px-3 text-sm sm:text-base">
           <p className="text-green font-bold lg:text-2xl">۳۲٪</p>
@@ -17,8 +17,8 @@ const Maintaining: React.FC = () => {
         </div>
       </div>
       <div className="flex items-center">
-        <div className="w-fit p-1 rounded-2xl">
-          <PiHeartbeatLight className="sm:w-12 sm:h-12 w-8 h-8 text-darkGray" />
+        <div className="w-fit p-1 rounded-2xl bg-gradient-to-tl from-[#004d00] to-[#00a86b]">
+          <PiHeartbeatLight className="sm:w-12 sm:h-12 w-8 h-8 text-white" />
         </div>
         <div className="flex flex-col px-3 text-sm sm:text-base">
           <p className="text-green font-bold lg:text-2xl">۹۶٪</p>
@@ -26,8 +26,8 @@ const Maintaining: React.FC = () => {
         </div>
       </div>
       <div className="flex items-center">
-        <div className="w-fit p-1 rounded-2xl flex items-center">
-          <CiTempHigh className="sm:w-12 sm:h-12 w-8 h-8 text-darkGray" />
+        <div className="w-fit p-1 rounded-2xl flex items-center bg-gradient-to-tl from-[#004d00] to-[#00a86b]">
+          <CiTempHigh className="sm:w-12 sm:h-12 w-8 h-8 text-white" />
         </div>
         <div className="flex flex-col px-3 text-sm sm:text-base">
           <p className="text-green font-bold lg:text-2xl">℃ ۲۳</p>
@@ -35,8 +35,8 @@ const Maintaining: React.FC = () => {
         </div>
       </div>
       <div className="flex items-center">
-        <div className="w-fit p-1 rounded-2xl">
-          <MdOutlineWaterDrop className="sm:w-12 sm:h-12 w-8 h-8 text-darkGray" />
+        <div className="w-fit p-1 rounded-2xl bg-gradient-to-tl from-[#004d00] to-[#00a86b]">
+          <MdOutlineWaterDrop className="sm:w-12 sm:h-12 w-8 h-8 text-white" />
         </div>
         <div className="flex flex-col px-3 text-sm sm:text-base">
           <p className="text-green font-bold lg:text-2xl">۵۲٪</p>

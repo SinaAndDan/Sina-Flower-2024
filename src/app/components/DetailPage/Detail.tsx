@@ -23,7 +23,7 @@ interface Plant {
 const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const [value, setValue] = useState<string>("");
-  const [about, setAbout] = useState<boolean | null>(false);
+  const [about, setAbout] = useState<boolean | null>(true);
   const [liked, setIsLiked] = useState<boolean | null>(false);
   const [disliked, setIsDisLiked] = useState<boolean | null>(false);
   const [isReply, setIsReply] = useState<boolean | null>(false);
@@ -94,21 +94,13 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
   return (
     <div className="font-yekan w-full">
       <DetailHero selectedProduct={selectedProduct} />
-      <div className="container mx-auto sm:px-0 px-2">
-        <h6 className="mt-3 px-8 font-semibold sm:text-xl">
-          لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-        </h6>
+      <section className="container mx-auto sm:px-0 px-4 mt-5">
+        <div className="flex items-center justify-between">
+          <h5 className="text-2xl">{selectedProduct?.name}</h5>
+          <p className="text-black text-opacity-60">(۴ نظر)</p>
+        </div>
         <Maintaining />
-        <AddToCartButton />
         <div className="flex justify-center items-center">
-          <a
-            className={`pl-3 border-l-2 border-darkGray border-opacity-40 text-xl cursor-pointer transition ease-in delay-75 ${
-              !about && "text-green"
-            }`}
-            onClick={switchToCmsHandler}
-          >
-            نظرات
-          </a>
           <a
             className={`pr-3 transition ease-in delay-75 ${
               about && "text-green"
@@ -128,7 +120,6 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
           onReply={replyHandler}
           isReply={isReply}
         />
-
         {isReply && (
           <div className="ml-28 flex" ref={bottomRef}>
             <textarea
@@ -143,7 +134,8 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
             <MdOutlineSend className="h-12 w-12 rotate-180	text-green bg-gray p-2" />
           </div>
         )}
-      </div>
+        <AddToCartButton />
+      </section>
     </div>
   );
 };
