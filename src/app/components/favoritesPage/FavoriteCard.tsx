@@ -17,34 +17,34 @@ interface FlowerCardProps {
 
 const FavoriteCard: React.FC<FlowerCardProps> = ({ flower }) => {
   return (
-    <div className="flex items-start h-full w-full relative">
+    <div className="flex items-start h-fit w-full relative">
       {/* Image container on the left */}
-      <div className="flex-shrink-0 flex-grow-0 my-auto">
+      <div className="flex-shrink-0 my-auto">
         <Image
           width={100}
           height={100}
           src={flower.picture}
           alt="favorite"
-          className="rounded-t-2xl object-cover w-32 h-32 md:h-36 lg:w-40 lg:h-40 translate-x-1/3"
+          className="rounded-tr-2xl object-cover w-24 h-32 md:h-36 lg:w-32 lg:h-40"
         />
       </div>
 
       {/* Text container on the right */}
-      <div className="translate-x-[15%] mt-4 text-sm font-parastoo">
-        <p className="text-lg md:text-2xl font-bold">{flower.name}</p>
+      <div className="mt-4 text-sm font-parastoo px-5">
+        <p className="text-lg lg:text-2xl font-bold">{flower.name}</p>
         <p className="text-black text-opacity-60 mt-2 font-yekan lg:text-lg">
           مناسب برای تمام فصل ها
         </p>
-        <div className="flex items-center space-x-5 mt-5">
+        <div className="flex items-center mt-5">
           <div className="flex items-center space-x-3">
-            <TiWeatherSunny className="sm:w-8 sm:h-8 w-5 h-5 text-darkGray mx-1" />
-            <p className="font-yekan text-black text-opacity-70 text-nowrap">
+            <TiWeatherSunny className="lg:w-8 lg:h-8 w-5 h-5 text-darkGray" />
+            <p className="font-yekan text-black text-opacity-70 text-nowrap px-1">
               نیاز به آفتاب
             </p>
           </div>
           <div className="flex items-center">
-            <PiHeartbeatLight className="sm:w-8 sm:h-8 w-5 h-5 text-darkGray mx-1" />
-            <p className="font-yekan text-black text-opacity-70 text-nowrap">
+            <PiHeartbeatLight className="lg:w-8 lg:h-8 w-5 h-5 text-darkGray" />
+            <p className="font-yekan text-black text-opacity-70 text-nowrap mx-1">
               نیاز به نور
             </p>
           </div>
