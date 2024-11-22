@@ -39,10 +39,10 @@ const Favorites: React.FC = () => {
         <div className="flex justify-end pt-12 px-6">
           <IoSearch className="w-8 h-8 text-black text-opacity-80 md:hidden" />
         </div>
-        <h2 className="text-4xl mt-12 font-extrabold md:max-w-[92%] mr-auto">
+        <h2 className="text-4xl mt-12 font-extrabold sm:max-w-[90%] sm:mx-auto mx-2">
           مورد علاقه ها
         </h2>
-        <div className="flex flex-col md:grid grid-cols-2 2xl:grid-cols-3 gap-5 sm:gap-x-16 xl:gap-x-20 items-center justify-center mt-8 mb-32 mx-2 max-w-[90%] mr-auto">
+        <div className="flex flex-col lg:grid grid-cols-2 2xl:grid-cols-3 gap-5 sm:gap-x-16 xl:gap-x-20 items-center justify-center mt-8 mb-32 mx-2 max-w-[90%] sm:mx-auto">
           {plants.map((flower, id) => (
             <div
               className="bg-white rounded-3xl w-full h-32 md:h-36 lg:h-40"

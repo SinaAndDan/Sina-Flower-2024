@@ -30,20 +30,24 @@ const FavoriteCard: React.FC<FlowerCardProps> = ({ flower }) => {
       </div>
 
       {/* Text container on the right */}
-      <div className="mt-4 text-sm font-parastoo px-5">
+      <div className="mt-4 text-sm font-parastoo pr-5">
         <p className="text-lg lg:text-2xl font-bold">{flower.name}</p>
         <p className="text-black text-opacity-60 mt-2 font-yekan lg:text-lg">
           مناسب برای تمام فصل ها
         </p>
         <div className="flex items-center mt-5">
           <div className="flex items-center space-x-3">
-            <TiWeatherSunny className="lg:w-8 lg:h-8 w-5 h-5 text-darkGray" />
+            <i className="bg-[#064e3b] rounded-full lg:w-8 lg:h-8 w-7 h-7 flex items-center justify-center">
+              <TiWeatherSunny className="lg:w-6 lg:h-6 w-5 h-5 text-white" />
+            </i>
             <p className="font-yekan text-black text-opacity-70 text-nowrap px-1">
               نیاز به آفتاب
             </p>
           </div>
           <div className="flex items-center">
-            <PiHeartbeatLight className="lg:w-8 lg:h-8 w-5 h-5 text-darkGray" />
+            <i className="bg-[#064e3b] rounded-full lg:w-8 lg:h-8 w-7 h-7 flex items-center justify-center">
+              <PiHeartbeatLight className="lg:w-6 lg:h-6 w-5 h-5 text-white" />
+            </i>
             <p className="font-yekan text-black text-opacity-70 text-nowrap mx-1">
               نیاز به نور
             </p>
