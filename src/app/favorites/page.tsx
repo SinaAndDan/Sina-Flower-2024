@@ -7,6 +7,8 @@ import { supabase } from "../../../lib/supabaseClient";
 import Header from "../components/MainPage/Header";
 import FavoriteCard from "../components/favoritesPage/FavoriteCard";
 import MobileBottomNav from "../components/MainPage/MobileBottomNav";
+import { AnimatePresence, motion } from "motion/react";
+import NoFavorites from "../components/favoritesPage/NoFavorites";
 
 interface Plant {
   id: string;
@@ -18,20 +20,30 @@ interface Plant {
 }
 
 const Favorites: React.FC = () => {
-  const [plants, setPlants] = useState<Plant[]>([]);
+  const [favorites, setFavorites] = useState<Plant[]>([]);
 
   useEffect(() => {
-    const fetchPlants = async () => {
-      const { data, error } = await supabase.from("plants").select("*");
+    const fetchFavorites = async () => {
+      const { data, error } = await supabase
+        .from("plants")
+        .select("*")
+        .eq("favorite", true);
 
       if (error) {
         console.error("Error fetching plants:", error);
+        setFavorites([]);
       } else {
-        setPlants(data as Plant[]);
+        setFavorites(data || []);
       }
     };
-    fetchPlants();
+    fetchFavorites();
   }, []);
+
+  const removeFavorite = (id: string) => {
+    setFavorites((prevFavorites) =>
+      prevFavorites.filter((flower) => flower.id !== id)
+    );
+  };
   return (
     <>
       <PcNav />
@@ -42,16 +54,28 @@ const Favorites: React.FC = () => {
         <h2 className="text-4xl mt-12 font-extrabold sm:max-w-[90%] sm:mx-auto mx-2">
           مورد علاقه ها
         </h2>
-        <div className="flex flex-col lg:grid grid-cols-2 2xl:grid-cols-3 gap-5 sm:gap-x-16 xl:gap-x-20 items-center justify-center mt-8 mb-32 mx-2 max-w-[90%] sm:mx-auto">
-          {plants.map((flower, id) => (
-            <div
-              className="bg-white rounded-3xl w-full h-32 md:h-36 lg:h-40"
-              key={id}
-            >
-              <FavoriteCard flower={flower} key={id} />
-            </div>
-          ))}
-        </div>
+        {favorites.length === 0 ? (
+          <NoFavorites />
+        ) : (
+          <div className="flex flex-col lg:grid grid-cols-2 2xl:grid-cols-3 gap-5 sm:gap-x-16 xl:gap-x-20 items-center justify-center mt-8 mb-32 mx-2 max-w-[90%] sm:mx-auto">
+            <AnimatePresence>
+              {favorites.map((flower) => (
+                <motion.div
+                  animate={{ scale: 1 }} // target size (normal size)
+                  exit={{ scale: 0 }} // scale down when removed
+                  transition={{ duration: 0.5 }}
+                  className="bg-white rounded-3xl w-full h-32 md:h-36 lg:h-40"
+                  key={flower.id}
+                >
+                  <FavoriteCard
+                    flower={flower}
+                    onRemove={() => removeFavorite(flower.id)}
+                  />
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+        )}
       </div>
       <MobileBottomNav />
     </>

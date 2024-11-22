@@ -3,6 +3,7 @@ import Image from "next/image";
 import { TiWeatherSunny } from "react-icons/ti";
 import { PiHeartbeatLight } from "react-icons/pi";
 import { IoRemoveOutline } from "react-icons/io5";
+import { supabase } from "../../../../lib/supabaseClient";
 
 interface FlowerCardProps {
   flower: {
@@ -13,9 +14,41 @@ interface FlowerCardProps {
     width: number;
     height: number;
   };
+  onRemove: () => void;
 }
 
-const FavoriteCard: React.FC<FlowerCardProps> = ({ flower }) => {
+const FavoriteCard: React.FC<FlowerCardProps> = ({ flower, onRemove }) => {
+  const removeHandler = async (id: string) => {
+    const { error } = await supabase
+      .from("plants")
+      .update({ favorite: false })
+      .eq("id", id);
+
+    if (error) {
+      console.error("Error removing item:", error);
+    } else {
+      console.log("Item removed successfully");
+      onRemove(); // Call the parent function to remove the item from the state
+      resetFavorites();
+    }
+  };
+
+  const resetFavorites = async () => {
+    const { error } = await supabase
+      .from("plants")
+      .update({ favorite: true }) // Set 'favorite' to true
+      .neq("favorite", true); // Only update items where 'favorite' is not already true
+
+    if (error) {
+      console.error("Error updating favorites:", error);
+    } else {
+      console.log("Favorites updated successfully");
+    }
+  };
+
+  // Reset favorites after 10 seconds
+  setTimeout(resetFavorites, 10000);
+
   return (
     <div className="flex items-start h-fit w-full relative">
       {/* Image container on the left */}
@@ -57,7 +90,7 @@ const FavoriteCard: React.FC<FlowerCardProps> = ({ flower }) => {
 
       {/* Optional remove icon */}
       <div className="absolute top-0 left-0 bg-[#333333] rounded-tl-2xl rounded-br-lg cursor-pointer w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center">
-        <i>
+        <i onClick={() => removeHandler(flower.id)}>
           <IoRemoveOutline className="lg:w-8 lg:h-8 w-6 h-6 text-white " />
         </i>
       </div>
