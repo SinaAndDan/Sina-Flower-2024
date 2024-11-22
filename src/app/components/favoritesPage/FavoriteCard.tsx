@@ -19,7 +19,7 @@ const FavoriteCard: React.FC<FlowerCardProps> = ({ flower }) => {
   return (
     <div className="flex items-start h-full w-full relative">
       {/* Image container on the left */}
-      <div className="flex-shrink-0 my-auto">
+      <div className="flex-shrink-0 flex-grow-0 my-auto">
         <Image
           width={100}
           height={100}
