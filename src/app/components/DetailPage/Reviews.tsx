@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, RefObject } from "react";
 import { BiSolidDislike, BiSolidLike } from "react-icons/bi";
 import { BsThreeDots } from "react-icons/bs";
 import { MdOutlineSend } from "react-icons/md";
@@ -11,10 +11,11 @@ interface ReviewTypes {
   onDisLikeClick: () => void;
   onReply: () => void;
   isReply: boolean | null;
+  reviewRef: RefObject<HTMLDivElement>;
 }
 
 const Reviews: React.FC<ReviewTypes> = ({
-  about,
+  reviewRef,
   liked,
   disliked,
   onLikeClick,
@@ -23,10 +24,16 @@ const Reviews: React.FC<ReviewTypes> = ({
   isReply,
 }) => {
   const [value, setValue] = useState<string>("");
+  const [reply, setReply] = useState<string>("");
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const yourReply = useRef<HTMLTextAreaElement | null>(null);
 
   const handleInput = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(event.target.value);
+  };
+
+  const handleReplyInput = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setReply(event.target.value);
   };
 
   useEffect(() => {
@@ -37,8 +44,15 @@ const Reviews: React.FC<ReviewTypes> = ({
     }
   }, [value]);
 
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto"; // Reset height to auto
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`; // Set height to scrollHeight
+    }
+  }, [reply]);
+
   return (
-    <div className=" pb-32">
+    <div className="pb-32" ref={reviewRef}>
       <div className=" pt-5 flex justify-between border-b-2 border-darkGray border-opacity-20 pb-8 items-center ">
         <span className="min-h-12 min-w-12 bg-green rounded-full"></span>
         <div className="flex items-center w-full bg-gray-200 mr-2">
@@ -101,6 +115,25 @@ const Reviews: React.FC<ReviewTypes> = ({
           </p>
         </button>
       </span>
+      {isReply && (
+        <div className="flex items-center w-full mt-8">
+          <textarea
+            ref={yourReply}
+            value={reply}
+            rows={1}
+            id="autoGrowInput"
+            onChange={handleReplyInput}
+            placeholder="نظر شما"
+            className="w-full min-h-[2rem] text-sm outline-none bg-gray px-3 py-[0.2rem] text-right resize-none leading-[1.6rem] word-break-keep whitespace-normal direction-rtl"
+          />
+          <div
+            className="bg-gradient-to-tl from-[#002200] to-[#007a4f]
+ rounded-full min-w-10 min-h-10 flex items-center justify-center mr-2"
+          >
+            <MdOutlineSend className="rotate-180 text-white w-6 h-6  cursor-pointer -translate-x-0.5" />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

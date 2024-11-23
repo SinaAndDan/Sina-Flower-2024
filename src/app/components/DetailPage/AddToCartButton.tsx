@@ -6,7 +6,6 @@ const AddToCartButton: React.FC = () => {
       <button
         type="button"
         className="text-white bg-gradient-to-tl from-[#001a00] to-[#005a36]
-
  hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm py-4 text-center w-full"
       >
         اضافه به سبد

@@ -22,7 +22,6 @@ interface Plant {
 
 const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-  const [value, setValue] = useState<string>("");
   const [about, setAbout] = useState<boolean | null>(true);
   const [liked, setIsLiked] = useState<boolean | null>(false);
   const [disliked, setIsDisLiked] = useState<boolean | null>(false);
@@ -30,7 +29,7 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
   const [selectedProduct, setSelectedProduct] = useState<Plant | null>(null);
   const [plants, setPlants] = useState<Plant[]>([]);
 
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const reviewRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchPlants = async () => {
@@ -76,20 +75,13 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
     setIsDisLiked((disliked) => !disliked);
   };
 
-  const handleInput = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setValue(event.target.value);
-  };
-
   const replyHandler = () => {
     setIsReply(!isReply);
   };
 
-  useEffect(() => {
-    if (textareaRef.current) {
-      textareaRef.current.style.height = "auto"; // Reset height to auto
-      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`; // Set height to scrollHeight
-    }
-  }, [value]);
+  const scrollToReviews = () => {
+    reviewRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <div className="font-yekan w-full">
@@ -97,7 +89,12 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
       <section className="container mx-auto sm:px-0 px-4 mt-5">
         <div className="flex items-center justify-between">
           <h5 className="text-2xl">{selectedProduct?.name}</h5>
-          <p className="text-black text-opacity-60">(۴ نظر)</p>
+          <button
+            className="text-black text-opacity-60"
+            onClick={scrollToReviews}
+          >
+            (۴ نظر)
+          </button>
         </div>
         <Maintaining />
         <div className="flex items-center">
@@ -118,6 +115,7 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
           </a>
         </div>
         <Reviews
+          reviewRef={reviewRef}
           about={about}
           liked={liked}
           disliked={disliked}
@@ -126,25 +124,6 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
           onReply={replyHandler}
           isReply={isReply}
         />
-        {isReply && (
-          <div className="flex items-center w-full mb-60 mt-8">
-            <textarea
-              ref={textareaRef}
-              value={value}
-              rows={1}
-              id="autoGrowInput"
-              onChange={handleInput}
-              placeholder="نظر شما"
-              className="w-full min-h-[2rem] text-sm outline-none bg-gray px-3 py-[0.2rem] text-right resize-none leading-[1.6rem] word-break-keep whitespace-normal direction-rtl"
-            />
-            <div
-              className="bg-gradient-to-tl from-[#002200] to-[#007a4f]
- rounded-full min-w-10 min-h-10 flex items-center justify-center mr-2"
-            >
-              <MdOutlineSend className="rotate-180 text-white w-6 h-6  cursor-pointer -translate-x-0.5" />
-            </div>
-          </div>
-        )}
         <AddToCartButton />
       </section>
     </div>
