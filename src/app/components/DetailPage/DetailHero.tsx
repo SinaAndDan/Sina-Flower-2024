@@ -30,7 +30,7 @@ const DetailHero: React.FC<{ selectedProduct: Plant | null }> = ({
             height={300}
             src={selectedProduct?.picture || "/ficus.png"}
             alt="هیجی"
-            className="w-full rounded-br-[80px] min-h-[50vh] object-cover"
+            className="w-full rounded-br-[80px] min-h-[40vh] object-cover"
             layout="'intrinsic"
           />
           <IoArrowForward

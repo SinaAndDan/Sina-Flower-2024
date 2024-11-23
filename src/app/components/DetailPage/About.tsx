@@ -11,16 +11,7 @@ const About: React.FC<AboutTypes> = ({ about }) => {
 این گیاه به نور غیرمستقیم نیاز دارد و به راحتی می‌توان آن را در گلدان‌های مختلف یا حتی در فضاهای باز نگهداری کرد. آبیاری منظم و مراقبت از خاک آن باعث می‌شود که گیاه همیشه شاداب و سالم بماند.
 
 اگر به دنبال یک گیاه جذاب برای محیط خانه یا محل کار خود هستید، [نام گیاه] بهترین انتخاب است.`;
-  return (
-    <>
-      {about && (
-        <>
-          <ReadMore text={plantDescription} />
-          <p className="mt-5 px-4 mb-32 text-black opacity-75 leading-loose"></p>
-        </>
-      )}
-    </>
-  );
+  return <ReadMore text={plantDescription} />;
 };
 
 export default About;

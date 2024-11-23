@@ -26,7 +26,10 @@ const Maintaining: React.FC = () => {
         </div>
       </div>
       <div className="flex items-center">
-        <div className="w-fit p-1 rounded-2xl flex items-center bg-gradient-to-tl from-[#004d00] to-[#00a86b]">
+        <div
+          className="w-fit p-1 rounded-2xl flex items-center bg-gradient-to-tl from-[#002200] to-[#007a4f]
+"
+        >
           <CiTempHigh className="sm:w-12 sm:h-12 w-8 h-8 text-white" />
         </div>
         <div className="flex flex-col px-3 text-sm sm:text-base">
@@ -35,7 +38,10 @@ const Maintaining: React.FC = () => {
         </div>
       </div>
       <div className="flex items-center">
-        <div className="w-fit p-1 rounded-2xl bg-gradient-to-tl from-[#004d00] to-[#00a86b]">
+        <div
+          className="w-fit p-1 rounded-2xl bg-gradient-to-tl from-[#002200] to-[#007a4f]
+"
+        >
           <MdOutlineWaterDrop className="sm:w-12 sm:h-12 w-8 h-8 text-white" />
         </div>
         <div className="flex flex-col px-3 text-sm sm:text-base">

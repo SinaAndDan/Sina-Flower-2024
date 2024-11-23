@@ -100,17 +100,23 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
           <p className="text-black text-opacity-60">(۴ نظر)</p>
         </div>
         <Maintaining />
-        <div className="flex justify-center items-center">
+        <div className="flex items-center">
           <a
-            className={`pr-3 transition ease-in delay-75 ${
-              about && "text-green"
-            } text-xl cursor-pointer`}
-            onClick={switchToaboutHandler}
+            className="transition ease-in delay-75
+           text-xl cursor-pointer"
           >
             معرفی محصول
           </a>
         </div>
         <About about={about} />
+        <div className="flex items-center mt-8">
+          <a
+            className="transition ease-in delay-75
+           text-xl cursor-pointer"
+          >
+            نظرها
+          </a>
+        </div>
         <Reviews
           about={about}
           liked={liked}
@@ -121,17 +127,22 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
           isReply={isReply}
         />
         {isReply && (
-          <div className="ml-28 flex" ref={bottomRef}>
+          <div className="flex items-center w-full mb-60 mt-8">
             <textarea
               ref={textareaRef}
               value={value}
               rows={1}
               id="autoGrowInput"
               onChange={handleInput}
-              placeholder="پاسخ شما"
-              className=" bg-gray w-full h-12 text-lg outline-none px-3 pt-2 mb-24"
+              placeholder="نظر شما"
+              className="w-full min-h-[2rem] text-sm outline-none bg-gray px-3 py-[0.2rem] text-right resize-none leading-[1.6rem] word-break-keep whitespace-normal direction-rtl"
             />
-            <MdOutlineSend className="h-12 w-12 rotate-180	text-green bg-gray p-2" />
+            <div
+              className="bg-gradient-to-tl from-[#002200] to-[#007a4f]
+ rounded-full min-w-10 min-h-10 flex items-center justify-center mr-2"
+            >
+              <MdOutlineSend className="rotate-180 text-white w-6 h-6  cursor-pointer -translate-x-0.5" />
+            </div>
           </div>
         )}
         <AddToCartButton />
