@@ -9,7 +9,6 @@ const PcNav: React.FC = () => {
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 hidden md:block">
       <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
-        {/* Logo */}
         <Link href="/" className="flex space-x-3 rtl:space-x-reverse">
           <Image
             src="/golesina.png"
@@ -41,7 +40,7 @@ const PcNav: React.FC = () => {
             </li>
             <li>
               <Link
-                href="#"
+                href="/categories"
                 className="block py-2 px-3 text-black rounded md:hover:bg-transparent md:border-0 md:p-0  md:dark:hover:bg-transparent"
               >
                 دسته بندی

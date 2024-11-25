@@ -2,6 +2,7 @@
 
 import { BiCategory } from "react-icons/bi";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 type CategoryProps = {
   selectedCategory: string;
@@ -14,9 +15,9 @@ const Header: React.FC<CategoryProps> = ({
   return (
     <nav className="bg-white border-gray-200 h-screen w-20 fixed overflow-y-auto  md:hidden z-50">
       <div className="flex flex-col h-[50%] justify-between pt-12 ">
-        <div className="flex items-center justify-center">
+        <Link className="flex items-center justify-center" href="/categories">
           <BiCategory className="w-8 h-8 text-black text-opacity-80 " />
-        </div>
+        </Link>
         <div className="flex flex-col z-40">
           <button
             className="flex relative"

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState, RefObject } from "react";
 import { BiSolidDislike, BiSolidLike } from "react-icons/bi";
 import { BsThreeDots } from "react-icons/bs";
@@ -65,12 +66,14 @@ const Reviews: React.FC<ReviewTypes> = ({
             placeholder="نظر شما"
             className="w-full min-h-[2rem] text-sm outline-none bg-gray px-3 py-[0.3rem] text-right resize-none leading-[1.2rem] word-break-keep whitespace-normal direction-rtl"
           />
-          <div
+          <motion.div
+            whileHover={{ scale: 1.1 }} // Hover animation here
+            whileTap={{ scale: 0.9 }} // Tap animation here
             className="bg-gradient-to-tl from-[#002200] to-[#007a4f]
  rounded-full min-w-10 min-h-10 flex items-center justify-center mr-2"
           >
             <MdOutlineSend className="rotate-180 text-white w-6 h-6  cursor-pointer -translate-x-0.5" />
-          </div>
+          </motion.div>
         </div>
       </div>
       <div className="pt-5 flex">
@@ -115,24 +118,33 @@ const Reviews: React.FC<ReviewTypes> = ({
           </p>
         </button>
       </span>
+
       {isReply && (
-        <div className="flex items-center w-full mt-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="flex items-center w-full mt-3 max-w-[90%] mr-auto"
+        >
           <textarea
             ref={yourReply}
             value={reply}
             rows={1}
             id="autoGrowInput"
             onChange={handleReplyInput}
-            placeholder="نظر شما"
+            placeholder="پاسخ شما"
             className="w-full min-h-[2rem] text-sm outline-none bg-gray px-3 py-[0.2rem] text-right resize-none leading-[1.6rem] word-break-keep whitespace-normal direction-rtl"
           />
-          <div
+          <motion.div
+            whileHover={{ scale: 1.1 }} // Hover animation here
+            whileTap={{ scale: 0.9 }} // Tap animation here
             className="bg-gradient-to-tl from-[#002200] to-[#007a4f]
  rounded-full min-w-10 min-h-10 flex items-center justify-center mr-2"
           >
-            <MdOutlineSend className="rotate-180 text-white w-6 h-6  cursor-pointer -translate-x-0.5" />
-          </div>
-        </div>
+            <MdOutlineSend className="rotate-180 text-white w-6 h-6 cursor-pointer -translate-x-0.5" />
+          </motion.div>
+        </motion.div>
       )}
     </div>
   );
