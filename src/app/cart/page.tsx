@@ -8,6 +8,7 @@ import { supabase } from "../../../lib/supabaseClient";
 import Image from "next/image";
 import { AiOutlineLine, AiOutlinePlus } from "react-icons/ai";
 import { FaStar } from "react-icons/fa";
+import { motion } from "motion/react";
 
 interface Plant {
   id: string;
@@ -45,18 +46,20 @@ const Cart: React.FC = () => {
     fetchBoughts();
   }, []);
 
-  const backMainPage = () => {
+  const backToMainPage = () => {
     router.push("/");
   };
   return (
     <div className="sm:px-0 bg-gray relative">
       <div className="flex items-center justify-between pt-5 container mx-auto px-2">
-        <span
+        <motion.button
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.7 }}
           className="bg-loginInput rounded-full w-10 h-10 flex items-center justify-center sm:hidden"
-          onClick={backMainPage}
+          onClick={backToMainPage}
         >
           <GrFormNext className="w-8 h-8 text-greenlogIn cursor-pointer translate-x-px" />
-        </span>
+        </motion.button>
         <h6 className="font-yekan text-2xl">سبد خرید</h6>
         <span className="bg-loginInput rounded-full w-10 h-10 flex items-center justify-center sm:hidden">
           <BiSolidBasket className="w-6 h-6 text-greenlogIn cursor-pointer translate-x-px" />
@@ -83,13 +86,21 @@ const Cart: React.FC = () => {
                 <span className="text-xs px-1"> تومان</span>
               </p>
               <div className="flex items-center gap-x-2">
-                <i className="bg-loginInput rounded-full w-6 h-6 flex items-center justify-center">
+                <motion.i
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.7 }}
+                  className="bg-loginInput rounded-full w-6 h-6 flex items-center justify-center"
+                >
                   <AiOutlinePlus />
-                </i>
+                </motion.i>
                 <p className="font-yekan">۱</p>
-                <i className="bg-loginInput rounded-full w-6 h-6 flex items-center justify-center">
+                <motion.i
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.7 }}
+                  className="bg-loginInput rounded-full w-6 h-6 flex items-center justify-center"
+                >
                   <AiOutlineLine />
-                </i>
+                </motion.i>
               </div>
             </div>
 
@@ -114,9 +125,13 @@ const Cart: React.FC = () => {
             <span className="text-xs mx-1 font-medium">تومان</span>
           </p>
         </div>
-        <button className="w-44 py-3 ml-4 bg-greenlogIn rounded-2xl text-white">
+        <motion.button
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.7 }}
+          className="w-44 py-3 ml-4 bg-greenlogIn rounded-2xl text-white"
+        >
           ادامه
-        </button>
+        </motion.button>
       </div>
     </div>
   );

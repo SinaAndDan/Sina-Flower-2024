@@ -15,6 +15,7 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+import { motion } from "motion/react";
 
 interface Plant {
   id: string;
@@ -157,12 +158,16 @@ const MainBodyPc: React.FC<SelectedCategoryProps> = ({ selectedCategory }) => {
         </h2>
         <div className="grid sm:grid-cols-2 items-center justify-center mt-8 mb-32">
           {plants.map((flower, id) => (
-            <div
+            <motion.div
               className="bg-white rounded-2xl m-5 min-h-[300px]  w-fit"
               key={id}
+              initial={{ opacity: 0, y: 50 }} // Start with the element off-screen
+              whileInView={{ opacity: 1, y: 0 }} // Animate to full opacity and original position when in view
+              viewport={{ amount: 0.3 }} // Trigger animation when 30% of the element is visible
+              transition={{ duration: 0.5, ease: "easeInOut" }} // Smooth transition
             >
               <FlowerCard flower={flower} />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

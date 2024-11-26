@@ -16,7 +16,13 @@ const Header: React.FC<CategoryProps> = ({
     <nav className="bg-white border-gray-200 h-screen w-20 fixed overflow-y-auto  md:hidden z-50">
       <div className="flex flex-col h-[50%] justify-between pt-12 ">
         <Link className="flex items-center justify-center" href="/categories">
-          <BiCategory className="w-8 h-8 text-black text-opacity-80 " />
+          <motion.div
+            whileTap={{ rotate: 360, opacity: 0.6 }}
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 400 }}
+          >
+            <BiCategory className="w-8 h-8 text-black text-opacity-80 " />
+          </motion.div>
         </Link>
         <div className="flex flex-col z-40">
           <button
