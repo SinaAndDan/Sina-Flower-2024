@@ -6,6 +6,7 @@ import { MdLock, MdMail } from "react-icons/md";
 import { IoPerson } from "react-icons/io5";
 import { GrFormNext } from "react-icons/gr";
 import { useRouter } from "next/navigation";
+import { motion } from "motion/react";
 
 const SignInPage: React.FC = () => {
   const router = useRouter();
@@ -60,12 +61,14 @@ const SignInPage: React.FC = () => {
 
   return (
     <div className="mt-20 font-sahel">
-      <span
+      <motion.span
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
         className="mx-3 bg-loginInput rounded-full w-10 h-10 flex items-center justify-center sm:hidden"
         onClick={backToMainPage}
       >
         <GrFormNext className="w-8 h-8 text-greenlogIn cursor-pointer translate-x-px" />
-      </span>
+      </motion.span>
       <div>
         <Image
           width={150}
@@ -136,9 +139,13 @@ const SignInPage: React.FC = () => {
               </div>
             </div>
             <div className="flex flex-col w-full mt-5 md:mt-10 lg:max-w-[70%] 2xl:max-w-[50%] mx-auto">
-              <button className="w-full bg-gradient-to-t from-[#0f4a1e] via-[#1f7853] to-[#1e8e63] text-white py-2 rounded-3xl font-yekan md:h-[40px]">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="w-full bg-gradient-to-t from-[#0f4a1e] via-[#1f7853] to-[#1e8e63] text-white py-2 rounded-3xl font-yekan md:h-[40px]"
+              >
                 ثبت نام
-              </button>
+              </motion.button>
             </div>
             <div className="flex justify-between mt-2 md:mt-5"></div>
             {message && (

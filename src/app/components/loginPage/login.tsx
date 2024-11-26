@@ -6,6 +6,7 @@ import { IoPerson } from "react-icons/io5";
 import { MdLock } from "react-icons/md";
 import { GrFormNext } from "react-icons/gr";
 import { useRouter } from "next/navigation";
+import { motion } from "motion/react";
 
 const LogInPage: React.FC = () => {
   const router = useRouter();
@@ -59,12 +60,14 @@ const LogInPage: React.FC = () => {
     <div className="flex flex-col h-screen">
       <div className="flex flex-col items-center font-sahel image-containerII md:min-h-[40vh] 2xl:min-h-[60vh]">
         <div className="h-full w-full flex flex-col relative">
-          <span
+          <motion.span
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             className="mx-8 mt-16 bg-loginInput rounded-full w-10 h-10 flex items-center justify-center sm:hidden"
             onClick={backMainPage}
           >
             <GrFormNext className="w-8 h-8 text-greenlogIn cursor-pointer translate-x-px" />
-          </span>
+          </motion.span>
           <Image
             src="/loginPicIII.jpg"
             width={800}
@@ -159,12 +162,14 @@ const LogInPage: React.FC = () => {
       </section>
       <div className="container mx-auto mt-auto">
         <div className="w-full px-6 my-8 z-0 md:max-w-[55%] lg:max-w-[40%] mx-auto">
-          <button
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             type="submit"
             className="w-full bg-gradient-to-t from-[#0f4a1e] via-[#1f7853] to-[#1e8e63] text-white py-2 rounded-lg font-yekan"
           >
             ورود
-          </button>
+          </motion.button>
           <p className="text-sm font-light text-center mt-4 text-black text-opacity-80">
             هنوز ثبت نام نکرده اید؟
             <a

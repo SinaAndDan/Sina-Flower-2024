@@ -5,6 +5,7 @@ import { PiHeartbeatLight } from "react-icons/pi";
 import { IoRemoveOutline } from "react-icons/io5";
 import { supabase } from "../../../../lib/supabaseClient";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 interface FlowerCardProps {
   flower: {
@@ -47,12 +48,13 @@ const FavoriteCard: React.FC<FlowerCardProps> = ({ flower, onRemove }) => {
     }
   };
 
-  // Reset favorites after 10 seconds
   setTimeout(resetFavorites, 10000);
 
   return (
-    <div className="flex items-start h-fit w-full relative">
-      {/* Image container on the left */}
+    <Link
+      className="flex items-start h-fit w-full relative"
+      href={`/products/${flower.id}`}
+    >
       <div className="flex-shrink-0 my-auto">
         <Image
           width={100}
@@ -98,7 +100,7 @@ const FavoriteCard: React.FC<FlowerCardProps> = ({ flower, onRemove }) => {
           <IoRemoveOutline className="lg:w-8 lg:h-8 w-6 h-6 text-white " />
         </i>
       </motion.div>
-    </div>
+    </Link>
   );
 };
 

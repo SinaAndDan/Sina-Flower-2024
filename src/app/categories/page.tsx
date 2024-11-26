@@ -1,131 +1,88 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { supabase } from "../../../lib/supabaseClient";
 
-type Category = {
-  name: string;
-  image?: string;
-};
+const categories = [
+  {
+    bgColor: "#D8B4FE",
+    text: "گیاهان<br></br>آپارتمانی",
+    image: "/photos.png",
+    imagePosition: "right",
+  },
+  {
+    bgColor: "#FECACA",
+    text: "گیاهان<br></br> فضای باز",
+    image: "/gardenII.png",
+    imagePosition: "left",
+  },
+  {
+    bgColor: "#FDE68A",
+    text: "کاکتوس‌ها",
+    image: "/cactus.png",
+    imagePosition: "right",
+  },
+  {
+    bgColor: "#93C5FD",
+    text: "گیاهان <br></br>تصفیه‌کننده هوا",
+    image: "/peacelily.png",
+    imagePosition: "left",
+  },
+  {
+    bgColor: "#A7F3D0",
+    text: "گیاهان<br></br> کم نور",
+    image: "/philodendron.png",
+    imagePosition: "right",
+  },
+];
 
 const Categories: React.FC = () => {
-  const [categories, setCategories] = useState<Category[]>();
-  const [error, setError] = useState<string | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      const { data, error } = await supabase.from("categories").select("*");
-      if (error) {
-        setError(error.message);
-      } else {
-        setCategories(data);
-      }
-    };
-
-    fetchCategories();
-  }, []);
-
-  console.log();
+  const handleExpand = (index: number) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
 
   return (
     <ul className=" w-full flex flex-col h-full overflow-hidden">
-      <motion.li
-        className=" w-full flex justify-center items-center bg-[#D8B4FE] h-[20vh] relative"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="absolute right-0">
-          <Image
-            height={200}
-            width={200}
-            alt="category"
-            src="/photos.png"
-            className="translate-x-[40%] md:translate-x-0"
-          />
-        </div>
-        <p className="font-abasan md:text-4xl text-2xl text-black text-opacity-70">
-          گیاهان <br></br>آپارتمانی
-        </p>
-      </motion.li>
-      <motion.li
-        className=" w-full flex justify-center items-center bg-[#FECACA] h-[20vh] relative"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <p className="font-abasan md:text-4xl text-2xl text-black text-opacity-70 text-center">
-          گیاهان<br></br> فضای باز
-        </p>
-        <div className="absolute left-0">
-          <Image
-            height={200}
-            width={200}
-            alt="category"
-            src="/gardenII.png"
-            className="-translate-x-[40%] md:translate-x-0"
-          />
-        </div>
-      </motion.li>
-      <motion.li
-        className=" w-full flex justify-center items-center bg-[#FDE68A] h-[20vh] relative"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="absolute right-0">
-          <Image
-            height={200}
-            width={200}
-            alt="category"
-            src="/cactus.png"
-            className="translate-x-[40%] md:translate-x-0"
-          />
-        </div>
-        <p className="font-abasan md:text-4xl text-2xl text-black text-opacity-70">
-          کاکتوس‌ها
-        </p>
-      </motion.li>
-      <motion.li
-        className=" w-full flex justify-center items-center bg-[#93C5FD] h-[20vh] relative"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="absolute left-0">
-          <Image
-            height={200}
-            width={200}
-            alt="category"
-            src="/peacelily.png"
-            className="-translate-x-[40%] md:translate-x-0"
-          />
-        </div>
-        <p className="font-abasan md:text-4xl text-2xl text-black text-opacity-70 text-center">
-          گیاهان <br></br>تصفیه‌کننده هوا
-        </p>
-      </motion.li>
-      <motion.li
-        className=" w-full flex justify-center items-center bg-[#A7F3D0] h-[20vh] relative"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="absolute right-0">
-          <Image
-            height={200}
-            width={200}
-            alt="category"
-            src="/philodendron.png"
-            className="translate-x-[40%] md:translate-x-0"
-          />
-        </div>
-        <p className="font-abasan md:text-4xl text-2xl text-black text-opacity-70">
-          گیاهان<br></br> کم نور
-        </p>
-      </motion.li>
+      {categories.map((category, index) => (
+        <motion.li
+          key={index}
+          onClick={() => handleExpand(index)}
+          className={`w-full flex justify-center items-center h-[20vh] relative`}
+          style={{ backgroundColor: category.bgColor }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.div
+            animate={activeIndex === index ? { scale: 1.5 } : { scale: 1 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className={`absolute ${
+              category.imagePosition === "right" ? "right-0" : "left-0"
+            }`}
+          >
+            <Image
+              height={200}
+              width={200}
+              alt="category"
+              src={category.image}
+              className={`${
+                category.imagePosition === "right"
+                  ? "translate-x-[40%] md:translate-x-0"
+                  : "-translate-x-[40%] md:translate-x-0"
+              }`}
+            />
+          </motion.div>
+          <motion.p
+            animate={activeIndex === index ? { scale: 1.5 } : { scale: 1 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="font-abasan md:text-4xl text-2xl text-black text-opacity-70 text-center leading-4 md:leading-6"
+            dangerouslySetInnerHTML={{ __html: category.text }}
+          ></motion.p>
+        </motion.li>
+      ))}
     </ul>
   );
 };

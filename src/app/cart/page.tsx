@@ -9,6 +9,7 @@ import Image from "next/image";
 import { AiOutlineLine, AiOutlinePlus } from "react-icons/ai";
 import { FaStar } from "react-icons/fa";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 interface Plant {
   id: string;
@@ -67,54 +68,59 @@ const Cart: React.FC = () => {
       </div>
       <ul className="flex flex-col gap-y-10 mt-10 h-full container mx-auto px-2 pb-32">
         {boughtPro.map((plant) => (
-          <li
-            key={plant.id}
-            className="flex items-center justify-between bg-white h-56" // Set fixed height for li
-          >
-            {/* Left side: Text content */}
-            <div className="flex flex-col justify-between px-5 w-1/2 h-44 font-yekan">
-              <p className="text-2xl font-parastoo">{plant.name}</p>
-              <div className="flex items-center">
-                <p className="text-black text-opacity-70 ">نظرها</p>
-                <span className="flex items-center text-black text-opacity-70 px-1">
-                  (۴.۲
-                  <FaStar className=" text-[#DAA520]" />)
-                </span>
+          <Link href={`/products/${plant.id}`} key={plant.id}>
+            <li className="flex items-center justify-between bg-white h-56">
+              <div className="flex flex-col justify-between px-5 w-1/2 h-44 font-yekan">
+                <p className="text-2xl font-parastoo">{plant.name}</p>
+                <div className="flex items-center">
+                  <p className="text-black text-opacity-70 ">نظرها</p>
+                  <span className="flex items-center text-black text-opacity-70 px-1">
+                    (۴.۲
+                    <FaStar className=" text-[#DAA520]" />)
+                  </span>
+                </div>
+                <p className="font-yekan text-2xl font-semibold">
+                  {toPersianNumber(plant.price)}
+                  <span className="text-xs px-1"> تومان</span>
+                </p>
+                <div className="flex items-center gap-x-2">
+                  <motion.i
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.7 }}
+                    className="bg-loginInput rounded-full w-6 h-6 flex items-center justify-center"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      event.preventDefault();
+                    }}
+                  >
+                    <AiOutlinePlus />
+                  </motion.i>
+                  <p className="font-yekan">۱</p>
+                  <motion.i
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.7 }}
+                    className="bg-loginInput rounded-full w-6 h-6 flex items-center justify-center"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      event.preventDefault();
+                    }}
+                  >
+                    <AiOutlineLine />
+                  </motion.i>
+                </div>
               </div>
-              <p className="font-yekan text-2xl font-semibold">
-                {toPersianNumber(plant.price)}
-                <span className="text-xs px-1"> تومان</span>
-              </p>
-              <div className="flex items-center gap-x-2">
-                <motion.i
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.7 }}
-                  className="bg-loginInput rounded-full w-6 h-6 flex items-center justify-center"
-                >
-                  <AiOutlinePlus />
-                </motion.i>
-                <p className="font-yekan">۱</p>
-                <motion.i
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 0.7 }}
-                  className="bg-loginInput rounded-full w-6 h-6 flex items-center justify-center"
-                >
-                  <AiOutlineLine />
-                </motion.i>
-              </div>
-            </div>
 
-            {/* Right side: Image */}
-            <div className="w-44 h-52">
-              <Image
-                height={500}
-                width={500}
-                src={plant.picture}
-                alt="item"
-                className="rounded-tr-2xl pl-4 object-cover ml-auto"
-              />
-            </div>
-          </li>
+              <div className="w-44 h-52">
+                <Image
+                  height={500}
+                  width={500}
+                  src={plant.picture}
+                  alt="item"
+                  className="rounded-tr-2xl pl-4 object-cover ml-auto"
+                />
+              </div>
+            </li>
+          </Link>
         ))}
       </ul>
       <div className=" bg-white fixed bottom-0 w-full min-h-[80px] flex items-center justify-between container mx-auto px-2 font-yekan">
