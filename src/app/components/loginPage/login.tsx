@@ -51,8 +51,8 @@ const LogInPage: React.FC = () => {
     }
   };
 
-  const backToAccount = () => {
-    router.push("/account");
+  const backMainPage = () => {
+    router.push("/");
   };
 
   return (
@@ -61,7 +61,7 @@ const LogInPage: React.FC = () => {
         <div className="h-full w-full flex flex-col relative">
           <span
             className="mx-8 mt-16 bg-loginInput rounded-full w-10 h-10 flex items-center justify-center sm:hidden"
-            onClick={backToAccount}
+            onClick={backMainPage}
           >
             <GrFormNext className="w-8 h-8 text-greenlogIn cursor-pointer translate-x-px" />
           </span>

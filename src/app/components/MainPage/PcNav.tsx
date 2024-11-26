@@ -32,7 +32,7 @@ const PcNav: React.FC = () => {
             </li>
             <li>
               <Link
-                href="#"
+                href="/cart"
                 className="block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0  "
               >
                 سبد خرید

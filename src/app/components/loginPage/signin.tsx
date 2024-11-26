@@ -54,7 +54,7 @@ const SignInPage: React.FC = () => {
     }
   };
 
-  const backToAccount = () => {
+  const backToMainPage = () => {
     router.push("/");
   };
 
@@ -62,7 +62,7 @@ const SignInPage: React.FC = () => {
     <div className="mt-20 font-sahel">
       <span
         className="mx-3 bg-loginInput rounded-full w-10 h-10 flex items-center justify-center sm:hidden"
-        onClick={backToAccount}
+        onClick={backToMainPage}
       >
         <GrFormNext className="w-8 h-8 text-greenlogIn cursor-pointer translate-x-px" />
       </span>
@@ -72,7 +72,7 @@ const SignInPage: React.FC = () => {
           height={150}
           src="/sideimgVI.png"
           alt="Full Screen Image"
-          className="-z-20 absolute left-0 sm:w-40 sm:h-40"
+          className="-z-20 absolute left-0 sm:w-40 sm:h-40 md:min-w-[200px] md:min-h-[200px]"
           priority={true} // Optional: Loads the image with high priority
         />
         <div className="flex flex-col container md:max-w-[60vw] xl:max-w-[50vw] sm:mx-auto items-center">
