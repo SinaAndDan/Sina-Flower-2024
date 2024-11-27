@@ -57,8 +57,8 @@ const Categories: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            animate={activeIndex === index ? { scale: 1.5 } : { scale: 1 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            animate={activeIndex === index ? { scale: 1.2 } : { scale: 1 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
             className={`absolute ${
               category.imagePosition === "right" ? "right-0" : "left-0"
             }`}
@@ -76,8 +76,8 @@ const Categories: React.FC = () => {
             />
           </motion.div>
           <motion.p
-            animate={activeIndex === index ? { scale: 1.5 } : { scale: 1 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            animate={activeIndex === index ? { scale: 1.2 } : { scale: 1 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
             className="font-abasan md:text-4xl text-2xl text-black text-opacity-70 text-center leading-4 md:leading-6"
             dangerouslySetInnerHTML={{ __html: category.text }}
           ></motion.p>

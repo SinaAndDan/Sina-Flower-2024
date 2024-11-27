@@ -96,7 +96,13 @@ const FavoriteCard: React.FC<FlowerCardProps> = ({ flower, onRemove }) => {
         whileTap={{ scale: 0.9 }}
         className="absolute top-0 left-0 bg-[#333333] rounded-tl-2xl rounded-br-lg cursor-pointer w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center"
       >
-        <i onClick={() => removeHandler(flower.id)}>
+        <i
+          onClick={(event) => {
+            event.stopPropagation();
+            event.preventDefault();
+            removeHandler(flower.id);
+          }}
+        >
           <IoRemoveOutline className="lg:w-8 lg:h-8 w-6 h-6 text-white " />
         </i>
       </motion.div>

@@ -161,9 +161,9 @@ const MainBodyPc: React.FC<SelectedCategoryProps> = ({ selectedCategory }) => {
             <motion.div
               className="bg-white rounded-2xl m-5 min-h-[300px]  w-fit"
               key={id}
-              initial={{ opacity: 0, y: 50 }} // Start with the element off-screen
+              initial={{ opacity: 0, y: 10 }} // Start with the element off-screen
               whileInView={{ opacity: 1, y: 0 }} // Animate to full opacity and original position when in view
-              viewport={{ amount: 0.3 }} // Trigger animation when 30% of the element is visible
+              viewport={{ amount: 0.1 }} // Trigger animation when 30% of the element is visible
               transition={{ duration: 0.5, ease: "easeInOut" }} // Smooth transition
             >
               <FlowerCard flower={flower} />
