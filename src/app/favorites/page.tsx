@@ -9,6 +9,7 @@ import FavoriteCard from "../components/favoritesPage/FavoriteCard";
 import MobileBottomNav from "../components/MainPage/MobileBottomNav";
 import { AnimatePresence, motion } from "motion/react";
 import NoFavorites from "../components/favoritesPage/NoFavorites";
+import Loading from "../components/Layout/Loading";
 
 interface Plant {
   id: string;
@@ -21,9 +22,11 @@ interface Plant {
 
 const Favorites: React.FC = () => {
   const [favorites, setFavorites] = useState<Plant[]>([]);
+  const [loading, SetLoading] = useState(false);
 
   useEffect(() => {
     const fetchFavorites = async () => {
+      SetLoading(true);
       const { data, error } = await supabase
         .from("plants")
         .select("*")
@@ -35,6 +38,7 @@ const Favorites: React.FC = () => {
       } else {
         setFavorites(data || []);
       }
+      SetLoading(false);
     };
     fetchFavorites();
   }, []);
@@ -44,6 +48,9 @@ const Favorites: React.FC = () => {
       prevFavorites.filter((flower) => flower.id !== id)
     );
   };
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <>
       <PcNav />

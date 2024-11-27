@@ -9,6 +9,7 @@ import About from "./About";
 import Maintaining from "./Maintaining";
 import { supabase } from "../../../../lib/supabaseClient";
 import { MdOutlineSend } from "react-icons/md";
+import Loading from "../Layout/Loading";
 
 interface Plant {
   id: string;
@@ -28,11 +29,13 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
   const [isReply, setIsReply] = useState<boolean | null>(false);
   const [selectedProduct, setSelectedProduct] = useState<Plant | null>(null);
   const [plants, setPlants] = useState<Plant[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const reviewRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchPlants = async () => {
+      setLoading(true);
       const { data, error } = await supabase.from("plants").select("*");
 
       if (error) {
@@ -40,6 +43,7 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
       } else {
         setPlants(data as Plant[]);
       }
+      setLoading(false);
     };
     fetchPlants();
   }, []);
@@ -82,6 +86,10 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
   const scrollToReviews = () => {
     reviewRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="font-yekan w-full">

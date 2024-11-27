@@ -11,6 +11,7 @@ import { FaStar } from "react-icons/fa";
 import { motion } from "motion/react";
 import Link from "next/link";
 import PcNav from "../components/MainPage/PcNav";
+import Loading from "../components/Layout/Loading";
 
 interface Plant {
   id: string;
@@ -31,12 +32,14 @@ const toPersianNumber = (num: number): string => {
 };
 
 const Cart: React.FC = () => {
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const [boughtPro, setBoughtPro] = useState<Plant[]>([]);
 
   useEffect(() => {
     const fetchBoughts = async () => {
+      setLoading(true);
       const { data, error } = await supabase.from("plants").select("*");
 
       if (error) {
@@ -44,6 +47,7 @@ const Cart: React.FC = () => {
       } else {
         setBoughtPro(data as Plant[]);
       }
+      setLoading(false);
     };
     fetchBoughts();
   }, []);
@@ -51,6 +55,9 @@ const Cart: React.FC = () => {
   const backToMainPage = () => {
     router.push("/");
   };
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <>
       <PcNav />

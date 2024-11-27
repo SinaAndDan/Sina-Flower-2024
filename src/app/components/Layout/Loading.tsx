@@ -5,14 +5,12 @@ import { motion } from "motion/react";
 const Loading: React.FC = () => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
-      {/* Animated Loading Image */}
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, ease: "easeInOut" }}
-        className="flex flex-col items-center justify-center space-y-4" // Change to flex-col and space-y-4 for vertical layout
+        className="flex flex-col items-center justify-center space-y-4"
       >
-        {/* Loading Image */}
         <div className="flex items-center justify-center">
           <Image
             width={200}
@@ -22,7 +20,6 @@ const Loading: React.FC = () => {
           />
         </div>
 
-        {/* Loading Text */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
