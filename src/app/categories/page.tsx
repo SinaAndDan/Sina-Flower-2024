@@ -43,7 +43,7 @@ const categories = [
     image: "/Foliage.png",
     slug: "indoor-plants",
 
-    imagePosition: "right",
+    imagePosition: "left",
     stSubCategory: "کم نور",
     ndSubCategory: "گرمسیری ",
     rdSubCategory: "تصفیه کننده هوا",
@@ -54,7 +54,7 @@ const categories = [
     image: "/plantbowl.png",
 
     slug: "indoor-plants",
-    imagePosition: "left",
+    imagePosition: "right",
     stSubCategory: "آکواریوم‌های ماهی بتا",
     ndSubCategory: "کیت‌های آکواسکپینگ",
     rdSubCategory: "آکواریوم‌های میگو و گیاه",
