@@ -47,15 +47,12 @@ const Favorites: React.FC = () => {
   return (
     <>
       <PcNav />
-      <div className="bg-gray flex-1 font-yekan pb-20 ">
-        <div className="flex justify-end pt-12 px-6">
-          <IoSearch className="w-8 h-8 text-black text-opacity-80 md:hidden" />
-        </div>
+      <div className="bg-gray flex-1 font-yekan pb-20 pt-12">
         {favorites.length === 0 ? (
           <NoFavorites />
         ) : (
-          <div className="sm:max-w-[90%] sm:mx-auto mx-2">
-            <h2 className="text-4xl mt-12 font-extrabold ">مورد علاقه ها</h2>
+          <div className="container mx-auto px-2 sm:px-0">
+            <h2 className="text-4xl font-extrabold ">مورد علاقه ها</h2>
             <div className="flex flex-col lg:grid grid-cols-2 2xl:grid-cols-3 gap-5 sm:gap-x-16 xl:gap-x-20 items-center justify-center mt-8 mb-32">
               <AnimatePresence>
                 {favorites.map((flower) => (

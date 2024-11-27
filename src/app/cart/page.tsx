@@ -55,7 +55,7 @@ const Cart: React.FC = () => {
     <>
       <PcNav />
       <div className="sm:px-0 bg-gray relative">
-        <div className="flex items-center justify-between pt-5 container mx-auto px-2">
+        <div className="flex items-center pt-5 justify-between container mx-auto px-2 sm:px-0">
           <motion.button
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.7 }}
@@ -64,20 +64,26 @@ const Cart: React.FC = () => {
           >
             <GrFormNext className="w-8 h-8 text-greenlogIn cursor-pointer translate-x-px" />
           </motion.button>
-          <h6 className="font-yekan text-2xl">سبد خرید</h6>
+          <h2 className="text-4xl mt-0 sm:mt-12 font-extrabold font-yekan">
+            سبد خرید
+          </h2>
           <span className="bg-loginInput rounded-full w-10 h-10 flex items-center justify-center sm:hidden">
             <BiSolidBasket className="w-6 h-6 text-greenlogIn cursor-pointer translate-x-px" />
           </span>
         </div>
-        <ul className="flex flex-col gap-y-10 mt-10 h-full container mx-auto px-2 pb-32">
+        <ul className="flex flex-col lg:grid grid-cols-2 2xl:grid-cols-3 gap-5 sm:gap-x-16 xl:gap-x-20  gap-y-10 mt-10 h-full container mx-auto px-2 pb-32">
           {boughtPro.map((plant) => (
             <Link href={`/products/${plant.id}`} key={plant.id}>
               <li className="flex items-center justify-between bg-white h-56">
                 <div className="flex flex-col justify-between px-5 w-1/2 h-44 font-yekan">
-                  <p className="text-2xl font-parastoo">{plant.name}</p>
+                  <p className="text-lg lg:text-2xl font-bold font-parastoo">
+                    {plant.name}
+                  </p>
                   <div className="flex items-center">
-                    <p className="text-black text-opacity-70 ">نظرها</p>
-                    <span className="flex items-center text-black text-opacity-70 px-1">
+                    <p className="text-black text-opacity-60 font-yekan lg:text-lg">
+                      نظرها
+                    </p>
+                    <span className="flex items-center text-black text-opacity-60 lg:text-lg px-1">
                       (۴.۲
                       <FaStar className=" text-[#DAA520]" />)
                     </span>
