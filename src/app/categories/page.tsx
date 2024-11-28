@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const categories = [
   {
@@ -63,50 +64,63 @@ const categories = [
 
 const Categories: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const router = useRouter();
 
   const handleExpand = (index: number) => {
-    setActiveIndex(activeIndex === index ? null : index);
+    setIsAnimating(true);
+    setActiveIndex(index);
+
+    setTimeout(() => {
+      setIsAnimating(false);
+      router.push("/");
+    }, 400);
   };
 
   return (
     <ul className=" w-full flex flex-col h-full overflow-hidden">
       {categories.map((category, index) => (
-        <Link href={"/"} key={index}>
-          <motion.li
-            onClick={() => handleExpand(index)}
-            className={`w-full flex justify-center items-center h-[20vh] relative`}
-            style={{ backgroundColor: category.bgColor }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+        <motion.li
+          onClick={(e) => {
+            if (isAnimating) {
+              e.preventDefault();
+            } else {
+              handleExpand(index);
+            }
+          }}
+          key={index}
+          className={`w-full flex justify-center items-center h-[20vh] relative`}
+          style={{ backgroundColor: category.bgColor }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.div
+            animate={activeIndex === index ? { scale: 1.2 } : { scale: 1 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+            className={`absolute ${
+              category.imagePosition === "right" ? "right-0" : "left-0"
+            }`}
           >
-            <motion.div
-              animate={activeIndex === index ? { scale: 1.2 } : { scale: 1 }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
-              className={`absolute ${
-                category.imagePosition === "right" ? "right-0" : "left-0"
+            <Image
+              height={200}
+              width={200}
+              alt="category"
+              src={category.image}
+              className={`${
+                category.imagePosition === "right"
+                  ? "translate-x-[40%] md:translate-x-0"
+                  : "-translate-x-[40%] md:translate-x-0"
               }`}
-            >
-              <Image
-                height={200}
-                width={200}
-                alt="category"
-                src={category.image}
-                className={`${
-                  category.imagePosition === "right"
-                    ? "translate-x-[40%] md:translate-x-0"
-                    : "-translate-x-[40%] md:translate-x-0"
-                }`}
-              />
-            </motion.div>
-            <motion.p
-              animate={activeIndex === index ? { scale: 1.2 } : { scale: 1 }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
-              className="font-abasan md:text-4xl text-2xl text-black text-opacity-70 text-center leading-4 md:leading-6"
-              dangerouslySetInnerHTML={{ __html: category.text }}
-            ></motion.p>
-          </motion.li>
-        </Link>
+            />
+          </motion.div>
+          <motion.p
+            animate={activeIndex === index ? { scale: 1.2 } : { scale: 1 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+            className="font-abasan md:text-4xl text-2xl text-black text-opacity-70 text-center leading-4 md:leading-6"
+            dangerouslySetInnerHTML={{ __html: category.text }}
+          ></motion.p>
+        </motion.li>
       ))}
     </ul>
   );
