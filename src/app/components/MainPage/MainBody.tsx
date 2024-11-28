@@ -35,6 +35,7 @@ type SelectedCategoryProps = {
 const MainBodyPc: React.FC<SelectedCategoryProps> = ({ selectedCategory }) => {
   const [plants, setPlants] = useState<Plant[]>([]);
   const [loading, setLoading] = useState(true);
+  const [searchButton, setSearchButton] = useState(false);
 
   useEffect(() => {
     const fetchPlants = async () => {
@@ -50,6 +51,10 @@ const MainBodyPc: React.FC<SelectedCategoryProps> = ({ selectedCategory }) => {
     };
     fetchPlants();
   }, []);
+
+  const searchButtonHandler = () => {
+    setSearchButton((prevSearchButton) => !prevSearchButton);
+  };
 
   if (loading) {
     return <Loading />;
@@ -159,8 +164,62 @@ const MainBodyPc: React.FC<SelectedCategoryProps> = ({ selectedCategory }) => {
         </div>
       </div>
       <div className="bg-gray flex-1 mr-20 md:hidden">
-        <div className="flex justify-end pt-12 px-6">
-          <IoSearch className="w-8 h-8 text-black text-opacity-80" />
+        <div className="flex justify-end px-6 mt-12">
+          <form
+            className="flex items-center justify-end w-full max-w-xs"
+            onSubmit={(event) => {
+              event.preventDefault();
+            }}
+          >
+            <label htmlFor="simple-search" className="sr-only">
+              Search
+            </label>
+            <motion.div
+              className={`relative w-full ${!searchButton && "hidden"}`}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{
+                opacity: searchButton ? 1 : 0,
+                scale: searchButton ? 1 : 0.8,
+              }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"></div>
+              <input
+                type="text"
+                id="simple-search"
+                className="bg-darkGray text-gray text-sm rounded-lg block w-full ps-6 p-2.5 placeholder:text-gray focus:outline-none"
+                placeholder="جست و جو..."
+                maxLength={25}
+              />
+            </motion.div>
+            <motion.button
+              type="submit"
+              className="p-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg"
+              onClick={searchButtonHandler}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+            >
+              <svg
+                className="w-6 h-6 text-darkGray"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                />
+              </svg>
+              <span className="sr-only">Search</span>
+            </motion.button>
+          </form>
         </div>
         <h2 className="text-4xl px-6 mt-12 font-extrabold">
           {selectedCategory}
