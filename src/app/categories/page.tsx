@@ -1,6 +1,4 @@
-import { supabase } from "../../../lib/supabaseClient";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import { fetchCategories } from "../../../lib/api";
 import Category from "../components/CategoriesPage/Category";
 
 type CategoryProp = {
@@ -11,25 +9,14 @@ type CategoryProp = {
   text: string;
 };
 
-// Static data fetching
-export async function fetchCategories() {
-  const { data, error } = await supabase.from("categories").select("*");
-  if (error) {
-    console.error("Error fetching categories:", error);
-    return [];
-  }
-  return data as CategoryProp[];
-}
-
-// SSG function (used for build-time data fetching)
+// SSG function (optional for static params)
 export async function generateStaticParams() {
   const categories = await fetchCategories();
-  return categories.map((category) => ({
+  return categories.map((category: CategoryProp) => ({
     id: category.id.toString(),
   }));
 }
 
-// Component
 export default async function Categories() {
   const categories = await fetchCategories();
 
