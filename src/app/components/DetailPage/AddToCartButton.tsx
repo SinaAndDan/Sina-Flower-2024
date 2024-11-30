@@ -8,7 +8,7 @@ const AddToCartButton: React.FC = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         type="button"
-        className="text-white bg-gradient-to-tl from-[#001a00] to-[#005a36] font-medium rounded-2xl text-sm py-4 text-center w-full"
+        className="text-white bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow font-medium rounded-2xl text-sm py-4 text-center w-full"
       >
         اضافه به سبد
       </motion.button>

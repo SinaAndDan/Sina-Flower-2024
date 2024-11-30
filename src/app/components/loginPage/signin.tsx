@@ -142,7 +142,7 @@ const SignInPage: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-full bg-gradient-to-t from-[#0f4a1e] via-[#1f7853] to-[#1e8e63] text-white py-2 rounded-3xl font-yekan md:h-[40px]"
+                className="w-full bg-gradient-to-t from-[#0f4a1e] via-[#1f7853] to-[#1e8e63] text-white py-2 rounded-lg font-yekan md:h-[40px]"
               >
                 ثبت نام
               </motion.button>

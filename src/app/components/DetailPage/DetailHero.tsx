@@ -34,7 +34,7 @@ const DetailHero: React.FC<{ selectedProduct: Plant | null }> = ({
             layout="intrinsic"
           />
           <IoArrowForward
-            className="absolute w-10 h-10 text-white cursor-pointer md:hidden right-5 top-5"
+            className="absolute w-10 h-10 text-greenlogIn cursor-pointer md:hidden right-5 top-5"
             onClick={backToMainPage}
           />
         </div>

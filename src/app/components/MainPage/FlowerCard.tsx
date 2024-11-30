@@ -44,7 +44,7 @@ const FlowerCard: React.FC<FlowerCardProps> = ({ flower }) => {
         height="300"
       />
       <div className="flex flex-col justify-between mb-2 px-5">
-        <span className="bg-gradient-to-tl from-[#004d00] to-[#00a86b] text-white rounded-xl md:rounded-2xl text-xs md:text-sm px-5 py-1 w-fit">
+        <span className="bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow ease-in-out hover:from-[#004d00] hover:via-[#003300] hover:to-[#002200] text-white rounded-xl md:rounded-2xl text-xs md:text-sm px-5 py-1 w-fit">
           داخلی
         </span>
         <h3 className="text-xl lg:text-2xl font-semibold font-parastoo text-start flex-grow mt-3 text-nowrap">

@@ -151,7 +151,7 @@ const Cart: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.7 }}
-              className="w-44 py-3 ml-4 bg-greenlogIn rounded-2xl text-white"
+              className="w-44 py-3 ml-4 bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow rounded-2xl text-white"
             >
               ادامه
             </motion.button>

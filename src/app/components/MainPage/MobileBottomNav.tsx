@@ -55,7 +55,7 @@ const MobileBottomNav: React.FC = () => {
     item.activePaths.some((path: string) => pathname === path);
 
   return (
-    <div className="w-full min-h-[60px] bg-gradient-to-tl from-[#004d00] to-[#00a86b] rounded-full z-50 fixed bottom-0 flex justify-between items-center px-7 md:hidden">
+    <div className="w-full min-h-[60px] bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow rounded-br-full rounded-tl-full z-50 fixed bottom-0 flex justify-between items-center px-7 md:hidden">
       {menuItems.map((item) => {
         const active = isActive(item);
         return (

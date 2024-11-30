@@ -73,7 +73,7 @@ const FavoriteCard: React.FC<FlowerCardProps> = ({ flower, onRemove }) => {
         </p>
         <div className="flex items-center mt-5">
           <div className="flex items-center space-x-3">
-            <i className="bg-[#064e3b] rounded-full lg:w-8 lg:h-8 w-7 h-7 flex items-center justify-center">
+            <i className="bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow rounded-full lg:w-8 lg:h-8 w-7 h-7 flex items-center justify-center">
               <TiWeatherSunny className="lg:w-6 lg:h-6 w-5 h-5 text-white" />
             </i>
             <p className="font-yekan text-black text-opacity-70 text-nowrap px-1">
@@ -81,7 +81,7 @@ const FavoriteCard: React.FC<FlowerCardProps> = ({ flower, onRemove }) => {
             </p>
           </div>
           <div className="flex items-center">
-            <i className="bg-[#064e3b] rounded-full lg:w-8 lg:h-8 w-7 h-7 flex items-center justify-center">
+            <i className="bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow rounded-full lg:w-8 lg:h-8 w-7 h-7 flex items-center justify-center">
               <PiHeartbeatLight className="lg:w-6 lg:h-6 w-5 h-5 text-white" />
             </i>
             <p className="font-yekan text-black text-opacity-70 text-nowrap mx-1">

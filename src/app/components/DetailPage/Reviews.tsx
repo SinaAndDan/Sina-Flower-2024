@@ -69,7 +69,7 @@ const Reviews: React.FC<ReviewTypes> = ({
           <motion.div
             whileHover={{ scale: 1.1 }} // Hover animation here
             whileTap={{ scale: 0.9 }} // Tap animation here
-            className="bg-gradient-to-tl from-[#002200] to-[#007a4f]
+            className="bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow
  rounded-full min-w-10 min-h-10 flex items-center justify-center mr-2"
           >
             <MdOutlineSend className="rotate-180 text-white w-6 h-6  cursor-pointer -translate-x-0.5" />
@@ -139,7 +139,7 @@ const Reviews: React.FC<ReviewTypes> = ({
           <motion.div
             whileHover={{ scale: 1.1 }} // Hover animation here
             whileTap={{ scale: 0.9 }} // Tap animation here
-            className="bg-gradient-to-tl from-[#002200] to-[#007a4f]
+            className="bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow
  rounded-full min-w-10 min-h-10 flex items-center justify-center mr-2"
           >
             <MdOutlineSend className="rotate-180 text-white w-6 h-6 cursor-pointer -translate-x-0.5" />

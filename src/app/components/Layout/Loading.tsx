@@ -26,7 +26,7 @@ const Loading: React.FC = () => {
           transition={{ duration: 1, delay: 0.5 }}
           className="text-xl font-semibold"
         >
-          ...در حال بارگذاری
+          در حال بارگذاری...
         </motion.div>
       </motion.div>
     </div>

@@ -129,7 +129,7 @@ const PcNav: React.FC = () => {
                 </motion.button>
               </form>
             </li>
-            <li className="bg-gradient-to-tl from-[#004d00] to-[#00a86b] text-white rounded-2xl py-2 px-6">
+            <li className="bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow ease-in-out hover:from-[#004d00] hover:via-[#003300] hover:to-[#002200] text-white rounded-2xl py-2 px-6">
               <Link
                 href="/account/signin"
                 className="block py-2 px-3 text-gray-900 rounded  md:p-0 "
