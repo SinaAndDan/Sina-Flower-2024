@@ -1,4 +1,4 @@
-import EditProfile from "@/app/components/profile/editProfile";
+import EditProfile from "src/app/components/profile/editProfile";
 import React from "react";
 
 const editPro = () => {
