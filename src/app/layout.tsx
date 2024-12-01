@@ -10,7 +10,7 @@ export const metadata: Metadata = {
       { url: "/favicon-32x32.png", sizes: "32x32" },
       { url: "/android-chrome-192x192", sizes: "192x192" },
       { url: "/android-chrome-512x512.png", sizes: "512x512" },
-      { url: "/golesina.ico", sizes: "any" }, // ICO file with multiple sizes
+      { url: "/golesina.ico", sizes: "any" },
     ],
   },
 };

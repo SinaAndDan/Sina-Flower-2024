@@ -3,7 +3,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import Image from "next/image";
-import { IoSearch } from "react-icons/io5";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 
@@ -33,7 +32,6 @@ const PcNav: React.FC = () => {
           />
         </Link>
 
-        {/* Centered Navbar Items */}
         <div className="flex justify-center">
           <ul className="font-medium flex p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
@@ -69,7 +67,6 @@ const PcNav: React.FC = () => {
           </ul>
         </div>
 
-        {/* Separate ثبت نام at the end */}
         <div>
           <ul className="font-medium flex p-4 md:p-0 mt-4 rounded-lg bg-gray-50 rtl:space-x-reverse md:mt-0 ">
             <li className="flex items-center justify-center mx-4 min-w-[30vw] xl:min-w-[20vw]">

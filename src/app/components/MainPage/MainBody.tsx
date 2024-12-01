@@ -4,36 +4,21 @@ import React, { useEffect, useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import FlowerCard from "./FlowerCard";
 import { supabase } from "../../../../lib/supabaseClient";
-import Image from "next/image";
 
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-// import required modules
-import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import { motion } from "motion/react";
 import Loading from "../Layout/Loading";
+import { PlantListProp } from "src/types/productcard";
+import { CategoryDisplayProp } from "src/types/category";
 
-interface Plant {
-  id: string;
-  name: string;
-  price: number;
-  picture: string;
-  width: number;
-  height: number;
-}
-
-type SelectedCategoryProps = {
-  selectedCategory: string;
-};
-
-const MainBodyPc: React.FC<SelectedCategoryProps> = ({ selectedCategory }) => {
-  const [plants, setPlants] = useState<Plant[]>([]);
+const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
+  const [plants, setPlants] = useState<PlantListProp[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchButton, setSearchButton] = useState(false);
 
@@ -45,7 +30,7 @@ const MainBodyPc: React.FC<SelectedCategoryProps> = ({ selectedCategory }) => {
       if (error) {
         console.error("Error fetching plants:", error);
       } else {
-        setPlants(data as Plant[]);
+        setPlants(data as PlantListProp[]);
       }
       setLoading(false);
     };

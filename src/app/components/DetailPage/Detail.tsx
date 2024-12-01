@@ -8,18 +8,8 @@ import Reviews from "./Reviews";
 import About from "./About";
 import Maintaining from "./Maintaining";
 import { supabase } from "../../../../lib/supabaseClient";
-import { MdOutlineSend } from "react-icons/md";
 import Loading from "../Layout/Loading";
-
-interface Plant {
-  id: string;
-  name: string;
-  price: number;
-  picture: string;
-  category: string;
-  type: string;
-  plant: string;
-}
+import { PlantProps } from "src/types/plant";
 
 const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -27,8 +17,10 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
   const [liked, setIsLiked] = useState<boolean | null>(false);
   const [disliked, setIsDisLiked] = useState<boolean | null>(false);
   const [isReply, setIsReply] = useState<boolean | null>(false);
-  const [selectedProduct, setSelectedProduct] = useState<Plant | null>(null);
-  const [plants, setPlants] = useState<Plant[]>([]);
+  const [selectedProduct, setSelectedProduct] = useState<PlantProps | null>(
+    null
+  );
+  const [plants, setPlants] = useState<PlantProps[]>([]);
   const [loading, setLoading] = useState(false);
 
   const reviewRef = useRef<HTMLDivElement>(null);
@@ -41,7 +33,7 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
       if (error) {
         console.error("Error fetching plants:", error);
       } else {
-        setPlants(data as Plant[]);
+        setPlants(data as PlantProps[]);
       }
       setLoading(false);
     };

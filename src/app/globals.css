@@ -2,35 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-} */
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-} */
 body,
 main {
   background-color: #f1f5f9;
@@ -41,14 +12,13 @@ main {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
-/* Global CSS file or Tailwind config */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 
 .scrollbar-hide {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 .notched-corner::after {
   content: "";
@@ -66,14 +36,14 @@ main {
 
 textarea {
   overflow: hidden;
-  resize: none; /* Prevent manual resizing */
+  resize: none;
 }
 
 .image-container {
   position: relative;
   width: 100vw;
   height: 100vh;
-  overflow: hidden; /* To prevent overflow */
+  overflow: hidden;
 }
 
 .image-container img {
@@ -82,14 +52,14 @@ textarea {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the image covers the container */
+  object-fit: cover;
 }
 
 .image-containerII {
   position: relative;
   width: 100vw;
   height: 30vh;
-  overflow: hidden; /* To prevent overflow */
+  overflow: hidden;
 }
 
 .image-containerII img {
@@ -98,7 +68,7 @@ textarea {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the image covers the container */
+  object-fit: cover;
   overflow: hidden;
 }
 .swiper {
@@ -111,7 +81,6 @@ textarea {
   font-size: 18px;
   background: #fff;
 
-  /* Center slide text vertically */
   display: flex;
   justify-content: center;
   align-items: center;

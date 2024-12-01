@@ -1,13 +1,6 @@
 import { fetchCategories } from "../../../lib/api";
 import Category from "../components/CategoriesPage/Category";
-
-type CategoryProp = {
-  id: number;
-  bgColor: string;
-  image: string;
-  imagePosition: "right" | "left";
-  text: string;
-};
+import { CategoryProp } from "src/types/category";
 
 // SSG function (optional for static params)
 export async function generateStaticParams() {

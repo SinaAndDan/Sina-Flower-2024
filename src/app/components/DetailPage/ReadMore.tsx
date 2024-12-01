@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-
-type ReadMoreProps = {
-  text: string;
-  maxLength?: number;
-};
+import { ReadMoreProps } from "src/types/detail";
 
 const ReadMore: React.FC<ReadMoreProps> = ({ text, maxLength = 100 }) => {
   const [isExpanded, setIsExpanded] = useState(false);

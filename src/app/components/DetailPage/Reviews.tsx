@@ -3,19 +3,9 @@ import React, { useEffect, useRef, useState, RefObject } from "react";
 import { BiSolidDislike, BiSolidLike } from "react-icons/bi";
 import { BsThreeDots } from "react-icons/bs";
 import { MdOutlineSend } from "react-icons/md";
+import { ReviewProps } from "src/types/review";
 
-interface ReviewTypes {
-  about: boolean | null;
-  liked: boolean | null;
-  disliked: boolean | null;
-  onLikeClick: () => void;
-  onDisLikeClick: () => void;
-  onReply: () => void;
-  isReply: boolean | null;
-  reviewRef: RefObject<HTMLDivElement>;
-}
-
-const Reviews: React.FC<ReviewTypes> = ({
+const Reviews: React.FC<ReviewProps> = ({
   reviewRef,
   liked,
   disliked,

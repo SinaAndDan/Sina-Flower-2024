@@ -2,18 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { IoArrowForward } from "react-icons/io5";
 import { useRouter } from "next/navigation";
+import { PlantProps } from "src/types/plant";
 
-interface Plant {
-  id: string;
-  name: string;
-  price: number;
-  picture: string;
-  category: string;
-  type: string;
-  plant: string;
-}
-
-const DetailHero: React.FC<{ selectedProduct: Plant | null }> = ({
+const DetailHero: React.FC<{ selectedProduct: PlantProps | null }> = ({
   selectedProduct,
 }) => {
   const router = useRouter();

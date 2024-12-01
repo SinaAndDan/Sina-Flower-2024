@@ -6,20 +6,9 @@ import { IoRemoveOutline } from "react-icons/io5";
 import { supabase } from "../../../../lib/supabaseClient";
 import { motion } from "motion/react";
 import Link from "next/link";
+import { FavoriteCardProps } from "src/types/favoritecard";
 
-interface FlowerCardProps {
-  flower: {
-    id: string;
-    name: string;
-    price: number;
-    picture: string;
-    width: number;
-    height: number;
-  };
-  onRemove: () => void;
-}
-
-const FavoriteCard: React.FC<FlowerCardProps> = ({ flower, onRemove }) => {
+const FavoriteCard: React.FC<FavoriteCardProps> = ({ flower, onRemove }) => {
   const removeHandler = async (id: string) => {
     const { error } = await supabase
       .from("plants")

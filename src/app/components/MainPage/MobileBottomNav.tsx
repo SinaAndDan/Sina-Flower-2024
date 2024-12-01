@@ -7,19 +7,11 @@ import { BsBag } from "react-icons/bs";
 import { GoPerson } from "react-icons/go";
 import { PiPlant } from "react-icons/pi";
 import { SlHeart } from "react-icons/sl";
-
-interface MenuItem {
-  label: string;
-  path: string;
-  activePaths: string[];
-  icon: JSX.Element;
-  activeIcon: JSX.Element;
-}
+import { MenuItem } from "src/types/menu";
 
 const MobileBottomNav: React.FC = () => {
   const pathname = usePathname();
 
-  // Define your menu items with paths and corresponding icons
   const menuItems: MenuItem[] = [
     {
       label: "account",

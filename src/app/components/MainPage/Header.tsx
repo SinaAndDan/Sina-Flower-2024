@@ -3,12 +3,9 @@
 import { BiCategory } from "react-icons/bi";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { SelectedCategoryProps } from "src/types/category";
 
-type CategoryProps = {
-  selectedCategory: string;
-  setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
-};
-const Header: React.FC<CategoryProps> = ({
+const Header: React.FC<SelectedCategoryProps> = ({
   selectedCategory,
   setSelectedCategory,
 }) => {

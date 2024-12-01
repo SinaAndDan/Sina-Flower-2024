@@ -1,39 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
-import { GoHeart } from "react-icons/go";
 
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-// import required modules
-import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
-
-interface FlowerCardProps {
-  flower: {
-    id: string;
-    name: string;
-    price: number;
-    picture: string;
-    width: number;
-    height: number;
-  };
-}
+import { ProductCardProps } from "src/types/productcard";
 
 const toPersianNumber = (num: number): string => {
   const persianDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
 
-  // Convert the number to a string, and replace each digit with the corresponding Persian one.
   return num
     .toString()
     .replace(/\d/g, (digit) => persianDigits[parseInt(digit)]);
 };
 
-const FlowerCard: React.FC<FlowerCardProps> = ({ flower }) => {
+const FlowerCard: React.FC<ProductCardProps> = ({ flower }) => {
   return (
     <Link href={`/products/${flower.id}`} className="">
       <Image

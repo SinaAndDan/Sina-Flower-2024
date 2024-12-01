@@ -4,20 +4,9 @@ import { motion } from "motion/react";
 import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { CategoryArrayProp } from "src/types/category";
 
-type Category = {
-  id: number;
-  bgColor: string;
-  image: string;
-  imagePosition: "right" | "left";
-  text: string;
-};
-
-type CategoryProps = {
-  categories: Category[];
-};
-
-const Category: React.FC<CategoryProps> = ({ categories }) => {
+const Category: React.FC<CategoryArrayProp> = ({ categories }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
   const router = useRouter();

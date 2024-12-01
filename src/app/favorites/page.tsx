@@ -2,26 +2,16 @@
 
 import React, { useEffect, useState } from "react";
 import PcNav from "../components/MainPage/PcNav";
-import { IoCloseOutline, IoSearch } from "react-icons/io5";
 import { supabase } from "../../../lib/supabaseClient";
-import Header from "../components/MainPage/Header";
 import FavoriteCard from "../components/favoritesPage/FavoriteCard";
 import MobileBottomNav from "../components/MainPage/MobileBottomNav";
 import { AnimatePresence, motion } from "motion/react";
 import NoFavorites from "../components/favoritesPage/NoFavorites";
 import Loading from "../components/Layout/Loading";
-
-interface Plant {
-  id: string;
-  name: string;
-  price: number;
-  picture: string;
-  width: number;
-  height: number;
-}
+import { PlantProps } from "src/types/plant";
 
 const Favorites: React.FC = () => {
-  const [favorites, setFavorites] = useState<Plant[]>([]);
+  const [favorites, setFavorites] = useState<PlantProps[]>([]);
   const [loading, SetLoading] = useState(false);
 
   useEffect(() => {
@@ -64,9 +54,9 @@ const Favorites: React.FC = () => {
               <AnimatePresence>
                 {favorites.map((flower) => (
                   <motion.div
-                    initial={{ scale: 0 }} // start scaled down
-                    animate={{ scale: 1 }} // target size (normal size)
-                    exit={{ scale: 0 }} // scale down when removed
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    exit={{ scale: 0 }}
                     transition={{ duration: 0.5 }}
                     className="bg-white rounded-3xl w-full h-32 md:h-36 lg:h-40"
                     key={flower.id}
