@@ -5,9 +5,11 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
+import { useLanguage } from "src/app/context/LanguageContext";
 
 const PcNav: React.FC = () => {
   const [searchButton, setSearchButton] = useState(false);
+  const { content, setLanguage } = useLanguage();
 
   const pathname = usePathname();
   const getLinkClass = (path: string) => {
@@ -41,7 +43,7 @@ const PcNav: React.FC = () => {
                   "/favorites"
                 )} block py-2 px-3 rounded md:border-0  md:p-0 `}
               >
-                مورد علاقه ها
+                {content.favorites}
               </Link>
             </li>
             <li>
@@ -51,7 +53,7 @@ const PcNav: React.FC = () => {
                   "/cart"
                 )} block py-2 px-3 rounded md:border-0  md:p-0 `}
               >
-                سبد خرید
+                {content.cart}
               </Link>
             </li>
             <li>
@@ -61,7 +63,7 @@ const PcNav: React.FC = () => {
                   "/categories"
                 )} block py-2 px-3 rounded md:border-0  md:p-0 `}
               >
-                دسته بندی
+                {content.category}
               </Link>
             </li>
           </ul>
@@ -76,6 +78,10 @@ const PcNav: React.FC = () => {
                   event.preventDefault();
                 }}
               >
+                <select onChange={(e) => setLanguage(e.target.value)}>
+                  <option value="pe">Persian</option>
+                  <option value="en">English</option>
+                </select>
                 <label htmlFor="simple-search" className="sr-only">
                   Search
                 </label>
@@ -93,10 +99,11 @@ const PcNav: React.FC = () => {
                     type="text"
                     id="simple-search"
                     className="bg-darkGray text-gray text-sm rounded-lg block w-full ps-6 p-2.5 placeholder:text-gray focus:outline-none"
-                    placeholder="جست و جو..."
+                    placeholder={content.search}
                     maxLength={25}
                   />
                 </motion.div>
+
                 <motion.button
                   type="submit"
                   className="p-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg"
@@ -131,7 +138,7 @@ const PcNav: React.FC = () => {
                 href="/account/signin"
                 className="block py-2 px-3 text-gray-900 rounded  md:p-0 "
               >
-                ثبت نام
+                {content.signIn}
               </Link>
             </li>
           </ul>
