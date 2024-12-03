@@ -16,11 +16,13 @@ import { motion } from "motion/react";
 import Loading from "../Layout/Loading";
 import { PlantListProp } from "src/types/productcard";
 import { CategoryDisplayProp } from "src/types/category";
+import { useLanguage } from "src/app/context/LanguageContext";
 
 const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
   const [plants, setPlants] = useState<PlantListProp[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchButton, setSearchButton] = useState(false);
+  const { content } = useLanguage();
 
   useEffect(() => {
     const fetchPlants = async () => {
@@ -51,7 +53,9 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
         <div className="flex justify-end pt-12 px-6 md:hidden">
           <IoSearch className="w-8 h-8 text-black text-opacity-80" />
         </div>
-        <h2 className="text-4xl px-6 mt-12 font-extrabold">پیشنهادی</h2>
+        <h2 className="text-4xl px-6 mt-12 font-extrabold capitalize">
+          {content.suggestion}
+        </h2>
 
         <div className="rounded-2xl m-5 w-[90vw] h-auto mx-auto">
           <Swiper
@@ -83,7 +87,9 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
             ))}
           </Swiper>
         </div>
-        <h2 className="text-4xl px-6 mt-12 font-extrabold">فیکوس</h2>
+        <h2 className="text-4xl px-6 mt-12 font-extrabold capitalize">
+          {content.ficus}
+        </h2>
 
         <div className="rounded-2xl m-5 w-[90vw] h-auto mx-auto">
           <Swiper
@@ -115,7 +121,9 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
             ))}
           </Swiper>
         </div>
-        <h2 className="text-4xl px-6 mt-12 font-extrabold">کاکتوس</h2>
+        <h2 className="text-4xl px-6 mt-12 font-extrabold capitalize">
+          {content.cactus}
+        </h2>
 
         <div className="rounded-2xl m-5 w-[90vw] h-auto mx-auto">
           <Swiper

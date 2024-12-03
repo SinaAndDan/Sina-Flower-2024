@@ -5,6 +5,9 @@
   "category": "category",
   "cart": "cart",
   "favorites": "favorites",
-  "signIn": "Sign In",
-  "search": "search..."
+  "signIn": "Sign in",
+  "search": "search...",
+  "suggestion": "suggestion",
+  "ficus": "ficus",
+  "cactus": "cactus"
 }

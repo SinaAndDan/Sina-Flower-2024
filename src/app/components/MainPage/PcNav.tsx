@@ -9,7 +9,8 @@ import { useLanguage } from "src/app/context/LanguageContext";
 
 const PcNav: React.FC = () => {
   const [searchButton, setSearchButton] = useState(false);
-  const { content, setLanguage } = useLanguage();
+  const { content, setLanguage, language } = useLanguage();
+  const [selectLang, setSelectLang] = useState(false);
 
   const pathname = usePathname();
   const getLinkClass = (path: string) => {
@@ -33,6 +34,71 @@ const PcNav: React.FC = () => {
             alt="Logo"
           />
         </Link>
+        <div className="relative">
+          <button
+            className="flex items-center px-4 py-2 rounded-lg"
+            onClick={() => setSelectLang(!selectLang)}
+          >
+            <Image
+              src={
+                language === "pe"
+                  ? "./Icons/Iran-flag.svg"
+                  : "./Icons/UK-flag.svg"
+              }
+              alt="flag"
+              className={`w-5 h-5 ${language === "pe" ? "ml-2" : "mr-2"}`}
+              width={100}
+              height={100}
+            />
+            {language === "pe" ? "فارسی" : "English"}
+          </button>
+          <motion.ul
+            initial={{ opacity: 0, scaleY: 0 }}
+            animate={
+              selectLang ? { opacity: 1, scaleY: 1 } : { opacity: 0, scaleY: 0 }
+            }
+            exit={{ opacity: 0, scaleY: 0 }}
+            transition={{ duration: 0.3 }}
+            className={`${
+              selectLang ? "absolute" : "hidden"
+            } mt-2 bg-white rounded-lg`}
+          >
+            <li
+              onClick={() => {
+                setLanguage("pe");
+                setSelectLang(!selectLang);
+              }}
+              className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-100"
+            >
+              <Image
+                src="./Icons/Iran-flag.svg"
+                alt="Iran flag"
+                className={`w-5 h-5 ${language === "pe" ? "ml-2" : "mr-2"}`}
+                width={100}
+                height={100}
+              />
+              فارسی
+            </li>
+            <li
+              onClick={() => {
+                setLanguage("en");
+                setSelectLang(!selectLang);
+              }}
+              className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-100"
+            >
+              <Image
+                src="./Icons/UK-flag.svg"
+                alt="USA flag"
+                className={`w-5 h-5 capitalize ${
+                  language === "pe" ? "ml-2" : "mr-2"
+                }`}
+                width={100}
+                height={100}
+              />
+              English
+            </li>
+          </motion.ul>
+        </div>
 
         <div className="flex justify-center">
           <ul className="font-medium flex p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
@@ -41,7 +107,7 @@ const PcNav: React.FC = () => {
                 href="/favorites"
                 className={`${getLinkClass(
                   "/favorites"
-                )} block py-2 px-3 rounded md:border-0  md:p-0 `}
+                )} block py-2 px-3 rounded md:border-0  md:p-0 capitalize`}
               >
                 {content.favorites}
               </Link>
@@ -51,7 +117,7 @@ const PcNav: React.FC = () => {
                 href="/cart"
                 className={`${getLinkClass(
                   "/cart"
-                )} block py-2 px-3 rounded md:border-0  md:p-0 `}
+                )} block py-2 px-3 rounded md:border-0  md:p-0 capitalize`}
               >
                 {content.cart}
               </Link>
@@ -61,7 +127,7 @@ const PcNav: React.FC = () => {
                 href="/categories"
                 className={`${getLinkClass(
                   "/categories"
-                )} block py-2 px-3 rounded md:border-0  md:p-0 `}
+                )} block py-2 px-3 rounded md:border-0  md:p-0 capitalize`}
               >
                 {content.category}
               </Link>
@@ -78,10 +144,6 @@ const PcNav: React.FC = () => {
                   event.preventDefault();
                 }}
               >
-                <select onChange={(e) => setLanguage(e.target.value)}>
-                  <option value="pe">Persian</option>
-                  <option value="en">English</option>
-                </select>
                 <label htmlFor="simple-search" className="sr-only">
                   Search
                 </label>
@@ -98,7 +160,7 @@ const PcNav: React.FC = () => {
                   <input
                     type="text"
                     id="simple-search"
-                    className="bg-darkGray text-gray text-sm rounded-lg block w-full ps-6 p-2.5 placeholder:text-gray focus:outline-none"
+                    className="bg-darkGray text-gray text-sm rounded-lg block w-full ps-6 p-2.5 placeholder:text-gray focus:outline-none placeholder:capitalize"
                     placeholder={content.search}
                     maxLength={25}
                   />
