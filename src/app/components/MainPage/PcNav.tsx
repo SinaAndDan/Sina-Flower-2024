@@ -6,6 +6,12 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { useLanguage } from "src/app/context/LanguageContext";
+import { Exo_2 } from "next/font/google";
+
+const exo = Exo_2({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const PcNav: React.FC = () => {
   const [searchButton, setSearchButton] = useState(false);
@@ -23,7 +29,11 @@ const PcNav: React.FC = () => {
     setSearchButton((prevSearchButton) => !prevSearchButton);
   };
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 hidden md:block font-yekan">
+    <nav
+      className={`bg-white border-gray-200 dark:bg-gray-900 hidden md:block font-yekan ${
+        language === "pe" ? "font-yekan" : exo.className
+      }`}
+    >
       <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
         <Link href="/" className="flex space-x-3 rtl:space-x-reverse">
           <Image
@@ -68,12 +78,12 @@ const PcNav: React.FC = () => {
                 setLanguage("pe");
                 setSelectLang(!selectLang);
               }}
-              className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-100"
+              className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-100 font-yekan"
             >
               <Image
                 src="./Icons/Iran-flag.svg"
                 alt="Iran flag"
-                className={`w-5 h-5 ${language === "pe" ? "ml-2" : "mr-2"}`}
+                className={`w-5 h-5 ${language === "pe" ? "ml-1" : "mr-1"}`}
                 width={100}
                 height={100}
               />
@@ -84,13 +94,13 @@ const PcNav: React.FC = () => {
                 setLanguage("en");
                 setSelectLang(!selectLang);
               }}
-              className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-100"
+              className={`flex items-center px-4 py-2 cursor-pointer hover:bg-gray-100 ${exo.className}`}
             >
               <Image
                 src="./Icons/UK-flag.svg"
                 alt="USA flag"
                 className={`w-5 h-5 capitalize ${
-                  language === "pe" ? "ml-2" : "mr-2"
+                  language === "pe" ? "ml-1" : "mr-1"
                 }`}
                 width={100}
                 height={100}

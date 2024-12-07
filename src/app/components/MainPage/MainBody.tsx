@@ -17,6 +17,12 @@ import Loading from "../Layout/Loading";
 import { PlantListProp } from "src/types/productcard";
 import { CategoryDisplayProp } from "src/types/category";
 import { useLanguage } from "src/app/context/LanguageContext";
+import { Roboto_Slab } from "next/font/google";
+
+const roboto = Roboto_Slab({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
   const [plants, setPlants] = useState<PlantListProp[]>([]);
@@ -53,7 +59,9 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
         <div className="flex justify-end pt-12 px-6 md:hidden">
           <IoSearch className="w-8 h-8 text-black text-opacity-80" />
         </div>
-        <h2 className="text-4xl px-6 mt-12 font-extrabold capitalize">
+        <h2
+          className={`text-4xl px-6 mt-12 font-extrabold capitalize ${roboto.className}`}
+        >
           {content.suggestion}
         </h2>
 
@@ -87,7 +95,9 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
             ))}
           </Swiper>
         </div>
-        <h2 className="text-4xl px-6 mt-12 font-extrabold capitalize">
+        <h2
+          className={`text-4xl px-6 mt-12 font-extrabold capitalize ${roboto.className}`}
+        >
           {content.ficus}
         </h2>
 
@@ -121,7 +131,9 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
             ))}
           </Swiper>
         </div>
-        <h2 className="text-4xl px-6 mt-12 font-extrabold capitalize">
+        <h2
+          className={`text-4xl px-6 mt-12 font-extrabold capitalize ${roboto.className}`}
+        >
           {content.cactus}
         </h2>
 
