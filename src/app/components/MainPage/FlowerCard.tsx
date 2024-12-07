@@ -24,7 +24,10 @@ const poppins = Poppins({
 const FlowerCard: React.FC<ProductCardProps> = ({ flower }) => {
   const { language } = useLanguage();
   return (
-    <Link href={`/products/${flower.id}`}>
+    <Link
+      href={`/products/${flower.id}`}
+      dir={language === "pe" ? "rtl" : "ltr"}
+    >
       <Image
         className="w-full h-auto object-cover mb-3 rounded-t-2xl"
         src={flower.picture}
@@ -55,14 +58,26 @@ const FlowerCard: React.FC<ProductCardProps> = ({ flower }) => {
           >
             {language === "pe" ? flower.type_pe : flower.type_en}
           </p>
-          <p
-            className={`text-xl text-green font-semibold ${
-              language === "pe" ? "font-yekan" : poppins.className
+          <div
+            className={`flex items-center text-green ${
+              language === "pe" ? "flex-row" : "flex-row-reverse"
             }`}
           >
-            {language === "pe" ? toPersianNumber(flower.price) : flower.price}
-            <span className="text-xs "> تومان</span>
-          </p>
+            <p
+              className={`text-xl  font-semibold ${
+                language === "pe" ? "font-yekan" : poppins.className
+              }`}
+            >
+              {language === "pe" ? toPersianNumber(flower.price) : flower.price}
+            </p>
+            <span
+              className={`mx-0.5 ${
+                language === "pe" ? "mt-1 text-xs" : "text-xl"
+              }`}
+            >
+              {language === "pe" ? "تومان" : "$"}
+            </span>
+          </div>
         </div>
       </div>
     </Link>
