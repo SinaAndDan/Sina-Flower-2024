@@ -28,7 +28,7 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
   const [plants, setPlants] = useState<PlantListProp[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchButton, setSearchButton] = useState(false);
-  const { content } = useLanguage();
+  const { content, language } = useLanguage();
 
   useEffect(() => {
     const fetchPlants = async () => {
@@ -60,7 +60,9 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
           <IoSearch className="w-8 h-8 text-black text-opacity-80" />
         </div>
         <h2
-          className={`text-4xl px-6 mt-12 font-extrabold capitalize ${roboto.className}`}
+          className={`text-4xl px-6 mt-12 font-extrabold capitalize ${
+            language === "pe" ? "font-yekan" : roboto.className
+          }`}
         >
           {content.suggestion}
         </h2>
@@ -96,7 +98,9 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
           </Swiper>
         </div>
         <h2
-          className={`text-4xl px-6 mt-12 font-extrabold capitalize ${roboto.className}`}
+          className={`text-4xl px-6 mt-12 font-extrabold capitalize ${
+            language === "pe" ? "font-yekan" : roboto.className
+          }`}
         >
           {content.ficus}
         </h2>
@@ -132,7 +136,9 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
           </Swiper>
         </div>
         <h2
-          className={`text-4xl px-6 mt-12 font-extrabold capitalize ${roboto.className}`}
+          className={`text-4xl px-6 mt-12 font-extrabold capitalize ${
+            language === "pe" ? "font-yekan" : roboto.className
+          }`}
         >
           {content.cactus}
         </h2>
