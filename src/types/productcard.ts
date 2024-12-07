@@ -1,7 +1,12 @@
 export type ProductCardProps = {
   flower: {
     id: string;
-    name: string;
+    name_pe: string;
+    name_en: string;
+    type_pe: string;
+    type_en: string;
+    category_pe: string;
+    category_en: string;
     price: number;
     picture: string;
     width: number;
@@ -10,7 +15,12 @@ export type ProductCardProps = {
 };
 export type PlantListProp = {
   id: string;
-  name: string;
+  name_pe: string;
+  name_en: string;
+  type_pe: string;
+  type_en: string;
+  category_pe: string;
+  category_en: string;
   price: number;
   picture: string;
   width: number;
