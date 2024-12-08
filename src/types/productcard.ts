@@ -7,7 +7,8 @@ export type ProductCardProps = {
     type_en: string;
     category_pe: string;
     category_en: string;
-    price: number;
+    price_pe: number;
+    price_en: number;
     picture: string;
     width: number;
     height: number;
@@ -21,7 +22,8 @@ export type PlantListProp = {
   type_en: string;
   category_pe: string;
   category_en: string;
-  price: number;
+  price_pe: number;
+  price_en: number;
   picture: string;
   width: number;
   height: number;

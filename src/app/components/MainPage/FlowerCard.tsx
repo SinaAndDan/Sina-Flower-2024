@@ -60,20 +60,18 @@ const FlowerCard: React.FC<ProductCardProps> = ({ flower }) => {
           </p>
           <div
             className={`flex items-center text-green ${
-              language === "pe" ? "flex-row" : "flex-row-reverse"
+              language === "pe"
+                ? "flex-row font-yekan"
+                : poppins.className + " flex-row-reverse"
             }`}
           >
-            <p
-              className={`text-xl  font-semibold ${
-                language === "pe" ? "font-yekan" : poppins.className
-              }`}
-            >
-              {language === "pe" ? toPersianNumber(flower.price) : flower.price}
+            <p className={`text-xl  font-semibold`}>
+              {language === "pe"
+                ? toPersianNumber(flower.price_pe)
+                : flower.price_en}
             </p>
             <span
-              className={`mx-0.5 ${
-                language === "pe" ? "mt-1 text-xs" : "text-xl"
-              }`}
+              className={`mx-0.5 ${language === "pe" ? "mt-1 text-xs" : ""}`}
             >
               {language === "pe" ? "تومان" : "$"}
             </span>
