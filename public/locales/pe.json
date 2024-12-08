@@ -9,5 +9,9 @@
   "search": "جست و جو...",
   "suggestion": "پیشنهادی",
   "ficus": "فیکوس",
-  "cactus": "کاکتوس"
+  "cactus": "کاکتوس",
+  "loading": "در حال بارگزاری...",
+  "stSidebar": "کاکتوس",
+  "ndSidebar": "فیکوس",
+  "rdSidebar": "پیشنهادی"
 }

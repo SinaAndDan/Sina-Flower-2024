@@ -9,5 +9,9 @@
   "search": "search...",
   "suggestion": "suggestion",
   "ficus": "ficus",
-  "cactus": "cactus"
+  "cactus": "cactus",
+  "loading": "Loading...",
+  "stSidebar": "Cactus",
+  "ndSidebar": "Ficus",
+  "rdSidebar": "suggested"
 }

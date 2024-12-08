@@ -174,7 +174,11 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
           </Swiper>
         </div>
       </div>
-      <div className="bg-gray flex-1 mr-20 md:hidden">
+      <div
+        className={`bg-gray flex-1 md:hidden ${
+          language === "pe" ? "mr-20" : "ml-20"
+        }`}
+      >
         <div className="flex justify-end px-6 mt-12">
           <form
             className="flex items-center justify-end w-full max-w-xs"

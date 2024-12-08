@@ -1,8 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
+import { useLanguage } from "src/app/context/LanguageContext";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+});
 
 const Loading: React.FC = () => {
+  const { content } = useLanguage();
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
       <motion.div
@@ -24,9 +32,9 @@ const Loading: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="text-xl font-semibold"
+          className={`text-xl font-semibold ${poppins.className}`}
         >
-          در حال بارگذاری...
+          {content.loading}
         </motion.div>
       </motion.div>
     </div>

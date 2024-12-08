@@ -44,9 +44,9 @@ const FlowerCard: React.FC<ProductCardProps> = ({ flower }) => {
           {language === "pe" ? flower.category_pe : flower.category_en}
         </span>
         <h3
-          className={`text-xl lg:text-2xl font-semibold font-parastoo text-start flex-grow mt-3 text-nowrap ${
-            language === "pe" ? "font-yekan" : poppins.className
-          }`}
+          className={`text-xl font-semibold font-parastoo text-start flex-grow mt-3 text-nowrap ${
+            language === "pe" ? "font-yekan lg:text-2xl" : poppins.className
+          } `}
         >
           {language === "pe" ? flower.name_pe : flower.name_en}
         </h3>
