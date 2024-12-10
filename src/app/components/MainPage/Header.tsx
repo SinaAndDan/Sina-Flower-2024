@@ -5,6 +5,12 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { SelectedCategoryProps } from "src/types/category";
 import { useLanguage } from "src/app/context/LanguageContext";
+import { Roboto_Slab } from "next/font/google";
+
+const roboto = Roboto_Slab({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 const Header: React.FC<SelectedCategoryProps> = ({
   selectedCategory,
@@ -25,7 +31,7 @@ const Header: React.FC<SelectedCategoryProps> = ({
         </Link>
         <div className="flex flex-col z-40">
           <button
-            className="flex relative"
+            className="flex justify-center relative"
             onClick={() => setSelectedCategory(content.stSidebar)}
           >
             <motion.span
@@ -39,15 +45,19 @@ const Header: React.FC<SelectedCategoryProps> = ({
               transition={{ duration: 0.3 }}
             ></motion.span>
             <div
-              className={`rotate-90 text-black font-extrabold ${
+              className={`text-black font-extrabold ${
                 selectedCategory === content.stSidebar ? "" : "text-opacity-50"
+              } ${
+                language === "pe"
+                  ? "rotate-90"
+                  : roboto.className + " rotate-[270deg] capitalize"
               }`}
             >
               {content.stSidebar}
             </div>
           </button>
           <button
-            className="flex relative mt-20"
+            className="flex justify-center relative mt-20"
             onClick={() => setSelectedCategory(content.ndSidebar)}
           >
             <motion.span
@@ -67,15 +77,19 @@ const Header: React.FC<SelectedCategoryProps> = ({
             ></motion.span>
 
             <div
-              className={`rotate-90 text-black font-extrabold ${
+              className={` text-black font-extrabold ${
                 selectedCategory === content.ndSidebar ? "" : "text-opacity-50"
+              } ${
+                language === "pe"
+                  ? "rotate-90"
+                  : roboto.className + " rotate-[270deg] capitalize"
               }`}
             >
               {content.ndSidebar}
             </div>
           </button>
           <button
-            className="flex relative mt-20"
+            className="flex justify-center relative mt-20 "
             onClick={() => setSelectedCategory(content.rdSidebar)}
           >
             <motion.span
@@ -89,8 +103,12 @@ const Header: React.FC<SelectedCategoryProps> = ({
               transition={{ duration: 0.3 }}
             ></motion.span>
             <div
-              className={`rotate-90 text-black font-extrabold ${
+              className={` text-black font-extrabold ${
                 selectedCategory === content.rdSidebar ? "" : "text-opacity-50"
+              } ${
+                language === "pe"
+                  ? "rotate-90"
+                  : roboto.className + " rotate-[270deg] capitalize"
               }`}
             >
               {content.rdSidebar}

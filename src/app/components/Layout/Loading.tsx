@@ -10,7 +10,7 @@ const poppins = Poppins({
 });
 
 const Loading: React.FC = () => {
-  const { content } = useLanguage();
+  const { content, language } = useLanguage();
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
       <motion.div
@@ -32,7 +32,9 @@ const Loading: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className={`text-xl font-semibold ${poppins.className}`}
+          className={`text-xl font-semibold ${
+            language !== "pe" && poppins.className
+          }`}
         >
           {content.loading}
         </motion.div>

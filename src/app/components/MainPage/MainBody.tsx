@@ -17,18 +17,24 @@ import Loading from "../Layout/Loading";
 import { PlantListProp } from "src/types/productcard";
 import { CategoryDisplayProp } from "src/types/category";
 import { useLanguage } from "src/app/context/LanguageContext";
-import { Roboto_Slab } from "next/font/google";
+import { Exo_2, Roboto_Slab } from "next/font/google";
+import Image from "next/image";
 
 const roboto = Roboto_Slab({
   subsets: ["latin"],
   weight: ["400", "700"],
+});
+const exo = Exo_2({
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
   const [plants, setPlants] = useState<PlantListProp[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchButton, setSearchButton] = useState(false);
-  const { content, language } = useLanguage();
+  const { content, language, setLanguage } = useLanguage();
+  const [selectLang, setSelectLang] = useState(false);
 
   useEffect(() => {
     const fetchPlants = async () => {
@@ -180,6 +186,73 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
         }`}
       >
         <div className="flex justify-end px-6 mt-12">
+          <div className="relative">
+            <button
+              className="flex justify-center items-center px-4 py-2 rounded-lg"
+              onClick={() => setSelectLang(!selectLang)}
+            >
+              <Image
+                src={
+                  language === "pe"
+                    ? "./Icons/Iran-flag.svg"
+                    : "./Icons/UK-flag.svg"
+                }
+                alt="flag"
+                className={`w-5 h-5 ${language === "pe" ? "ml-2" : "mr-2"}`}
+                width={100}
+                height={100}
+              />
+              {language === "pe" ? "فارسی" : "English"}
+            </button>
+            <motion.ul
+              initial={{ opacity: 0, scaleY: 0 }}
+              animate={
+                selectLang
+                  ? { opacity: 1, scaleY: 1 }
+                  : { opacity: 0, scaleY: 0 }
+              }
+              exit={{ opacity: 0, scaleY: 0 }}
+              transition={{ duration: 0.3 }}
+              className={`${
+                selectLang ? "absolute" : "hidden"
+              } mt-2 bg-white rounded-lg`}
+            >
+              <li
+                onClick={() => {
+                  setLanguage("pe");
+                  setSelectLang(!selectLang);
+                }}
+                className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-100 text-xs font-yekan"
+              >
+                <Image
+                  src="./Icons/Iran-flag.svg"
+                  alt="Iran flag"
+                  className={`w-5 h-5 ${language === "pe" ? "ml-1" : "mr-1"}`}
+                  width={100}
+                  height={100}
+                />
+                فارسی
+              </li>
+              <li
+                onClick={() => {
+                  setLanguage("en");
+                  setSelectLang(!selectLang);
+                }}
+                className={`flex items-center px-4 py-2 cursor-pointer text-xs hover:bg-gray-100 ${exo.className}`}
+              >
+                <Image
+                  src="./Icons/UK-flag.svg"
+                  alt="USA flag"
+                  className={`w-5 h-5 capitalize${
+                    language === "pe" ? "ml-2" : "mr-2"
+                  }`}
+                  width={100}
+                  height={100}
+                />
+                English
+              </li>
+            </motion.ul>
+          </div>
           <form
             className="flex items-center justify-end w-full max-w-xs"
             onSubmit={(event) => {
@@ -236,7 +309,11 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
             </motion.button>
           </form>
         </div>
-        <h2 className="text-4xl px-6 mt-12 font-extrabold">
+        <h2
+          className={`text-4xl px-6 mt-24 font-extrabold ${
+            language !== "pe" && roboto.className + " capitalize"
+          }`}
+        >
           {selectedCategory}
         </h2>
         <div className="grid sm:grid-cols-2 items-center justify-center mt-8 mb-32">
