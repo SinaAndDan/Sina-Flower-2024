@@ -13,5 +13,12 @@
   "loading": "در حال بارگزاری...",
   "stSidebar": "کاکتوس",
   "ndSidebar": "فیکوس",
-  "rdSidebar": "پیشنهادی"
+  "rdSidebar": "پیشنهادی",
+  "reviews": "نظرها",
+  "stars": "۴.۲",
+  "quantity": "۱",
+  "monetaryUnit": "تومان",
+  "total": "مجموع",
+  "totalCost": "۲۳۰۰۰۰",
+  "proceed": "ادامه"
 }

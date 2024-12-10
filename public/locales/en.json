@@ -13,5 +13,12 @@
   "loading": "Loading...",
   "stSidebar": "Cactus",
   "ndSidebar": "Ficus",
-  "rdSidebar": "suggested"
+  "rdSidebar": "suggested",
+  "reviews": "Reviews",
+  "stars": "4.2",
+  "quantity": "1",
+  "monetaryUnit": "$",
+  "total": "Total",
+  "totalCost": "233",
+  "proceed": "Proceed"
 }

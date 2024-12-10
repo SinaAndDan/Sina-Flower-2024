@@ -185,7 +185,7 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
           language === "pe" ? "mr-20" : "ml-20"
         }`}
       >
-        <div className="flex justify-end px-6 mt-12">
+        <div className="flex justify-between px-6 mt-12">
           <div className="relative">
             <button
               className="flex justify-center items-center px-4 py-2 rounded-lg"

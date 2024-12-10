@@ -35,7 +35,7 @@ const toPersianNumber = (num: number): string => {
 
 const Cart: React.FC = () => {
   const [loading, setLoading] = useState(false);
-  const { language } = useLanguage();
+  const { content, language } = useLanguage();
   const router = useRouter();
 
   const [boughtPro, setBoughtPro] = useState<Plant[]>([]);
@@ -91,10 +91,10 @@ const Cart: React.FC = () => {
                   </p>
                   <div className="flex items-center">
                     <p className="text-black text-opacity-60 font-yekan lg:text-lg">
-                      نظرها
+                      {content.reviews}
                     </p>
                     <span className="flex items-center text-black text-opacity-60 lg:text-lg px-1">
-                      (۴.۲
+                      ({content.stars}
                       <FaStar className=" text-[#DAA520]" />)
                     </span>
                   </div>
@@ -102,9 +102,13 @@ const Cart: React.FC = () => {
                     {language === "pe"
                       ? toPersianNumber(plant.price_pe)
                       : plant.price_en}
-                    <span className="text-xs px-1"> تومان</span>
+                    <span className="text-xs px-1">{content.monetaryUnit}</span>
                   </p>
-                  <div className="flex items-center gap-x-2">
+                  <div
+                    className={`flex items-center gap-x-2 ${
+                      language !== "pe" && "flex-row-reverse justify-end"
+                    }`}
+                  >
                     <motion.i
                       whileHover={{ scale: 1.2 }}
                       whileTap={{ scale: 0.7 }}
@@ -116,7 +120,7 @@ const Cart: React.FC = () => {
                     >
                       <AiOutlinePlus />
                     </motion.i>
-                    <p className="font-yekan">۱</p>
+                    <p className="font-yekan">{content.quantity}</p>
                     <motion.i
                       whileHover={{ scale: 1.2 }}
                       whileTap={{ scale: 0.7 }}
@@ -137,7 +141,11 @@ const Cart: React.FC = () => {
                     width={500}
                     src={plant.picture}
                     alt="item"
-                    className="rounded-tr-2xl pl-4 object-cover ml-auto"
+                    className={`object-cover ml-auto ${
+                      language === "pe"
+                        ? "pl-4 rounded-tr-2xl"
+                        : "pr-4 rounded-tl-2xl"
+                    }`}
                   />
                 </div>
               </li>
@@ -147,10 +155,12 @@ const Cart: React.FC = () => {
         <div className="fixed bg-white min-h-[80px] bottom-0 w-full flex items-center px-2 font-yekan">
           <div className="container mx-auto flex items-center justify-between">
             <div className="flex flex-col px-5">
-              <p className="text-black text-opacity-60">مجموع خرید</p>
+              <p className="text-black text-opacity-60">{content.total}</p>
               <p className="text-2xl font-bold">
-                ۲۳۰۰۰۰
-                <span className="text-xs mx-1 font-medium">تومان</span>
+                {content.totalCost}
+                <span className="text-xs mx-1 font-medium">
+                  {content.monetaryUnit}
+                </span>
               </p>
             </div>
             <motion.button
@@ -158,7 +168,7 @@ const Cart: React.FC = () => {
               whileTap={{ scale: 0.7 }}
               className="w-44 py-3 ml-4 bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow rounded-2xl text-white"
             >
-              ادامه
+              {content.proceed}
             </motion.button>
           </div>
         </div>
