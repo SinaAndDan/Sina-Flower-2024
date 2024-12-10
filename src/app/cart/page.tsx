@@ -12,11 +12,13 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import PcNav from "../components/MainPage/PcNav";
 import Loading from "../components/Layout/Loading";
+import { useLanguage } from "../context/LanguageContext";
 
 interface Plant {
   id: string;
   name: string;
-  price: number;
+  price_pe: number;
+  price_en: number;
   picture: string;
   width: number;
   height: number;
@@ -33,6 +35,7 @@ const toPersianNumber = (num: number): string => {
 
 const Cart: React.FC = () => {
   const [loading, setLoading] = useState(false);
+  const { language } = useLanguage();
   const router = useRouter();
 
   const [boughtPro, setBoughtPro] = useState<Plant[]>([]);
@@ -96,7 +99,9 @@ const Cart: React.FC = () => {
                     </span>
                   </div>
                   <p className="font-yekan text-2xl font-semibold">
-                    {toPersianNumber(plant.price)}
+                    {language === "pe"
+                      ? toPersianNumber(plant.price_pe)
+                      : plant.price_en}
                     <span className="text-xs px-1"> تومان</span>
                   </p>
                   <div className="flex items-center gap-x-2">

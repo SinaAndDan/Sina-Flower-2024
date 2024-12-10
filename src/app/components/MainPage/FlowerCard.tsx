@@ -37,7 +37,7 @@ const FlowerCard: React.FC<ProductCardProps> = ({ flower }) => {
       />
       <div className="flex flex-col justify-between mb-2 px-5">
         <span
-          className={`bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow ease-in-out hover:from-[#004d00] hover:via-[#003300] hover:to-[#002200] text-white rounded-xl md:rounded-2xl text-xs md:text-sm px-5 py-1 w-fit ${
+          className={`bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow ease-in-out text-white rounded-xl md:rounded-2xl text-xs md:text-sm px-5 py-1 w-fit ${
             language === "pe" ? "font-yekan" : poppins.className
           }`}
         >
