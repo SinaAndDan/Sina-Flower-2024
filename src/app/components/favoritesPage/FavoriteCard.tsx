@@ -8,6 +8,12 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { FavoriteCardProps } from "src/types/favoritecard";
 import { useLanguage } from "src/app/context/LanguageContext";
+import { Exo_2 } from "next/font/google";
+
+const exo = Exo_2({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const FavoriteCard: React.FC<FavoriteCardProps> = ({ flower, onRemove }) => {
   const { content, language } = useLanguage();
@@ -41,6 +47,8 @@ const FavoriteCard: React.FC<FavoriteCardProps> = ({ flower, onRemove }) => {
 
   setTimeout(resetFavorites, 10000);
 
+  const fontClass = language !== "pe" ? exo.className : "font-yekan";
+
   return (
     <Link
       className="flex items-start h-fit w-full relative"
@@ -64,7 +72,9 @@ const FavoriteCard: React.FC<FavoriteCardProps> = ({ flower, onRemove }) => {
         }`}
       >
         <p className="text-lg lg:text-2xl font-bold">{flower.name}</p>
-        <p className="text-black text-opacity-60 mt-2 font-yekan lg:text-lg">
+        <p
+          className={`text-black text-opacity-60 mt-2 lg:text-lg ${fontClass}`}
+        >
           {content.suitableForEverySeason}
         </p>
         <div className="flex items-center mt-5 space-x-3">
@@ -74,7 +84,9 @@ const FavoriteCard: React.FC<FavoriteCardProps> = ({ flower, onRemove }) => {
             <i className="bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow rounded-full lg:w-8 lg:h-8 w-7 h-7 flex items-center justify-center">
               <TiWeatherSunny className="lg:w-6 lg:h-6 w-5 h-5 text-white" />
             </i>
-            <p className="font-yekan text-black text-opacity-70 text-nowrap px-1">
+            <p
+              className={`text-black text-opacity-70 text-nowrap px-1 ${fontClass}`}
+            >
               {content.needSunlight}
             </p>
           </div>
@@ -82,7 +94,9 @@ const FavoriteCard: React.FC<FavoriteCardProps> = ({ flower, onRemove }) => {
             <i className="bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow rounded-full lg:w-8 lg:h-8 w-7 h-7 flex items-center justify-center">
               <PiHeartbeatLight className="lg:w-6 lg:h-6 w-5 h-5 text-white" />
             </i>
-            <p className="font-yekan text-black text-opacity-70 text-nowrap mx-1">
+            <p
+              className={`font-yekan text-black text-opacity-70 text-nowrap mx-1 ${fontClass}`}
+            >
               {content.needLight}
             </p>
           </div>

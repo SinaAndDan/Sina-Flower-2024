@@ -10,11 +10,17 @@ import NoFavorites from "../components/favoritesPage/NoFavorites";
 import Loading from "../components/Layout/Loading";
 import { PlantProps } from "src/types/plant";
 import { useLanguage } from "../context/LanguageContext";
+import { Langar, Roboto_Slab } from "next/font/google";
+
+const roboto = Roboto_Slab({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 const Favorites: React.FC = () => {
   const [favorites, setFavorites] = useState<PlantProps[]>([]);
   const [loading, SetLoading] = useState(false);
-  const { content } = useLanguage();
+  const { content, language } = useLanguage();
 
   useEffect(() => {
     const fetchFavorites = async () => {
@@ -51,7 +57,11 @@ const Favorites: React.FC = () => {
           <NoFavorites />
         ) : (
           <div className="container mx-auto px-2 sm:px-0">
-            <h2 className="text-4xl font-extrabold ">
+            <h2
+              className={`text-4xl font-extrabold ${
+                language !== "pe" && roboto.className
+              }`}
+            >
               {content.favoriteTitle}
             </h2>
             <div className="flex flex-col lg:grid grid-cols-2 2xl:grid-cols-3 gap-5 sm:gap-x-16 xl:gap-x-20 items-center justify-center mt-8 mb-32">
