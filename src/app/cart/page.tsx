@@ -17,7 +17,8 @@ import { Exo_2, Roboto_Slab } from "next/font/google";
 
 interface Plant {
   id: string;
-  name: string;
+  name_pe: string;
+  name_en: string;
   price_pe: number;
   price_en: number;
   picture: string;
@@ -108,7 +109,7 @@ const Cart: React.FC = () => {
               >
                 <div className="flex flex-col justify-between px-5 w-1/2 h-44 font-yekan">
                   <p className={`text-lg lg:text-2xl font-bold ${fontClass}`}>
-                    {plant.name}
+                    {language === "pe" ? plant.name_pe : plant.name_en}
                   </p>
                   <div className="flex items-center">
                     <p
