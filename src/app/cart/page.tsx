@@ -13,6 +13,7 @@ import Link from "next/link";
 import PcNav from "../components/MainPage/PcNav";
 import Loading from "../components/Layout/Loading";
 import { useLanguage } from "../context/LanguageContext";
+import { Exo_2, Roboto_Slab } from "next/font/google";
 
 interface Plant {
   id: string;
@@ -32,6 +33,16 @@ const toPersianNumber = (num: number): string => {
     .toString()
     .replace(/\d/g, (digit) => persianDigits[parseInt(digit)]);
 };
+
+const roboto = Roboto_Slab({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const exo = Exo_2({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const Cart: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -58,6 +69,8 @@ const Cart: React.FC = () => {
   const backToMainPage = () => {
     router.push("/");
   };
+  const fontClass = language !== "pe" ? exo.className : "font-yekan";
+
   if (loading) {
     return <Loading />;
   }
@@ -74,7 +87,11 @@ const Cart: React.FC = () => {
           >
             <GrFormNext className="w-8 h-8 text-greenlogIn cursor-pointer translate-x-px" />
           </motion.button>
-          <h2 className="text-4xl mt-0 sm:mt-12 font-extrabold font-yekan">
+          <h2
+            className={`text-4xl mt-0 sm:mt-12 font-extrabold ${
+              language === "pe" ? "font-yekan" : roboto.className
+            }`}
+          >
             {content.cartTitle}
           </h2>
           <span className="bg-loginInput rounded-full w-10 h-10 flex items-center justify-center sm:hidden">
@@ -84,21 +101,29 @@ const Cart: React.FC = () => {
         <ul className="flex flex-col lg:grid grid-cols-2 2xl:grid-cols-3 gap-5 sm:gap-x-16 xl:gap-x-20  gap-y-10 mt-10 h-full container mx-auto px-2 pb-32">
           {boughtPro.map((plant) => (
             <Link href={`/products/${plant.id}`} key={plant.id}>
-              <li className="flex items-center justify-between bg-white h-56">
+              <li
+                className={`flex items-center justify-between bg-white h-56 ${
+                  language === "pe" ? "rounded-tr-2xl" : "rounded-tl-2xl"
+                }`}
+              >
                 <div className="flex flex-col justify-between px-5 w-1/2 h-44 font-yekan">
-                  <p className="text-lg lg:text-2xl font-bold font-parastoo">
+                  <p className={`text-lg lg:text-2xl font-bold ${fontClass}`}>
                     {plant.name}
                   </p>
                   <div className="flex items-center">
-                    <p className="text-black text-opacity-60 font-yekan lg:text-lg">
+                    <p
+                      className={`text-black text-opacity-60 lg:text-lg ${fontClass}`}
+                    >
                       {content.reviews}
                     </p>
-                    <span className="flex items-center text-black text-opacity-60 lg:text-lg px-1">
+                    <span
+                      className={`flex items-center text-black text-opacity-60 lg:text-lg px-1 ${fontClass}`}
+                    >
                       ({content.stars}
                       <FaStar className=" text-[#DAA520]" />)
                     </span>
                   </div>
-                  <p className="font-yekan text-2xl font-semibold">
+                  <p className={`text-2xl font-semibold ${fontClass}`}>
                     {language === "pe"
                       ? toPersianNumber(plant.price_pe)
                       : plant.price_en}
@@ -120,7 +145,7 @@ const Cart: React.FC = () => {
                     >
                       <AiOutlinePlus />
                     </motion.i>
-                    <p className="font-yekan">{content.quantity}</p>
+                    <p className={fontClass}>{content.quantity}</p>
                     <motion.i
                       whileHover={{ scale: 1.2 }}
                       whileTap={{ scale: 0.7 }}
@@ -155,8 +180,10 @@ const Cart: React.FC = () => {
         <div className="fixed bg-white min-h-[80px] bottom-0 w-full flex items-center px-2 font-yekan">
           <div className="container mx-auto flex items-center justify-between">
             <div className="flex flex-col px-5">
-              <p className="text-black text-opacity-60">{content.total}</p>
-              <p className="text-2xl font-bold">
+              <p className={`text-black text-opacity-60 ${fontClass}`}>
+                {content.total}
+              </p>
+              <p className={`text-2xl font-bold ${fontClass}`}>
                 {content.totalCost}
                 <span className="text-xs mx-1 font-medium">
                   {content.monetaryUnit}
@@ -166,7 +193,7 @@ const Cart: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.7 }}
-              className="w-44 py-3 ml-4 bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow rounded-2xl text-white"
+              className={`w-44 py-3 ml-4 bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow rounded-2xl text-white ${fontClass}`}
             >
               {content.proceed}
             </motion.button>
