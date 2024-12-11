@@ -71,7 +71,9 @@ const FlowerCard: React.FC<ProductCardProps> = ({ flower }) => {
                 : flower.price_en}
             </p>
             <span
-              className={`mx-0.5 ${language === "pe" ? "mt-1 text-xs" : ""}`}
+              className={`mx-0.5 text-xl ${
+                language === "pe" ? "mt-1 text-xs" : ""
+              }`}
             >
               {language === "pe" ? "تومان" : "$"}
             </span>
