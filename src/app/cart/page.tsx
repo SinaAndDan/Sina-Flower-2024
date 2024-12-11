@@ -75,7 +75,7 @@ const Cart: React.FC = () => {
             <GrFormNext className="w-8 h-8 text-greenlogIn cursor-pointer translate-x-px" />
           </motion.button>
           <h2 className="text-4xl mt-0 sm:mt-12 font-extrabold font-yekan">
-            سبد خرید
+            {content.cartTitle}
           </h2>
           <span className="bg-loginInput rounded-full w-10 h-10 flex items-center justify-center sm:hidden">
             <BiSolidBasket className="w-6 h-6 text-greenlogIn cursor-pointer translate-x-px" />

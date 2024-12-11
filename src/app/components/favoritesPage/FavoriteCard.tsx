@@ -7,8 +7,10 @@ import { supabase } from "../../../../lib/supabaseClient";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { FavoriteCardProps } from "src/types/favoritecard";
+import { useLanguage } from "src/app/context/LanguageContext";
 
 const FavoriteCard: React.FC<FavoriteCardProps> = ({ flower, onRemove }) => {
+  const { content } = useLanguage();
   const removeHandler = async (id: string) => {
     const { error } = await supabase
       .from("plants")
@@ -54,11 +56,10 @@ const FavoriteCard: React.FC<FavoriteCardProps> = ({ flower, onRemove }) => {
         />
       </div>
 
-      {/* Text container on the right */}
       <div className="mt-4 text-sm font-parastoo pr-5">
         <p className="text-lg lg:text-2xl font-bold">{flower.name}</p>
         <p className="text-black text-opacity-60 mt-2 font-yekan lg:text-lg">
-          مناسب برای تمام فصل ها
+          {content.suitableForEverySeason}
         </p>
         <div className="flex items-center mt-5">
           <div className="flex items-center space-x-3">
@@ -66,7 +67,7 @@ const FavoriteCard: React.FC<FavoriteCardProps> = ({ flower, onRemove }) => {
               <TiWeatherSunny className="lg:w-6 lg:h-6 w-5 h-5 text-white" />
             </i>
             <p className="font-yekan text-black text-opacity-70 text-nowrap px-1">
-              نیاز به آفتاب
+              {content.needSunlight}
             </p>
           </div>
           <div className="flex items-center">
@@ -74,7 +75,7 @@ const FavoriteCard: React.FC<FavoriteCardProps> = ({ flower, onRemove }) => {
               <PiHeartbeatLight className="lg:w-6 lg:h-6 w-5 h-5 text-white" />
             </i>
             <p className="font-yekan text-black text-opacity-70 text-nowrap mx-1">
-              نیاز به نور
+              {content.needLight}
             </p>
           </div>
         </div>

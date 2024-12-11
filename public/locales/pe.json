@@ -20,5 +20,10 @@
   "monetaryUnit": "تومان",
   "total": "مجموع",
   "totalCost": "۲۳۰۰۰۰",
-  "proceed": "ادامه"
+  "proceed": "ادامه",
+  "favoriteTitle": "موردعلاقه ها",
+  "suitableForEverySeason": "مناسب برای تمام فصل ها",
+  "needSunlight": "نیاز به آفتاب",
+  "needLight": "نیاز به نور",
+  "cartTitle": "سبد خرید"
 }

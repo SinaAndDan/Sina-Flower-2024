@@ -20,5 +20,10 @@
   "monetaryUnit": "$",
   "total": "Total",
   "totalCost": "233",
-  "proceed": "Proceed"
+  "proceed": "Proceed",
+  "favoriteTitle": "favorite",
+  "suitableForEverySeason": "suitableForEverySeason",
+  "needSunlight": "needSunlight",
+  "needLight": "needLight",
+  "cartTitle": "Cart"
 }
