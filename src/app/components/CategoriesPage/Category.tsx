@@ -6,6 +6,12 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { CategoryArrayProp } from "src/types/category";
 import { useLanguage } from "src/app/context/LanguageContext";
+import { Exo_2 } from "next/font/google";
+
+const exo = Exo_2({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const Category: React.FC<CategoryArrayProp> = ({ categories }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -66,7 +72,9 @@ const Category: React.FC<CategoryArrayProp> = ({ categories }) => {
               activeIndex === category.id ? { scale: 1.2 } : { scale: 1 }
             }
             transition={{ duration: 0.2, ease: "easeInOut" }}
-            className="font-abasan md:text-4xl text-2xl text-black text-opacity-70 text-center leading-4 md:leading-6"
+            className={`md:text-4xl text-2xl text-black text-opacity-70 text-center leading-4 md:leading-6 ${
+              language === "pe" ? "font-abasan" : exo.className
+            }`}
             dangerouslySetInnerHTML={{
               __html: language === "pe" ? category.text_pe : category.text_en,
             }}
