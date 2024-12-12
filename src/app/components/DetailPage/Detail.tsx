@@ -88,7 +88,7 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
       <DetailHero selectedProduct={selectedProduct} />
       <section className="container mx-auto sm:px-0 px-4 mt-5">
         <div className="flex items-center justify-between">
-          <h5 className="text-2xl">{selectedProduct?.name}</h5>
+          <h5 className="text-2xl">{selectedProduct?.name_pe}</h5>
           <button
             className="text-black text-opacity-60"
             onClick={scrollToReviews}
