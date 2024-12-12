@@ -3,7 +3,8 @@ export type CategoryProp = {
   bgColor: string;
   image: string;
   imagePosition: "right" | "left";
-  text: string;
+  text_pe: string;
+  text_en: string;
 };
 export type CategoryArrayProp = {
   categories: CategoryProp[];

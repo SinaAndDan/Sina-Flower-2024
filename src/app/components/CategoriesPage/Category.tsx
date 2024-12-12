@@ -5,11 +5,13 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { CategoryArrayProp } from "src/types/category";
+import { useLanguage } from "src/app/context/LanguageContext";
 
 const Category: React.FC<CategoryArrayProp> = ({ categories }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
   const router = useRouter();
+  const { language } = useLanguage();
 
   const handleExpand = (index: number) => {
     setIsAnimating(true);
@@ -65,7 +67,9 @@ const Category: React.FC<CategoryArrayProp> = ({ categories }) => {
             }
             transition={{ duration: 0.2, ease: "easeInOut" }}
             className="font-abasan md:text-4xl text-2xl text-black text-opacity-70 text-center leading-4 md:leading-6"
-            dangerouslySetInnerHTML={{ __html: category.text }}
+            dangerouslySetInnerHTML={{
+              __html: language === "pe" ? category.text_pe : category.text_en,
+            }}
           ></motion.p>
         </motion.li>
       ))}
