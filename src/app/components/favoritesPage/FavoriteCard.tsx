@@ -71,7 +71,7 @@ const FavoriteCard: React.FC<FavoriteCardProps> = ({ flower, onRemove }) => {
           language === "pe" ? "pr-5" : "pl-5"
         }`}
       >
-        <p className="text-lg lg:text-2xl font-bold">
+        <p className={`text-lg lg:text-2xl font-bold ${fontClass}`}>
           {language === "pe" ? flower.name_pe : flower.name_en}
         </p>
         <p
