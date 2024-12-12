@@ -10,7 +10,7 @@ import NoFavorites from "../components/favoritesPage/NoFavorites";
 import Loading from "../components/Layout/Loading";
 import { PlantProps } from "src/types/plant";
 import { useLanguage } from "../context/LanguageContext";
-import { Langar, Roboto_Slab } from "next/font/google";
+import { Roboto_Slab } from "next/font/google";
 
 const roboto = Roboto_Slab({
   subsets: ["latin"],
