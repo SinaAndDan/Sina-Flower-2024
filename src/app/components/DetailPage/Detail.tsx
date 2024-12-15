@@ -11,10 +11,13 @@ import { supabase } from "../../../../lib/supabaseClient";
 import Loading from "../Layout/Loading";
 import { PlantProps } from "src/types/plant";
 import { useLanguage } from "src/app/context/LanguageContext";
+import { DetailPageProps } from "src/types/detail";
 
-const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
-  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-  const [about, setAbout] = useState<boolean | null>(true);
+const DetailNavbar: React.FC<DetailPageProps> = ({
+  productId,
+  englishSummary,
+  persianSummary,
+}) => {
   const [liked, setIsLiked] = useState<boolean | null>(false);
   const [disliked, setIsDisLiked] = useState<boolean | null>(false);
   const [isReply, setIsReply] = useState<boolean | null>(false);
@@ -42,29 +45,18 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
     fetchPlants();
   }, []);
 
+  const title =
+    language === "pe" ? selectedProduct?.name_pe : selectedProduct?.name_en;
+
   useEffect(() => {
     const product = plants.find((item) => item.id === productId);
 
     if (product) {
-      setSelectedProduct(product); // Only set if product is found
+      setSelectedProduct(product);
     } else {
-      console.error("Product not found");
-      setSelectedProduct(null); // Set to null or handle as needed
+      setSelectedProduct(null);
     }
   }, [plants, productId]);
-
-  const switchToCmsHandler = () => {
-    if (about) {
-      setAbout(false);
-    }
-    return;
-  };
-  const switchToaboutHandler = () => {
-    if (!about) {
-      setAbout(true);
-    }
-    return;
-  };
 
   const giveLikeHandler = () => {
     setIsLiked((liked) => !liked);
@@ -90,11 +82,7 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
       <DetailHero selectedProduct={selectedProduct} />
       <section className="container mx-auto sm:px-0 px-4 mt-5">
         <div className="flex items-center justify-between">
-          <h5 className="text-2xl">
-            {language === "pe"
-              ? selectedProduct?.name_pe
-              : selectedProduct?.name_en}
-          </h5>
+          <h5 className="text-2xl">{title}</h5>
           <button
             className="text-black text-opacity-60"
             onClick={scrollToReviews}
@@ -111,7 +99,7 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
             {content.aboutProduct}
           </a>
         </div>
-        <About about={about} />
+        <About englishSum={englishSummary} persianSum={persianSummary} />
         <div className="flex items-center mt-8">
           <a
             className="transition ease-in delay-75
@@ -122,7 +110,6 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
         </div>
         <Reviews
           reviewRef={reviewRef}
-          about={about}
           liked={liked}
           disliked={disliked}
           onLikeClick={giveLikeHandler}

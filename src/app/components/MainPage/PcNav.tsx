@@ -23,7 +23,6 @@ const PcNav: React.FC = () => {
     console.log(path);
     return pathname === path ? "text-green" : "text-black";
   };
-  console.log(pathname);
 
   const searchButtonHandler = () => {
     setSearchButton((prevSearchButton) => !prevSearchButton);

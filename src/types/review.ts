@@ -1,7 +1,6 @@
 import { RefObject } from "react";
 
 export type ReviewProps = {
-  about: boolean | null;
   liked: boolean | null;
   disliked: boolean | null;
   onLikeClick: () => void;
