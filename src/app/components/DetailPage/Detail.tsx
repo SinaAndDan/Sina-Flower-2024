@@ -10,6 +10,7 @@ import Maintaining from "./Maintaining";
 import { supabase } from "../../../../lib/supabaseClient";
 import Loading from "../Layout/Loading";
 import { PlantProps } from "src/types/plant";
+import { useLanguage } from "src/app/context/LanguageContext";
 
 const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -24,6 +25,7 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
   const [loading, setLoading] = useState(false);
 
   const reviewRef = useRef<HTMLDivElement>(null);
+  const { content, language } = useLanguage();
 
   useEffect(() => {
     const fetchPlants = async () => {
@@ -88,12 +90,16 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
       <DetailHero selectedProduct={selectedProduct} />
       <section className="container mx-auto sm:px-0 px-4 mt-5">
         <div className="flex items-center justify-between">
-          <h5 className="text-2xl">{selectedProduct?.name_pe}</h5>
+          <h5 className="text-2xl">
+            {language === "pe"
+              ? selectedProduct?.name_pe
+              : selectedProduct?.name_en}
+          </h5>
           <button
             className="text-black text-opacity-60"
             onClick={scrollToReviews}
           >
-            (۴ نظر)
+            ({content.reviews})
           </button>
         </div>
         <Maintaining />
@@ -102,7 +108,7 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
             className="transition ease-in delay-75
            text-xl cursor-pointer"
           >
-            معرفی محصول
+            {content.aboutProduct}
           </a>
         </div>
         <About about={about} />
@@ -111,7 +117,7 @@ const DetailNavbar: React.FC<{ productId: string }> = ({ productId }) => {
             className="transition ease-in delay-75
            text-xl cursor-pointer"
           >
-            نظرها
+            {content.reviews}
           </a>
         </div>
         <Reviews

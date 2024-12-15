@@ -4,7 +4,9 @@ import { CategoryProp } from "src/types/category";
 
 export async function generateStaticParams() {
   const categories = await fetchCategories();
-  return categories.map((category: CategoryProp) => ({}));
+  return categories.map((category: CategoryProp) => ({
+    id: category.id.toString(),
+  }));
 }
 
 export default async function Categories() {

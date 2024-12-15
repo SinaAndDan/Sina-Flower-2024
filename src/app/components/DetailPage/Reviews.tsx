@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
+import { Content } from "next/font/google";
 import React, { useEffect, useRef, useState, RefObject } from "react";
 import { BiSolidDislike, BiSolidLike } from "react-icons/bi";
 import { BsThreeDots } from "react-icons/bs";
 import { MdOutlineSend } from "react-icons/md";
+import { useLanguage } from "src/app/context/LanguageContext";
 import { ReviewProps } from "src/types/review";
 
 const Reviews: React.FC<ReviewProps> = ({
@@ -18,6 +20,7 @@ const Reviews: React.FC<ReviewProps> = ({
   const [reply, setReply] = useState<string>("");
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const yourReply = useRef<HTMLTextAreaElement | null>(null);
+  const { content, language } = useLanguage();
 
   const handleInput = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(event.target.value);
@@ -42,6 +45,9 @@ const Reviews: React.FC<ReviewProps> = ({
     }
   }, [reply]);
 
+  const englishSendButton =
+    language === "pe" ? "-translate-x-0.5" : "rotate-[360deg] translate-x-0.5";
+
   return (
     <div className="pb-32" ref={reviewRef}>
       <div className=" pt-5 flex justify-between border-b-2 border-darkGray border-opacity-20 pb-8 items-center ">
@@ -53,8 +59,10 @@ const Reviews: React.FC<ReviewProps> = ({
             rows={1}
             id="autoGrowInput"
             onChange={handleInput}
-            placeholder="نظر شما"
-            className="w-full min-h-[2rem] text-sm outline-none bg-gray px-3 py-[0.3rem] text-right resize-none leading-[1.2rem] word-break-keep whitespace-normal direction-rtl"
+            placeholder={content.cmPlaceHolder}
+            className={`w-full min-h-[2rem] text-sm outline-none bg-gray px-3 py-[0.3rem] text-right resize-none leading-[1.2rem] word-break-keep whitespace-normal ${
+              language === "pe" ? "" : "text-start"
+            }`}
           />
           <motion.div
             whileHover={{ scale: 1.1 }} // Hover animation here
@@ -62,7 +70,9 @@ const Reviews: React.FC<ReviewProps> = ({
             className="bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow
  rounded-full min-w-10 min-h-10 flex items-center justify-center mr-2"
           >
-            <MdOutlineSend className="rotate-180 text-white w-6 h-6  cursor-pointer -translate-x-0.5" />
+            <MdOutlineSend
+              className={`rotate-180 text-white w-6 h-6  cursor-pointer ${englishSendButton}`}
+            />
           </motion.div>
         </div>
       </div>
@@ -71,7 +81,7 @@ const Reviews: React.FC<ReviewProps> = ({
         <div className="flex justify-between w-full items-start">
           <div className="flex items-start">
             <p className="px-4">علی قلی</p>
-            <p className=" opacity-75">۲ ساعت پیش</p>
+            <p className=" opacity-75">{content.time}</p>
           </div>
           <BsThreeDots className="mt-1" />
         </div>
@@ -85,7 +95,7 @@ const Reviews: React.FC<ReviewProps> = ({
       </p>
       <span className="mx-14 flex items-center mt-8">
         <button className="mx-3 text-green-600" onClick={onReply}>
-          پاسخ
+          {content.reply}
         </button>
         <button
           className={`w-16 h-10 rounded-3xl flex items-center justify-center ${
@@ -94,7 +104,9 @@ const Reviews: React.FC<ReviewProps> = ({
           onClick={onLikeClick}
         >
           <BiSolidLike className={`${liked && "text-white"} mx-1 `} />
-          <p className={`${liked && "text-white"}`}>{liked ? "۳" : "۲"}</p>
+          <p className={`${liked && "text-white"}`}>
+            {liked ? content.selectedLike : content.likeNum}
+          </p>
         </button>
         <button
           className={`w-16 h-10 rounded-3xl flex items-center justify-center mx-3 ${
@@ -104,7 +116,7 @@ const Reviews: React.FC<ReviewProps> = ({
         >
           <BiSolidDislike className={`${disliked && "text-white"} mx-1 `} />
           <p className={`${disliked && "text-white"}`}>
-            {disliked ? "۵" : "۴"}
+            {disliked ? content.selectedDisLike : content.disLikeNum}
           </p>
         </button>
       </span>
@@ -123,8 +135,10 @@ const Reviews: React.FC<ReviewProps> = ({
             rows={1}
             id="autoGrowInput"
             onChange={handleReplyInput}
-            placeholder="پاسخ شما"
-            className="w-full min-h-[2rem] text-sm outline-none bg-gray px-3 py-[0.2rem] text-right resize-none leading-[1.6rem] word-break-keep whitespace-normal direction-rtl"
+            placeholder={content.replyPlaceHolder}
+            className={`w-full min-h-[2rem] text-sm outline-none bg-gray px-3 py-[0.2rem] text-right resize-none leading-[1.6rem] word-break-keep whitespace-normal direction-rtl ${
+              language === "pe" ? "" : "text-start"
+            }`}
           />
           <motion.div
             whileHover={{ scale: 1.1 }} // Hover animation here
@@ -132,7 +146,9 @@ const Reviews: React.FC<ReviewProps> = ({
             className="bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow
  rounded-full min-w-10 min-h-10 flex items-center justify-center mr-2"
           >
-            <MdOutlineSend className="rotate-180 text-white w-6 h-6 cursor-pointer -translate-x-0.5" />
+            <MdOutlineSend
+              className={`rotate-180 text-white w-6 h-6 cursor-pointer ${englishSendButton}`}
+            />
           </motion.div>
         </motion.div>
       )}
