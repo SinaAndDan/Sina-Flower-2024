@@ -19,7 +19,7 @@ const DetailHero: React.FC<{ selectedProduct: PlantProps | null }> = ({
           <Image
             width={1000}
             height={2000}
-            src={selectedProduct?.picture || "/ficus.png"}
+            src={selectedProduct?.picture || ""}
             alt="هیجی"
             className="w-full h-auto min-h-[40vh] md:max-h-[80vh] sm:object-contain object-cover rounded-br-[80px]"
             layout="intrinsic"

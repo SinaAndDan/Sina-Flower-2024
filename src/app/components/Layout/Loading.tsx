@@ -33,7 +33,7 @@ const Loading: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
           className={`text-xl font-semibold ${
-            language !== "pe" && poppins.className
+            language === "pe" ? "font-yekan" : poppins.className
           }`}
         >
           {content.loading}
