@@ -1,11 +1,16 @@
 import { motion } from "framer-motion";
-import { Content } from "next/font/google";
+import { Content, Exo_2 } from "next/font/google";
 import React, { useEffect, useRef, useState, RefObject } from "react";
 import { BiSolidDislike, BiSolidLike } from "react-icons/bi";
 import { BsThreeDots } from "react-icons/bs";
 import { MdOutlineSend } from "react-icons/md";
 import { useLanguage } from "src/app/context/LanguageContext";
 import { ReviewProps } from "src/types/review";
+
+const exo = Exo_2({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const Reviews: React.FC<ReviewProps> = ({
   reviewRef,
@@ -21,6 +26,8 @@ const Reviews: React.FC<ReviewProps> = ({
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const yourReply = useRef<HTMLTextAreaElement | null>(null);
   const { content, language } = useLanguage();
+
+  const fontClass = language !== "pe" ? exo.className : "font-yekan";
 
   const handleInput = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(event.target.value);
@@ -81,7 +88,7 @@ const Reviews: React.FC<ReviewProps> = ({
         <div className="flex justify-between w-full items-start">
           <div className="flex items-start">
             <p className="px-4">علی قلی</p>
-            <p className=" opacity-75">{content.time}</p>
+            <p className={`opacity-75 ${fontClass}`}>{content.time}</p>
           </div>
           <BsThreeDots className="mt-1" />
         </div>
@@ -94,7 +101,7 @@ const Reviews: React.FC<ReviewProps> = ({
         رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
       </p>
       <span className="mx-14 flex items-center mt-8">
-        <button className="mx-3 text-green-600" onClick={onReply}>
+        <button className={`mx-3 ${fontClass}`} onClick={onReply}>
           {content.reply}
         </button>
         <button

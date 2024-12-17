@@ -10,8 +10,19 @@ import Maintaining from "./Maintaining";
 import { supabase } from "../../../../lib/supabaseClient";
 import Loading from "../Layout/Loading";
 import { PlantProps } from "src/types/plant";
-import { useLanguage } from "src/app/context/LanguageContext";
+import { useLanguage } from "../../context/LanguageContext";
 import { DetailPageProps } from "src/types/detail";
+import { Exo_2, Roboto_Slab } from "next/font/google";
+
+const roboto = Roboto_Slab({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const exo = Exo_2({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const DetailNavbar: React.FC<DetailPageProps> = ({
   productId,
@@ -48,6 +59,10 @@ const DetailNavbar: React.FC<DetailPageProps> = ({
   const title =
     language === "pe" ? selectedProduct?.name_pe : selectedProduct?.name_en;
 
+  const fontClass = language === "pe" ? "font-yekan" : roboto.className;
+
+  const fontClassII = language === "pe" ? "font-yekan" : exo.className;
+
   useEffect(() => {
     const product = plants.find((item) => item.id === productId);
 
@@ -82,9 +97,11 @@ const DetailNavbar: React.FC<DetailPageProps> = ({
       <DetailHero selectedProduct={selectedProduct} />
       <section className="container mx-auto sm:px-0 px-4 mt-5">
         <div className="flex items-center justify-between">
-          <h5 className="text-2xl sm:text-4xl">{title}</h5>
+          <h5 className={`text-2xl sm:text-4xl capitalize ${fontClass}`}>
+            {title}
+          </h5>
           <button
-            className="text-black text-opacity-60 sm:text-lg"
+            className={`text-black text-opacity-60 sm:text-lg ${fontClassII}`}
             onClick={scrollToReviews}
           >
             ({content.reviews})
@@ -93,8 +110,8 @@ const DetailNavbar: React.FC<DetailPageProps> = ({
         <Maintaining />
         <div className="flex items-center">
           <a
-            className="transition ease-in delay-75
-           text-xl sm:text-2xl cursor-pointer"
+            className={`transition ease-in delay-75
+           text-xl sm:text-2xl cursor-pointer ${fontClass}`}
           >
             {content.aboutProduct}
           </a>
@@ -102,8 +119,8 @@ const DetailNavbar: React.FC<DetailPageProps> = ({
         <About englishSum={englishSummary} persianSum={persianSummary} />
         <div className="flex items-center mt-8">
           <a
-            className="transition ease-in delay-75
-           text-xl cursor-pointer"
+            className={`transition ease-in delay-75
+           text-xl cursor-pointer sm:text-2xl ${fontClass}`}
           >
             {content.reviews}
           </a>

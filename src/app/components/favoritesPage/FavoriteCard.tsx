@@ -6,8 +6,8 @@ import { IoRemoveOutline } from "react-icons/io5";
 import { supabase } from "../../../../lib/supabaseClient";
 import { motion } from "motion/react";
 import Link from "next/link";
-import { FavoriteCardProps } from "src/types/favoritecard";
-import { useLanguage } from "src/app/context/LanguageContext";
+import { FavoriteCardProps } from "../../../types/favoritecard";
+import { useLanguage } from "../../context/LanguageContext";
 import { Exo_2 } from "next/font/google";
 
 const exo = Exo_2({

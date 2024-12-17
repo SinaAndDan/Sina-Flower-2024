@@ -1,3 +1,4 @@
+import { Exo_2 } from "next/font/google";
 import React from "react";
 import { CiTempHigh } from "react-icons/ci";
 import { MdOutlineWaterDrop } from "react-icons/md";
@@ -5,10 +6,16 @@ import { PiHeartbeatLight } from "react-icons/pi";
 import { TiWeatherSunny } from "react-icons/ti";
 import { useLanguage } from "src/app/context/LanguageContext";
 
+const exo = Exo_2({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
 const Maintaining: React.FC = () => {
-  const { content } = useLanguage();
+  const { content, language } = useLanguage();
+  const fontClass = language === "pe" ? "font-yekan" : exo.className;
   return (
-    <div className="grid grid-cols-2 gap-4 my-8">
+    <div className={`grid grid-cols-2 gap-4 my-8 ${fontClass}`}>
       <div className="flex items-center">
         <div className="w-fit p-1 rounded-2xl bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow">
           <TiWeatherSunny className="sm:w-12 sm:h-12 w-8 h-8 text-white" />
