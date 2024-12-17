@@ -14,8 +14,12 @@ const Maintaining: React.FC = () => {
           <TiWeatherSunny className="sm:w-12 sm:h-12 w-8 h-8 text-white" />
         </div>
         <div className="flex flex-col px-3 text-sm sm:text-base">
-          <p className="text-green font-bold lg:text-2xl">{content.lightNum}</p>
-          <p className="opacity-75 lg:text-xl lg:opacity-60">{content.light}</p>
+          <p className="text-green font-bold sm:text-xl lg:text-2xl">
+            {content.lightNum}
+          </p>
+          <p className="opacity-75 sm:text-lg lg:text-xl lg:opacity-60">
+            {content.light}
+          </p>
         </div>
       </div>
       <div className="flex items-center">
@@ -23,10 +27,10 @@ const Maintaining: React.FC = () => {
           <PiHeartbeatLight className="sm:w-12 sm:h-12 w-8 h-8 text-white" />
         </div>
         <div className="flex flex-col px-3 text-sm sm:text-base">
-          <p className="text-green font-bold lg:text-2xl">
+          <p className="text-green font-bold sm:text-xl lg:text-2xl">
             {content.healthNum}
           </p>
-          <p className="opacity-75 lg:text-xl lg:opacity-60">
+          <p className="opacity-75 sm:text-lg lg:text-xl lg:opacity-60">
             {content.health}
           </p>
         </div>
@@ -39,8 +43,12 @@ const Maintaining: React.FC = () => {
           <CiTempHigh className="sm:w-12 sm:h-12 w-8 h-8 text-white" />
         </div>
         <div className="flex flex-col px-3 text-sm sm:text-base">
-          <p className="text-green font-bold lg:text-2xl">{content.deg}</p>
-          <p className="opacity-75 lg:text-xl lg:opacity-60">{content.temp}</p>
+          <p className="text-green font-bold sm:text-xl lg:text-2xl">
+            {content.deg}
+          </p>
+          <p className="opacity-75 sm:text-lg lg:text-xl lg:opacity-60">
+            {content.temp}
+          </p>
         </div>
       </div>
       <div className="flex items-center">
@@ -51,8 +59,12 @@ const Maintaining: React.FC = () => {
           <MdOutlineWaterDrop className="sm:w-12 sm:h-12 w-8 h-8 text-white" />
         </div>
         <div className="flex flex-col px-3 text-sm sm:text-base">
-          <p className="text-green font-bold lg:text-2xl">{content.waterNum}</p>
-          <p className="opacity-75 lg:text-xl lg:opacity-60">{content.water}</p>
+          <p className="text-green font-bold sm:text-xl lg:text-2xl">
+            {content.waterNum}
+          </p>
+          <p className="opacity-75 sm:text-lg lg:text-xl lg:opacity-60">
+            {content.water}
+          </p>
         </div>
       </div>
     </div>

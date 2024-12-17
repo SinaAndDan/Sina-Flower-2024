@@ -94,7 +94,7 @@ const DetailNavbar: React.FC<DetailPageProps> = ({
         <div className="flex items-center">
           <a
             className="transition ease-in delay-75
-           text-xl cursor-pointer"
+           text-xl sm:text-2xl cursor-pointer"
           >
             {content.aboutProduct}
           </a>
