@@ -107,7 +107,7 @@ const DetailNavbar: React.FC<DetailPageProps> = ({
             ({content.reviews})
           </button>
         </div>
-        <Maintaining />
+        <Maintaining selectedProduct={selectedProduct} />
         <div className="flex items-center">
           <a
             className={`transition ease-in delay-75
