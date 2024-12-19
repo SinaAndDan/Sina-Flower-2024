@@ -8,7 +8,6 @@ import Loading from "src/app/components/Layout/Loading";
 
 const DetailPage = ({ params }: { params: { productId: string } }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [about, setAbout] = useState<any>(null);
   const [summaries, setSummaries] = useState<{
     english: string;
     persian: string;
@@ -36,8 +35,6 @@ const DetailPage = ({ params }: { params: { productId: string } }) => {
           persianName
         );
 
-        // Update state with fetched data
-        setAbout(aboutData);
         setSummaries(wikiSummaries);
       } catch (error) {
         console.error("Error fetching data:", error);

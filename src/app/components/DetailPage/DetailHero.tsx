@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { IoArrowForward } from "react-icons/io5";
 import { useRouter } from "next/navigation";
-import { PlantProps } from "src/types/plant";
+import { PlantProps } from "../../../types/plant";
 
 const DetailHero: React.FC<{ selectedProduct: PlantProps | null }> = ({
   selectedProduct,

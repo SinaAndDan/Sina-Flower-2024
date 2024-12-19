@@ -3,10 +3,9 @@ import React from "react";
 import { CiTempHigh } from "react-icons/ci";
 import { GiGroundSprout } from "react-icons/gi";
 import { MdOutlineWaterDrop } from "react-icons/md";
-import { PiHeartbeatLight } from "react-icons/pi";
 import { TiWeatherSunny } from "react-icons/ti";
-import { useLanguage } from "src/app/context/LanguageContext";
-import { PlantProps } from "src/types/plant";
+import { useLanguage } from "../../context/LanguageContext";
+import { PlantProps } from "../../../types/plant";
 
 const exo = Exo_2({
   subsets: ["latin"],
@@ -42,7 +41,7 @@ const Maintaining: React.FC<{ selectedProduct: PlantProps | null }> = ({
           <MdOutlineWaterDrop className="sm:w-12 sm:h-12 w-8 h-8 text-white" />
         </div>
         <div className="flex flex-col px-3 text-sm sm:text-base">
-          <p className="text-green font-bold sm:text-xl lg:text-2xl">
+          <p className="text-green font-bold text-xs sm:text-xl lg:text-2xl">
             {getLocalizedValue(
               selectedProduct?.maintain_st_pe_value,
               selectedProduct?.maintain_st_en_value
@@ -61,7 +60,7 @@ const Maintaining: React.FC<{ selectedProduct: PlantProps | null }> = ({
           <TiWeatherSunny className="sm:w-12 sm:h-12 w-8 h-8 text-white" />
         </div>
         <div className="flex flex-col px-3 text-sm sm:text-base">
-          <p className="text-green font-bold sm:text-xl lg:text-2xl">
+          <p className="text-green font-bold text-xs sm:text-xl lg:text-2xl">
             {getLocalizedValue(
               selectedProduct?.maintain_nd_pe_value,
               selectedProduct?.maintain_nd_en_value
@@ -83,7 +82,7 @@ const Maintaining: React.FC<{ selectedProduct: PlantProps | null }> = ({
           <CiTempHigh className="sm:w-12 sm:h-12 w-8 h-8 text-white" />
         </div>
         <div className="flex flex-col px-3 text-sm sm:text-base">
-          <p className="text-green font-bold sm:text-xl lg:text-2xl">
+          <p className="text-green font-bold text-xs sm:text-xl lg:text-2xl">
             {getLocalizedValue(
               selectedProduct?.maintain_rd_pe_value,
               selectedProduct?.maintain_rd_en_value
@@ -108,7 +107,7 @@ const Maintaining: React.FC<{ selectedProduct: PlantProps | null }> = ({
           )}
         </div>
         <div className="flex flex-col px-3 text-sm sm:text-base">
-          <p className="text-green font-bold sm:text-xl lg:text-2xl">
+          <p className="text-green font-bold text-xs sm:text-xl lg:text-2xl">
             {getLocalizedValue(
               selectedProduct?.maintain_th_pe_value,
               selectedProduct?.maintain_th_en_value
