@@ -42,9 +42,7 @@ const FlowerCard: React.FC<ProductCardProps> = ({ flower }) => {
 
   return (
     <div
-      className={`group relative overflow-hidden rounded-xl transition-transform duration-500 ${
-        isAnimating ? "scale-105 z-10" : ""
-      }`}
+      className="group relative overflow-hidden rounded-xl transition-transform duration-500"
       tabIndex={0} // Makes the card focusable
     >
       <a
@@ -55,7 +53,7 @@ const FlowerCard: React.FC<ProductCardProps> = ({ flower }) => {
       >
         {/* Image */}
         <Image
-          className="w-full h-auto object-cover mb-3 rounded-t-2xl transition-transform duration-500 group-focus-within:scale-110"
+          className="w-full h-auto object-cover mb-3 rounded-t-2xl transition-transform duration-500 group-focus-within:scale-105"
           src={flower.picture}
           alt={language === "pe" ? flower.name_pe : flower.name_en}
           width="300"

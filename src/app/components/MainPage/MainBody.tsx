@@ -63,7 +63,7 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
     <>
       <div className="bg-gray md:block flex-1 hidden">
         <div className="flex justify-end pt-12 px-6 md:hidden">
-          <IoSearch className="w-8 h-8 text-black text-opacity-80" />
+          <IoSearch className="sm:w-8 sm:h-8 w-6 h-6 text-black text-opacity-80" />
         </div>
         <h2
           className={`text-4xl px-6 mt-12 font-extrabold capitalize ${
@@ -185,7 +185,7 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
           language === "pe" ? "mr-20" : "ml-20"
         }`}
       >
-        <div className="flex justify-between px-6 mt-12">
+        <div className="flex justify-between sm:px-6 mt-12">
           <div className="relative">
             <button
               className="flex justify-center items-center px-4 py-2 rounded-lg"

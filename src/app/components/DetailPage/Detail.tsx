@@ -13,6 +13,7 @@ import { PlantProps } from "src/types/plant";
 import { useLanguage } from "../../context/LanguageContext";
 import { DetailPageProps } from "src/types/detail";
 import { Exo_2, Roboto_Slab } from "next/font/google";
+import { FaStar } from "react-icons/fa";
 
 const roboto = Roboto_Slab({
   subsets: ["latin"],
@@ -100,12 +101,17 @@ const DetailNavbar: React.FC<DetailPageProps> = ({
           <h5 className={`text-2xl sm:text-4xl capitalize ${fontClass}`}>
             {title}
           </h5>
-          <button
-            className={`text-black text-opacity-60 sm:text-lg ${fontClassII}`}
-            onClick={scrollToReviews}
-          >
-            ({content.reviews})
-          </button>
+          <div className="flex items-center" onClick={scrollToReviews}>
+            <p className={`text-black text-opacity-60 lg:text-lg ${fontClass}`}>
+              {content.reviews}
+            </p>
+            <span
+              className={`flex items-center text-black text-opacity-60 lg:text-lg px-1 ${fontClass}`}
+            >
+              ({content.stars}
+              <FaStar className=" text-[#DAA520]" />)
+            </span>
+          </div>
         </div>
         <Maintaining selectedProduct={selectedProduct} />
         <div className="flex items-center">

@@ -86,7 +86,13 @@ const Cart: React.FC = () => {
             className="bg-loginInput rounded-full w-10 h-10 flex items-center justify-center sm:hidden"
             onClick={backToMainPage}
           >
-            <GrFormNext className="w-8 h-8 text-greenlogIn cursor-pointer translate-x-px" />
+            <GrFormNext
+              className={`w-8 h-8 text-greenlogIn cursor-pointer ${
+                language !== "pe"
+                  ? "rotate-180 -translate-x-px"
+                  : "translate-x-px"
+              }`}
+            />
           </motion.button>
           <h2
             className={`text-4xl mt-0 sm:mt-12 font-extrabold ${
