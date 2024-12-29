@@ -209,7 +209,7 @@ const PcNav: React.FC = () => {
             </li>
             <li className="bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow ease-in-out hover:from-[#004d00] hover:via-[#003300] hover:to-[#002200] text-white rounded-2xl py-2 px-6">
               <Link
-                href="/account/signin"
+                href="/account"
                 className="block py-2 px-3 text-gray-900 rounded  md:p-0 "
               >
                 {content.signIn}

@@ -69,7 +69,7 @@ const LogInPage: React.FC = () => {
             <GrFormNext className="w-8 h-8 text-greenlogIn cursor-pointer translate-x-px" />
           </motion.span>
           <Image
-            src="/loginPicIII.jpg"
+            src="/images/loginPicIII.jpg"
             width={800}
             height={1200}
             alt="Header Image"
@@ -92,7 +92,7 @@ const LogInPage: React.FC = () => {
         <Image
           width={150}
           height={150}
-          src="/sideimgVI.png"
+          src="/images/sideimgVI.png"
           alt="Full Screen Image"
           className="-z-20 absolute left-0 md:min-w-[200px] md:min-h-[200px] xl:w-auto xl:h-auto"
           priority={true} // Optional: Loads the image with high priority

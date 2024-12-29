@@ -73,7 +73,7 @@ const SignInPage: React.FC = () => {
         <Image
           width={150}
           height={150}
-          src="/sideimgVI.png"
+          src="/images/sideimgVI.png"
           alt="Full Screen Image"
           className="-z-20 absolute left-0 sm:w-40 sm:h-40 md:min-w-[200px] md:min-h-[200px]"
           priority={true} // Optional: Loads the image with high priority

@@ -8,9 +8,9 @@ const Account: React.FC = () => {
       <Image
         width={300}
         height={300}
-        src="/login.jpg"
+        src="/images/login.jpg"
         alt="Full Screen Image"
-        className=" -z-20"
+        className="-z-20"
         priority={true} // Optional: Loads the image with high priority
       />
       <div className="bg-bgpic bg-opacity-10 w-full h-screen relative z-10">
