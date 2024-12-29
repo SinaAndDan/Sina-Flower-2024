@@ -24,7 +24,7 @@ const Loading: React.FC = () => {
             width={200}
             height={200}
             alt="loading"
-            src="/android-chrome-512x512.png"
+            src="/images/golesina.png"
           />
         </div>
 

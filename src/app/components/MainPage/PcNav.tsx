@@ -36,7 +36,7 @@ const PcNav: React.FC = () => {
       <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
         <Link href="/" className="flex space-x-3 rtl:space-x-reverse">
           <Image
-            src="/golesina.png"
+            src="/images/golesina.png"
             className="h-8"
             width={50}
             height={50}
