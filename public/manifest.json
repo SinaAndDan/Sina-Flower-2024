@@ -1,0 +1,43 @@
+{
+    "name":"Sina Plant Store",
+    "short_name":"Sina Plant",
+    "description":"Order your favorite plant with personalized care tips and customizable options tailored to your needs.",
+    "display": "standalone",
+    "icons": [
+     {
+      "src": "/images/golesina192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/golesina512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/images/golesina48x48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/images/golesina96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    }
+  ],
+   "screenshots": [
+     {
+      "src": "/images/screenshot2.png",
+      "sizes": "360x640",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/Screenshot1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }],
+  "start_url": "/",
+  "theme_color": "#e2e2e2",
+  "background_color":"#F5F5F5"
+}
