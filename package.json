@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:sw": "tsc src/sw/service-worker.ts --outDir public --target ES6 --module commonjs"
+
   },
   "dependencies": {
     "@headlessui/react": "^2.1.3",
@@ -26,6 +28,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/serviceworker": "^0.0.108",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
