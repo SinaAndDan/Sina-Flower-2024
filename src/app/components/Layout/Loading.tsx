@@ -25,6 +25,8 @@ const Loading: React.FC = () => {
             height={200}
             alt="loading"
             src="/images/golesina.png"
+            priority={true}
+            className="w-auto h-auto"
           />
         </div>
 
@@ -32,9 +34,8 @@ const Loading: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className={`text-xl font-semibold ${
-            language === "pe" ? "font-yekan" : poppins.className
-          }`}
+          className={`text-xl font-semibold ${language === "pe" ? "font-yekan" : poppins.className
+            }`}
         >
           {content.loading}
         </motion.div>

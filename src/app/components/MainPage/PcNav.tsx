@@ -20,7 +20,6 @@ const PcNav: React.FC = () => {
 
   const pathname = usePathname();
   const getLinkClass = (path: string) => {
-    console.log(path);
     return pathname === path ? "text-green" : "text-black";
   };
 
@@ -29,18 +28,19 @@ const PcNav: React.FC = () => {
   };
   return (
     <nav
-      className={`bg-white border-gray-200 dark:bg-gray-900 hidden md:block font-yekan ${
-        language === "pe" ? "font-yekan" : exo.className
-      }`}
+      className={`bg-white border-gray-200 dark:bg-gray-900 hidden md:block font-yekan ${language === "pe" ? "font-yekan" : exo.className
+        }`}
     >
       <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
         <Link href="/" className="flex space-x-3 rtl:space-x-reverse">
           <Image
             src="/images/golesina.png"
-            className="h-8"
             width={50}
             height={50}
             alt="Logo"
+            priority={true}
+            className="w-auto h-auto"
+
           />
         </Link>
         <div className="relative z-50">
@@ -71,9 +71,8 @@ const PcNav: React.FC = () => {
             }
             exit={{ opacity: 0, scaleY: 0 }}
             transition={{ duration: 0.3 }}
-            className={`${
-              selectLang ? "absolute" : "hidden"
-            } mt-2 bg-white rounded-lg`}
+            className={`${selectLang ? "absolute" : "hidden"
+              } mt-2 bg-white rounded-lg`}
           >
             <li
               onClick={() => {
@@ -101,9 +100,8 @@ const PcNav: React.FC = () => {
               <Image
                 src="./Icons/UK-flag.svg"
                 alt="USA flag"
-                className={`w-5 h-5 capitalize ${
-                  language === "pe" ? "ml-1" : "mr-1"
-                }`}
+                className={`w-5 h-5 capitalize ${language === "pe" ? "ml-1" : "mr-1"
+                  }`}
                 width={100}
                 height={100}
               />
