@@ -1,6 +1,5 @@
 {
   "greeting": "حثقلثقل",
-  "welcome": "ثقلثقلثقل",
   "description": "لثقلثقلثقل",
   "category": "دسته بندی",
   "cart": "سبد خرید",
@@ -37,5 +36,18 @@
   "selectedDisLike": "۵",
   "cmPlaceHolder": "نظر شما",
   "replyPlaceHolder": "پاسخ شما",
-  "time": "۲ ساعت پیش"
+  "time": "۲ ساعت پیش",
+  "welcome":"خوش آمدید",
+  "loginAccount":"به حساب خود وارد شوید",
+  "userName":"نام کاربری",
+  "password":"کلمه عبور",
+  "rememberMe": "مرا بخاطر بسپار",
+  "forgetPass":"فراموشی رمز؟",
+  "login":"ورود",
+  "haveNotSignedUp": "هنوز ثبت نام نکرده اید؟",
+  "signUp": "ثبت نام",
+  "email":"ایمیل",
+  "createAccount":"ساخت حساب کاربری",
+  "accountPageHead": "بهترین برنامه\nبرای\nخرید گل و گیاه"
+
 }
