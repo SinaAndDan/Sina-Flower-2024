@@ -7,6 +7,7 @@ import { MdLock } from "react-icons/md";
 import { GrFormNext } from "react-icons/gr";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
+import { useLanguage } from "src/app/context/LanguageContext";
 
 const LogInPage: React.FC = () => {
   const router = useRouter();
@@ -16,6 +17,8 @@ const LogInPage: React.FC = () => {
     email: "",
     password: "",
   });
+
+  const { content, language } = useLanguage()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -66,7 +69,7 @@ const LogInPage: React.FC = () => {
             className="mx-8 mt-16 bg-loginInput rounded-full w-10 h-10 flex items-center justify-center sm:hidden"
             onClick={backMainPage}
           >
-            <GrFormNext className="w-8 h-8 text-greenlogIn cursor-pointer translate-x-px" />
+            <GrFormNext className={`w-8 h-8 text-greenlogIn cursor-pointer ${language === 'pe' ? 'translate-x-px' : 'rotate-180 -translate-x-px'}`} />
           </motion.span>
           <Image
             src="/images/loginPicIII.jpg"
@@ -99,24 +102,23 @@ const LogInPage: React.FC = () => {
         />
         <div className="flex flex-col px-2 items-center container mx-auto xl:-translate-y-28">
           <div className="text-greenlogIn text-2xl mt-10 font-sahel pl-16 md:pl-0 sm:text-3xl">
-            خوش آمدید
-          </div>
+            {content.welcome}          </div>
           <p className="text-greenlogIn text-opacity-65 mt-3 text-sm font-sahel pl-16 md:pl-0 sm:text-xl">
-            به حساب خود وارد شوید
+            {content.loginAccount}
           </p>
           <form className="font-yekan w-full px-6 md:max-w-[55%] lg:max-w-[40%] mx-auto">
             <div className="w-full relative mt-20 2xl:mt-10">
               <input
                 type="text"
                 className=" bg-loginInput text-greenlogIn w-full placeholder:text-greenlogIn py-1 px-9 rounded-lg active:outline-greenlogIn focus:outline-greenlogIn focus:transition-opacity md:min-h-[40px] md:text-lg"
-                placeholder="نام کاربری"
+                placeholder={content.userName}
                 value={formData.email}
                 onChange={handleChange}
               />
               <div
-                className="absolute inset-y-0 right-2 pl-3  
+                className={`absolute inset-y-0  
                     flex items-center  
-                    pointer-events-none"
+                    pointer-events-none ${language === 'pe' ? 'right-2 pl-3' : 'left-2 pr-3'}`}
               >
                 <IoPerson className="text-greenlogIn" />
               </div>
@@ -128,13 +130,13 @@ const LogInPage: React.FC = () => {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                placeholder="کلمه عبور"
+                placeholder={content.password}
                 required
               />
               <div
-                className="absolute inset-y-0 right-2 pl-3  
+                className={`absolute inset-y-0   
                     flex items-center  
-                    pointer-events-none"
+                    pointer-events-none ${language === 'pe' ? 'right-2 pl-3' : 'left-2 pr-3'}`}
               >
                 <MdLock className="text-greenlogIn" />
               </div>
@@ -150,11 +152,11 @@ const LogInPage: React.FC = () => {
                   htmlFor="rememberMe"
                   className="ms-2 font-medium text-xs md:text-sm text-greenlogIn"
                 >
-                  مرا بخاطر بسپار
+                  {content.rememberMe}
                 </label>
               </div>
               <p className="text-xs text-greenlogIn font-bold md:text-sm">
-                فراموشی رمز؟
+                {content.forgetPass}
               </p>
             </div>
           </form>
@@ -168,15 +170,15 @@ const LogInPage: React.FC = () => {
             type="submit"
             className="w-full bg-gradient-to-t from-[#0f4a1e] via-[#1f7853] to-[#1e8e63] text-white py-2 rounded-lg font-yekan"
           >
-            ورود
+            {content.login}
           </motion.button>
           <p className="text-sm font-light text-center mt-4 text-black text-opacity-80">
-            هنوز ثبت نام نکرده اید؟
+            {content.haveNotSignedUp}
             <a
               href="/account/signin"
               className="text-greenlogIn font-extrabold hover:underline mx-1"
             >
-              ثبت نام
+              {content.signUp}
             </a>
           </p>
         </div>

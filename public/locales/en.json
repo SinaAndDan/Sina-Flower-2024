@@ -1,6 +1,5 @@
 {
   "greeting": "Hello",
-  "welcome": "Welcome to our website",
   "description": "Explore our diverse plant collection",
   "category": "category",
   "cart": "cart",
@@ -37,5 +36,18 @@
   "selectedDisLike": "5",
   "cmPlaceHolder": "Your Comment",
   "replyPlaceHolder": "Your Reply",
-  "time": "2 hours ago"
+  "time": "2 hours ago",
+  "welcome":"Welcome",
+  "loginAccount":"Login to your Account",
+  "userName":"UserName",
+  "password":"Password",
+  "rememberMe": "Remember me",
+  "forgetPass":"Forget my password",
+  "login":"Log in",
+  "haveNotSignedUp": "Haven't signup?",
+  "signUp": "Sign up",
+  "email":"Email",
+  "createAccount":"Create Account",
+  "accountPageHead": "The Best Way \n to Buy \n Plants Online"
+
 }

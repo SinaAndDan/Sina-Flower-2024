@@ -3,6 +3,9 @@
     "short_name":"Sina Plant",
     "description":"Order your favorite plant with personalized care tips and customizable options tailored to your needs.",
     "display": "standalone",
+    "start_url": "/?source=pwa",
+  "theme_color": "#e2e2e2",
+  "background_color":"#F5F5F5",
     "icons": [
      {
       "src": "/images/golesina192x192.png",
@@ -36,8 +39,6 @@
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide"
-    }],
-  "start_url": "/",
-  "theme_color": "#e2e2e2",
-  "background_color":"#F5F5F5"
+    }]
+  
 }
