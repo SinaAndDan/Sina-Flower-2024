@@ -7,7 +7,7 @@ import { MdLock } from "react-icons/md";
 import { GrFormNext } from "react-icons/gr";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
-import { useLanguage } from "src/app/context/LanguageContext";
+import { useLanguage } from "src/app/context/GlobalContext";
 
 const LogInPage: React.FC = () => {
   const router = useRouter();

@@ -1,6 +1,6 @@
 import { Exo_2 } from "next/font/google";
 import React, { useState } from "react";
-import { useLanguage } from "src/app/context/LanguageContext";
+import { useGlobalContext } from "src/app/context/GlobalContext";
 import { ReadMoreProps } from "src/types/detail";
 
 const exo = Exo_2({
@@ -10,7 +10,7 @@ const exo = Exo_2({
 
 const ReadMore: React.FC<ReadMoreProps> = ({ text, maxLength = 100 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const { content, language } = useLanguage();
+  const { content, language } = useGlobalContext();
 
   const toggleReadMore = () => {
     setIsExpanded(!isExpanded);

@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { CategoryArrayProp } from "src/types/category";
-import { useLanguage } from "src/app/context/LanguageContext";
+import { useLanguage } from "src/app/context/GlobalContext";
 import { Exo_2 } from "next/font/google";
 
 const exo = Exo_2({
@@ -51,20 +51,18 @@ const Category: React.FC<CategoryArrayProp> = ({ categories }) => {
               activeIndex === category.id ? { scale: 1.2 } : { scale: 1 }
             }
             transition={{ duration: 0.2, ease: "easeInOut" }}
-            className={`absolute ${
-              category.imagePosition === "right" ? "right-0" : "left-0"
-            }`}
+            className={`absolute ${category.imagePosition === "right" ? "right-0" : "left-0"
+              }`}
           >
             <Image
               height={200}
               width={200}
               alt="category"
               src={category.image}
-              className={`${
-                category.imagePosition === "right"
-                  ? "translate-x-[40%] md:translate-x-0"
-                  : "-translate-x-[40%] md:translate-x-0"
-              }`}
+              className={`${category.imagePosition === "right"
+                ? "translate-x-[40%] md:translate-x-0"
+                : "-translate-x-[40%] md:translate-x-0"
+                }`}
             />
           </motion.div>
           <motion.p
@@ -72,9 +70,8 @@ const Category: React.FC<CategoryArrayProp> = ({ categories }) => {
               activeIndex === category.id ? { scale: 1.2 } : { scale: 1 }
             }
             transition={{ duration: 0.2, ease: "easeInOut" }}
-            className={`md:text-4xl text-2xl text-black text-opacity-70 text-center leading-4 md:leading-6 ${
-              language === "pe" ? "font-abasan" : exo.className
-            }`}
+            className={`md:text-4xl text-2xl text-black text-opacity-70 text-center leading-4 md:leading-6 ${language === "pe" ? "font-abasan" : exo.className
+              }`}
             dangerouslySetInnerHTML={{
               __html: language === "pe" ? category.text_pe : category.text_en,
             }}

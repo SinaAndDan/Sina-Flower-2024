@@ -12,7 +12,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import PcNav from "../components/MainPage/PcNav";
 import Loading from "../components/Layout/Loading";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/GlobalContext";
 import { Exo_2, Roboto_Slab } from "next/font/google";
 
 interface Plant {
@@ -87,17 +87,15 @@ const Cart: React.FC = () => {
             onClick={backToMainPage}
           >
             <GrFormNext
-              className={`w-8 h-8 text-greenlogIn cursor-pointer ${
-                language !== "pe"
-                  ? "rotate-180 -translate-x-px"
-                  : "translate-x-px"
-              }`}
+              className={`w-8 h-8 text-greenlogIn cursor-pointer ${language !== "pe"
+                ? "rotate-180 -translate-x-px"
+                : "translate-x-px"
+                }`}
             />
           </motion.button>
           <h2
-            className={`text-4xl mt-0 sm:mt-12 font-extrabold ${
-              language === "pe" ? "font-yekan" : roboto.className
-            }`}
+            className={`text-4xl mt-0 sm:mt-12 font-extrabold ${language === "pe" ? "font-yekan" : roboto.className
+              }`}
           >
             {content.cartTitle}
           </h2>
@@ -109,9 +107,8 @@ const Cart: React.FC = () => {
           {boughtPro.map((plant) => (
             <Link href={`/products/${plant.id}`} key={plant.id}>
               <li
-                className={`flex items-center justify-between bg-white h-56 ${
-                  language === "pe" ? "rounded-tr-2xl" : "rounded-tl-2xl"
-                }`}
+                className={`flex items-center justify-between bg-white h-56 ${language === "pe" ? "rounded-tr-2xl" : "rounded-tl-2xl"
+                  }`}
               >
                 <div className="flex flex-col justify-between px-5 w-1/2 h-44 font-yekan">
                   <p className={`text-lg lg:text-2xl font-bold ${fontClass}`}>
@@ -137,9 +134,8 @@ const Cart: React.FC = () => {
                     <span className="text-xs px-1">{content.monetaryUnit}</span>
                   </p>
                   <div
-                    className={`flex items-center gap-x-2 ${
-                      language !== "pe" && "flex-row-reverse justify-end"
-                    }`}
+                    className={`flex items-center gap-x-2 ${language !== "pe" && "flex-row-reverse justify-end"
+                      }`}
                   >
                     <motion.i
                       whileHover={{ scale: 1.2 }}
@@ -173,11 +169,10 @@ const Cart: React.FC = () => {
                     width={500}
                     src={plant.picture}
                     alt="item"
-                    className={`object-cover ml-auto ${
-                      language === "pe"
-                        ? "pl-4 rounded-tr-2xl"
-                        : "pr-4 rounded-tl-2xl"
-                    }`}
+                    className={`object-cover ml-auto ${language === "pe"
+                      ? "pl-4 rounded-tr-2xl"
+                      : "pr-4 rounded-tl-2xl"
+                      }`}
                   />
                 </div>
               </li>

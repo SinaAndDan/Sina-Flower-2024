@@ -7,7 +7,7 @@ import { supabase } from "../../../../lib/supabaseClient";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { FavoriteCardProps } from "../../../types/favoritecard";
-import { useLanguage } from "../../context/LanguageContext";
+import { useLanguage } from "../../context/GlobalContext";
 import { Exo_2 } from "next/font/google";
 
 const exo = Exo_2({
@@ -60,16 +60,14 @@ const FavoriteCard: React.FC<FavoriteCardProps> = ({ flower, onRemove }) => {
           height={100}
           src={flower.picture}
           alt="favorite"
-          className={` object-cover w-24 h-32 md:h-36 lg:w-32 lg:h-40 ${
-            language === "pe" ? "rounded-tr-2xl" : "rounded-tl-2xl"
-          }`}
+          className={` object-cover w-24 h-32 md:h-36 lg:w-32 lg:h-40 ${language === "pe" ? "rounded-tr-2xl" : "rounded-tl-2xl"
+            }`}
         />
       </div>
 
       <div
-        className={`mt-4 text-sm font-parastoo ${
-          language === "pe" ? "pr-5" : "pl-5"
-        }`}
+        className={`mt-4 text-sm font-parastoo ${language === "pe" ? "pr-5" : "pl-5"
+          }`}
       >
         <p className={`text-lg lg:text-2xl font-bold ${fontClass}`}>
           {language === "pe" ? flower.name_pe : flower.name_en}
@@ -108,11 +106,10 @@ const FavoriteCard: React.FC<FavoriteCardProps> = ({ flower, onRemove }) => {
       <motion.div
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className={`absolute top-0 bg-[#333333] cursor-pointer w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center ${
-          language === "pe"
-            ? "left-0 rounded-br-lg rounded-tl-2xl"
-            : "right-0 rounded-tr-lg rounded-bl-2xl"
-        }`}
+        className={`absolute top-0 bg-[#333333] cursor-pointer w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center ${language === "pe"
+          ? "left-0 rounded-br-lg rounded-tl-2xl"
+          : "right-0 rounded-tr-lg rounded-bl-2xl"
+          }`}
       >
         <i
           onClick={(event) => {

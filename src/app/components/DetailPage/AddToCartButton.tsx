@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Exo_2 } from "next/font/google";
 import React from "react";
-import { useLanguage } from "src/app/context/LanguageContext";
+import { useGlobalContext } from "src/app/context/GlobalContext";
 
 const exo = Exo_2({
   subsets: ["latin"],
@@ -9,7 +9,7 @@ const exo = Exo_2({
 });
 
 const AddToCartButton: React.FC = () => {
-  const { content, language } = useLanguage();
+  const { content, language } = useGlobalContext();
   const fontClass = language !== "pe" ? exo.className : "font-yekan";
 
   return (

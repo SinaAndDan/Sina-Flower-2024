@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { ProductCardProps } from "src/types/productcard";
-import { useLanguage } from "src/app/context/LanguageContext";
+import { useGlobalContext } from "../../context/GlobalContext";
 import { Poppins } from "next/font/google";
 import { useState } from "react";
 
@@ -25,20 +25,21 @@ const poppins = Poppins({
 });
 
 const FlowerCard: React.FC<ProductCardProps> = ({ flower }) => {
-  const { language } = useLanguage();
-  const router = useRouter();
-  const [isAnimating, setIsAnimating] = useState(false);
+  const { language, startLoading, stopLoading } = useGlobalContext(); const router = useRouter();
 
   const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault(); // Prevent immediate navigation
-    if (isAnimating) return; // Avoid triggering multiple times
+    e.preventDefault();
 
-    setIsAnimating(true);
+    startLoading(); // Start loading state
 
+    const animationDuration = 500; // Match animation duration
     setTimeout(() => {
-      router.push(`/products/${flower.id}`); // Navigate after animation
-    }, 500); // Match the duration of your animation
+      router.push(`/products/${flower.id}`);
+      stopLoading(); // Stop loading after navigation
+    }, animationDuration);
   };
+
+
 
   return (
     <div
@@ -62,33 +63,29 @@ const FlowerCard: React.FC<ProductCardProps> = ({ flower }) => {
         {/* Content */}
         <div className="flex flex-col justify-between mb-2 px-5">
           <span
-            className={`bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow text-white rounded-xl md:rounded-2xl text-xs md:text-sm px-5 py-1 w-fit ${
-              language === "pe" ? "font-yekan" : poppins.className
-            }`}
+            className={`bg-gradient-to-r from-[#006400] via-[#004d00] to-[#003300] shadow text-white rounded-xl md:rounded-2xl text-xs md:text-sm px-5 py-1 w-fit ${language === "pe" ? "font-yekan" : poppins.className
+              }`}
           >
             {language === "pe" ? flower.category_pe : flower.category_en}
           </span>
           <h3
-            className={`text-xl font-semibold font-parastoo text-start flex-grow mt-3 text-nowrap ${
-              language === "pe" ? "font-yekan lg:text-2xl" : poppins.className
-            }`}
+            className={`text-xl font-semibold font-parastoo text-start flex-grow mt-3 text-nowrap ${language === "pe" ? "font-yekan lg:text-2xl" : poppins.className
+              }`}
           >
             {language === "pe" ? flower.name_pe : flower.name_en}
           </h3>
           <div className="flex w-full justify-between items-center content-center mt-3">
             <p
-              className={`text-black text-opacity-70 text-sm md:text-base ${
-                language === "pe" ? "font-yekan" : poppins.className
-              }`}
+              className={`text-black text-opacity-70 text-sm md:text-base ${language === "pe" ? "font-yekan" : poppins.className
+                }`}
             >
               {language === "pe" ? flower.type_pe : flower.type_en}
             </p>
             <div
-              className={`flex items-center text-green ${
-                language === "pe"
-                  ? "flex-row font-yekan"
-                  : poppins.className + " flex-row-reverse"
-              }`}
+              className={`flex items-center text-green ${language === "pe"
+                ? "flex-row font-yekan"
+                : poppins.className + " flex-row-reverse"
+                }`}
             >
               <p className={`text-xl font-semibold`}>
                 {language === "pe"
@@ -96,9 +93,8 @@ const FlowerCard: React.FC<ProductCardProps> = ({ flower }) => {
                   : flower.price_en}
               </p>
               <span
-                className={`mx-0.5 text-xl ${
-                  language === "pe" ? "mt-1 text-xs" : ""
-                }`}
+                className={`mx-0.5 text-xl ${language === "pe" ? "mt-1 text-xs" : ""
+                  }`}
               >
                 {language === "pe" ? "تومان" : "$"}
               </span>
@@ -111,3 +107,11 @@ const FlowerCard: React.FC<ProductCardProps> = ({ flower }) => {
 };
 
 export default FlowerCard;
+function startLoading() {
+  throw new Error("Function not implemented.");
+}
+
+function stopLoading() {
+  throw new Error("Function not implemented.");
+}
+

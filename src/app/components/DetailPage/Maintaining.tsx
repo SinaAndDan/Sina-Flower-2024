@@ -4,7 +4,7 @@ import { CiTempHigh } from "react-icons/ci";
 import { GiGroundSprout } from "react-icons/gi";
 import { MdOutlineWaterDrop } from "react-icons/md";
 import { TiWeatherSunny } from "react-icons/ti";
-import { useLanguage } from "../../context/LanguageContext";
+import { useGlobalContext } from "src/app/context/GlobalContext";
 import { PlantProps } from "../../../types/plant";
 
 const exo = Exo_2({
@@ -15,7 +15,7 @@ const exo = Exo_2({
 const Maintaining: React.FC<{ selectedProduct: PlantProps | null }> = ({
   selectedProduct,
 }) => {
-  const { language } = useLanguage();
+  const { language } = useGlobalContext();
   const getLocalizedValue = (peValue?: string, enValue?: string) => {
     return language === "pe" ? peValue : enValue;
   };

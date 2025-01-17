@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useLanguage } from "src/app/context/LanguageContext";
+import { useLanguage } from "src/app/context/GlobalContext";
 
 const Account: React.FC = () => {
   const { content } = useLanguage()

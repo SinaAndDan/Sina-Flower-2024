@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
-import { useLanguage } from "src/app/context/LanguageContext";
+import { useGlobalContext } from "../../context/GlobalContext";
 import { Exo_2 } from "next/font/google";
 
 const exo = Exo_2({
@@ -15,7 +15,7 @@ const exo = Exo_2({
 
 const PcNav: React.FC = () => {
   const [searchButton, setSearchButton] = useState(false);
-  const { content, setLanguage, language } = useLanguage();
+  const { content, setLanguage, language } = useGlobalContext();
   const [selectLang, setSelectLang] = useState(false);
 
   const pathname = usePathname();
