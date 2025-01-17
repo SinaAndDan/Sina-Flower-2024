@@ -10,7 +10,7 @@ import Maintaining from "./Maintaining";
 import { supabase } from "../../../../lib/supabaseClient";
 import Loading from "../Layout/Loading";
 import { PlantProps } from "src/types/plant";
-import { useLanguage } from "../../context/LanguageContext";
+import { useGlobalContext } from "src/app/context/GlobalContext";
 import { DetailPageProps } from "src/types/detail";
 import { Exo_2, Roboto_Slab } from "next/font/google";
 import { FaStar } from "react-icons/fa";
@@ -37,14 +37,17 @@ const DetailNavbar: React.FC<DetailPageProps> = ({
     null
   );
   const [plants, setPlants] = useState<PlantProps[]>([]);
-  const [loading, setLoading] = useState(false);
 
   const reviewRef = useRef<HTMLDivElement>(null);
-  const { content, language } = useLanguage();
+  const { isLoading, startLoading, stopLoading, content, language } = useGlobalContext();
 
   useEffect(() => {
     const fetchPlants = async () => {
-      setLoading(true);
+      // Only start loading if it's not already in a loading state
+      if (!isLoading) {
+        startLoading();
+      }
+
       const { data, error } = await supabase.from("plants").select("*");
 
       if (error) {
@@ -52,10 +55,13 @@ const DetailNavbar: React.FC<DetailPageProps> = ({
       } else {
         setPlants(data as PlantProps[]);
       }
-      setLoading(false);
+
+      // Stop loading once data is fetched or there's an error
+      stopLoading();
     };
+
     fetchPlants();
-  }, []);
+  }, [isLoading, startLoading, stopLoading]);
 
   const title =
     language === "pe" ? selectedProduct?.name_pe : selectedProduct?.name_en;
@@ -88,10 +94,6 @@ const DetailNavbar: React.FC<DetailPageProps> = ({
   const scrollToReviews = () => {
     reviewRef.current?.scrollIntoView({ behavior: "smooth" });
   };
-
-  if (loading) {
-    return <Loading />;
-  }
 
   return (
     <div className="font-yekan w-full">

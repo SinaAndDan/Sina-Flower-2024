@@ -9,7 +9,7 @@ import { AnimatePresence, motion } from "motion/react";
 import NoFavorites from "../components/favoritesPage/NoFavorites";
 import Loading from "../components/Layout/Loading";
 import { PlantProps } from "src/types/plant";
-import { useLanguage } from "../context/LanguageContext";
+import { useLanguage } from "../context/GlobalContext";
 import { Roboto_Slab } from "next/font/google";
 
 const roboto = Roboto_Slab({
@@ -58,9 +58,8 @@ const Favorites: React.FC = () => {
         ) : (
           <div className="container mx-auto px-2 sm:px-0">
             <h2
-              className={`text-4xl font-extrabold ${
-                language !== "pe" && roboto.className
-              }`}
+              className={`text-4xl font-extrabold ${language !== "pe" && roboto.className
+                }`}
             >
               {content.favoriteTitle}
             </h2>

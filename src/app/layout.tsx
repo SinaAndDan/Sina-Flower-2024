@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { LanguageProvider } from "./context/LanguageContext";
+import { GlobalProvider } from "./context/GlobalContext";
 import ServiceWorkerRegister from "./components/ServiceWorkerRegister";
 
 
@@ -24,12 +24,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <LanguageProvider>
+    <GlobalProvider>
       <html lang="fa" dir="rtl">
         <body>{children}
           <ServiceWorkerRegister />
         </body>
       </html>
-    </LanguageProvider>
+    </GlobalProvider>
   );
 }

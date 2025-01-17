@@ -7,7 +7,7 @@ import { IoPerson } from "react-icons/io5";
 import { GrFormNext } from "react-icons/gr";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
-import { useLanguage } from "src/app/context/LanguageContext";
+import { useLanguage } from "src/app/context/GlobalContext";
 
 const SignInPage: React.FC = () => {
   const router = useRouter();

@@ -16,7 +16,7 @@ import { motion } from "motion/react";
 import Loading from "../Layout/Loading";
 import { PlantListProp } from "src/types/productcard";
 import { CategoryDisplayProp } from "src/types/category";
-import { useLanguage } from "src/app/context/LanguageContext";
+import { useGlobalContext } from "../../context/GlobalContext";
 import { Exo_2, Roboto_Slab } from "next/font/google";
 import Image from "next/image";
 
@@ -33,7 +33,7 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
   const [plants, setPlants] = useState<PlantListProp[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchButton, setSearchButton] = useState(false);
-  const { content, language, setLanguage } = useLanguage();
+  const { content, language, setLanguage } = useGlobalContext();
   const [selectLang, setSelectLang] = useState(false);
 
   useEffect(() => {
@@ -66,9 +66,8 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
           <IoSearch className="sm:w-8 sm:h-8 w-6 h-6 text-black text-opacity-80" />
         </div>
         <h2
-          className={`text-4xl px-6 mt-12 font-extrabold capitalize ${
-            language === "pe" ? "font-yekan" : roboto.className
-          }`}
+          className={`text-4xl px-6 mt-12 font-extrabold capitalize ${language === "pe" ? "font-yekan" : roboto.className
+            }`}
         >
           {content.suggestion}
         </h2>
@@ -104,9 +103,8 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
           </Swiper>
         </div>
         <h2
-          className={`text-4xl px-6 mt-12 font-extrabold capitalize ${
-            language === "pe" ? "font-yekan" : roboto.className
-          }`}
+          className={`text-4xl px-6 mt-12 font-extrabold capitalize ${language === "pe" ? "font-yekan" : roboto.className
+            }`}
         >
           {content.ficus}
         </h2>
@@ -142,9 +140,8 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
           </Swiper>
         </div>
         <h2
-          className={`text-4xl px-6 mt-12 font-extrabold capitalize ${
-            language === "pe" ? "font-yekan" : roboto.className
-          }`}
+          className={`text-4xl px-6 mt-12 font-extrabold capitalize ${language === "pe" ? "font-yekan" : roboto.className
+            }`}
         >
           {content.cactus}
         </h2>
@@ -181,9 +178,8 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
         </div>
       </div>
       <div
-        className={`bg-gray flex-1 md:hidden ${
-          language === "pe" ? "mr-20" : "ml-20"
-        }`}
+        className={`bg-gray flex-1 md:hidden ${language === "pe" ? "mr-20" : "ml-20"
+          }`}
       >
         <div className="flex justify-between sm:px-6 mt-12">
           <div className="relative">
@@ -213,9 +209,8 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
               }
               exit={{ opacity: 0, scaleY: 0 }}
               transition={{ duration: 0.3 }}
-              className={`${
-                selectLang ? "absolute" : "hidden"
-              } mt-2 bg-white rounded-lg`}
+              className={`${selectLang ? "absolute" : "hidden"
+                } mt-2 bg-white rounded-lg`}
             >
               <li
                 onClick={() => {
@@ -243,9 +238,8 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
                 <Image
                   src="./Icons/UK-flag.svg"
                   alt="USA flag"
-                  className={`w-5 h-5 capitalize${
-                    language === "pe" ? "ml-2" : "mr-2"
-                  }`}
+                  className={`w-5 h-5 capitalize${language === "pe" ? "ml-2" : "mr-2"
+                    }`}
                   width={100}
                   height={100}
                 />
@@ -310,9 +304,8 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
           </form>
         </div>
         <h2
-          className={`text-4xl px-6 mt-24 font-extrabold ${
-            language !== "pe" && roboto.className + " capitalize"
-          }`}
+          className={`text-4xl px-6 mt-24 font-extrabold ${language !== "pe" && roboto.className + " capitalize"
+            }`}
         >
           {selectedCategory}
         </h2>

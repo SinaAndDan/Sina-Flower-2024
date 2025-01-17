@@ -1,10 +1,10 @@
 import React from "react";
 import ReadMore from "./ReadMore";
-import { useLanguage } from "src/app/context/LanguageContext";
+import { useGlobalContext } from "src/app/context/GlobalContext";
 import { AboutProps } from "src/types/detail";
 
 const About: React.FC<AboutProps> = ({ englishSum, persianSum }) => {
-  const { language } = useLanguage();
+  const { language } = useGlobalContext();
   return <ReadMore text={language === "pe" ? persianSum : englishSum} />;
 };
 

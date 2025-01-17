@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState, RefObject } from "react";
 import { BiSolidDislike, BiSolidLike } from "react-icons/bi";
 import { BsThreeDots } from "react-icons/bs";
 import { MdOutlineSend } from "react-icons/md";
-import { useLanguage } from "src/app/context/LanguageContext";
+import { useGlobalContext } from "src/app/context/GlobalContext";
 import { ReviewProps } from "src/types/review";
 
 const exo = Exo_2({
@@ -25,7 +25,7 @@ const Reviews: React.FC<ReviewProps> = ({
   const [reply, setReply] = useState<string>("");
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const yourReply = useRef<HTMLTextAreaElement | null>(null);
-  const { content, language } = useLanguage();
+  const { content, language } = useGlobalContext();
 
   const fontClass = language !== "pe" ? exo.className : "font-yekan";
 
@@ -67,9 +67,8 @@ const Reviews: React.FC<ReviewProps> = ({
             id="autoGrowInput"
             onChange={handleInput}
             placeholder={content.cmPlaceHolder}
-            className={`w-full min-h-[2rem] text-sm outline-none bg-gray px-3 py-[0.3rem] text-right resize-none leading-[1.2rem] word-break-keep whitespace-normal ${
-              language === "pe" ? "" : "text-start"
-            }`}
+            className={`w-full min-h-[2rem] text-sm outline-none bg-gray px-3 py-[0.3rem] text-right resize-none leading-[1.2rem] word-break-keep whitespace-normal ${language === "pe" ? "" : "text-start"
+              }`}
           />
           <motion.div
             whileHover={{ scale: 1.1 }} // Hover animation here
@@ -105,9 +104,8 @@ const Reviews: React.FC<ReviewProps> = ({
           {content.reply}
         </button>
         <button
-          className={`w-16 h-10 rounded-3xl flex items-center justify-center ${
-            liked ? "bg-blue" : "bg-gray"
-          }`}
+          className={`w-16 h-10 rounded-3xl flex items-center justify-center ${liked ? "bg-blue" : "bg-gray"
+            }`}
           onClick={onLikeClick}
         >
           <BiSolidLike className={`${liked && "text-white"} mx-1 `} />
@@ -116,9 +114,8 @@ const Reviews: React.FC<ReviewProps> = ({
           </p>
         </button>
         <button
-          className={`w-16 h-10 rounded-3xl flex items-center justify-center mx-3 ${
-            disliked ? "bg-red" : "bg-gray"
-          }`}
+          className={`w-16 h-10 rounded-3xl flex items-center justify-center mx-3 ${disliked ? "bg-red" : "bg-gray"
+            }`}
           onClick={onDisLikeClick}
         >
           <BiSolidDislike className={`${disliked && "text-white"} mx-1 `} />
@@ -143,9 +140,8 @@ const Reviews: React.FC<ReviewProps> = ({
             id="autoGrowInput"
             onChange={handleReplyInput}
             placeholder={content.replyPlaceHolder}
-            className={`w-full min-h-[2rem] text-sm outline-none bg-gray px-3 py-[0.2rem] text-right resize-none leading-[1.6rem] word-break-keep whitespace-normal direction-rtl ${
-              language === "pe" ? "" : "text-start"
-            }`}
+            className={`w-full min-h-[2rem] text-sm outline-none bg-gray px-3 py-[0.2rem] text-right resize-none leading-[1.6rem] word-break-keep whitespace-normal direction-rtl ${language === "pe" ? "" : "text-start"
+              }`}
           />
           <motion.div
             whileHover={{ scale: 1.1 }} // Hover animation here
