@@ -8,7 +8,6 @@
     "start": "next start",
     "lint": "next lint",
     "build:sw": "tsc src/sw/service-worker.ts --outDir public --target ES6 --module commonjs"
-
   },
   "dependencies": {
     "@headlessui/react": "^2.1.3",
