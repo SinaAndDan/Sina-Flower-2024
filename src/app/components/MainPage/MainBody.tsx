@@ -29,12 +29,21 @@ const exo = Exo_2({
   weight: ["400"],
 });
 
+type Product = {
+  id: number;
+  name: string;
+  price: number;
+  imageUrl: string; // Adjust according to your API response
+};
+
 const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
   const [plants, setPlants] = useState<PlantListProp[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchButton, setSearchButton] = useState(false);
   const { content, language, setLanguage } = useGlobalContext();
   const [selectLang, setSelectLang] = useState(false);
+  const [data, setData] = useState<Product[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchPlants = async () => {
@@ -49,6 +58,28 @@ const MainBodyPc: React.FC<CategoryDisplayProp> = ({ selectedCategory }) => {
       setLoading(false);
     };
     fetchPlants();
+  }, []);
+
+  useEffect(() => {
+    fetch('https://backend.sinaflower.ir/api/products/list', {
+      headers: {
+        Accept: '*/*', // Matching the curl request
+      },
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to fetch data');
+        return res.json();
+      })
+      .then((data) => {
+        setData(data);
+        console.log(data)
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        setError(error.message);
+        setLoading(false);
+      });
   }, []);
 
   const searchButtonHandler = () => {

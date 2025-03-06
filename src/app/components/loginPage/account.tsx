@@ -3,10 +3,10 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useLanguage } from "src/app/context/GlobalContext";
+import { useGlobalContext } from "src/app/context/GlobalContext";
 
 const Account: React.FC = () => {
-  const { content } = useLanguage()
+  const { content } = useGlobalContext()
   return (
     <div className="image-container font-sahel">
       <Image
