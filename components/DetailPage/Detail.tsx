@@ -8,9 +8,9 @@ import About from "./About";
 import Maintaining from "./Maintaining";
 import { supabase } from "lib/supabaseClient";
 import Loading from "../Layout/Loading";
-import { PlantProps } from "src/types/plant";
+import { PlantProps } from "types/plant";
 import { useGlobalContext } from "context/GlobalContext";
-import { DetailPageProps } from "src/types/detail";
+import { DetailPageProps } from "types/detail";
 import { Exo_2, Roboto_Slab } from "next/font/google";
 import { FaStar } from "react-icons/fa";
 

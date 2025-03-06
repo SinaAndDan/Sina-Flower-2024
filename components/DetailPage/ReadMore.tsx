@@ -1,7 +1,7 @@
 import { Exo_2 } from "next/font/google";
 import React, { useState } from "react";
 import { useGlobalContext } from "context/GlobalContext";
-import { ReadMoreProps } from "src/types/detail";
+import { ReadMoreProps } from "types/detail";
 
 const exo = Exo_2({
   subsets: ["latin"],

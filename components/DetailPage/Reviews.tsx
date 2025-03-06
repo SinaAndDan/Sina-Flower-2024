@@ -5,7 +5,7 @@ import { BiSolidDislike, BiSolidLike } from "react-icons/bi";
 import { BsThreeDots } from "react-icons/bs";
 import { MdOutlineSend } from "react-icons/md";
 import { useGlobalContext } from "context/GlobalContext";
-import { ReviewProps } from "src/types/review";
+import { ReviewProps } from "types/review";
 
 const exo = Exo_2({
   subsets: ["latin"],
